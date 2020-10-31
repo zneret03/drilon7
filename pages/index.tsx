@@ -1,7 +1,14 @@
 import React from "react";
+import LandingPage from "../components/LandingPage";
+import { GlobalStyle } from "../css/index";
 
-const index = () => {
-  return <div>Hello world</div>;
+const index: React.FC = () => {
+  return (
+    <>
+      <GlobalStyle />
+      <LandingPage />
+    </>
+  );
 };
 
 export default index;

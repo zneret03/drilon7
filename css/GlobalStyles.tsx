@@ -18,6 +18,10 @@ const GlobalStyle = createGlobalStyle`
         font-family : var(--font-mono);
         background-color : #0A192F;
         cursor: pointer;
+
+        &:hover{
+          background : #053041;
+        }
     }
 
     :root {

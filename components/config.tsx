@@ -21,4 +21,23 @@ const socialMedia = [
   },
 ];
 
-export { socialMedia };
+const sideLink = [
+  {
+    id: "Home",
+    name: "Home",
+  },
+  {
+    id: "About",
+    name: "About",
+  },
+  {
+    id: "Works",
+    name: "Works",
+  },
+  {
+    id: "Contact",
+    name: "Contact",
+  },
+];
+
+export { socialMedia, sideLink };

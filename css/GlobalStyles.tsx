@@ -2,9 +2,31 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
     body {
-        padding : 0;
-        margin : 0;
-        background: #0A192F;
+        margin: 0;
+        width: 100%;
+        min-height: 100%;
+        overflow-x: hidden;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-font-smoothing: antialiased;
+        background-color: var(--navy);
+        color: var(--slate);
+        font-family: var(--font-sans);
+        font-size: var(--fz-xl);
+        line-height: 1.3;
+
+      &.blur {
+      .container  {
+          filter: blur(5px) brightness(0.7);
+          pointer-events: none;
+          user-select: none;
+        }
+    }
+
+    html {
+      box-sizing: border-box;
+      width: 100%;
+    }
+
     }
 
     button {
@@ -66,6 +88,19 @@ const GlobalStyle = createGlobalStyle`
     --ham-after: bottom 0.1s ease-in 0.25s, transform 0.22s cubic-bezier(0.55, 0.055, 0.675, 0.19);
     --ham-after-active: bottom 0.1s ease-out, transform 0.22s cubic-bezier(0.215, 0.61, 0.355, 1) 0.12s;
   }
+
+  .container {
+    padding: 45px 60px;
+
+    @media (max-width: 768px) {
+      padding: 35px 30px;
+    }
+
+    @media (max-width: 480px) {
+      padding: 35px 27px;
+    }
+  }
+
 
   h1,
   h2,

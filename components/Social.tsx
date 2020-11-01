@@ -41,19 +41,24 @@ const StyledSocialList = styled.ul`
 
 interface PropTypes {
   socialMedia: Object[];
+  toggle: boolean;
 }
 
-const Social: React.FC<PropTypes> = ({ socialMedia }) => {
+const Social: React.FC<PropTypes> = ({ socialMedia, toggle }) => {
   return (
-    <StyledSocialList>
-      {socialMedia.map((icon: any, index: number) => (
-        <li key={index}>
-          <a href={icon.url} aria-label={icon.name}>
-            <Icons name={icon.name} />
-          </a>
-        </li>
-      ))}
-    </StyledSocialList>
+    <>
+      {!toggle && (
+        <StyledSocialList>
+          {socialMedia.map((icon: any, index: number) => (
+            <li key={index}>
+              <a href={icon.url} aria-label={icon.name}>
+                <Icons name={icon.name} />
+              </a>
+            </li>
+          ))}
+        </StyledSocialList>
+      )}
+    </>
   );
 };
 

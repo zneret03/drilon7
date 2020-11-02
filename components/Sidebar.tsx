@@ -1,12 +1,16 @@
 import React from "react";
 import { animated } from "react-spring";
 import styled from "styled-components";
-import { sideLink } from "./config";
+import { sideLink } from "../utils/config";
 import { X } from "react-feather";
 import { Helmet } from "react-helmet";
 
 const Wrapper = styled.div`
   position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
 
   @media (max-width: 768px) {
     width: min(55vw, 400px);
@@ -22,7 +26,7 @@ const SideBarWrapper = styled.div`
   background-color: var(--light-navy);
   height: 100vh;
   border: 0;
-  width: min(60vw, 350px);
+  width: min(65vw, 350px);
 
   div {
     text-align: right;

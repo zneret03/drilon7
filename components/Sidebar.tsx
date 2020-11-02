@@ -7,7 +7,6 @@ import { Helmet } from "react-helmet";
 
 const Wrapper = styled.div`
   position: fixed;
-  width: min(60vw, 350px);
 
   @media (max-width: 768px) {
     width: min(55vw, 400px);
@@ -23,6 +22,7 @@ const SideBarWrapper = styled.div`
   background-color: var(--light-navy);
   height: 100vh;
   border: 0;
+  width: min(60vw, 350px);
 
   div {
     text-align: right;
@@ -55,10 +55,10 @@ const Sidebar: React.FC<PropTypes> = ({
 }) => {
   return (
     <>
+      <Helmet>
+        <body className={toogle ? "blur" : ""} />
+      </Helmet>
       <Wrapper>
-        <Helmet>
-          <body className={toogle ? "blur" : ""} />
-        </Helmet>
         <animated.div style={animatedSidebar}>
           <SideBarWrapper>
             <div onClick={(event) => toggleSideBar(event)}>

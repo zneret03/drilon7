@@ -12,7 +12,6 @@ const DivWrapper = styled.div`
 
   #Menu {
     position: fixed;
-    z-index: 2;
     cursor: pointer;
 
     .socialMedia {
@@ -26,6 +25,7 @@ const DivWrapper = styled.div`
     position: absolute;
     top: 0;
     right: 0;
+    z-index: -1;
 
     @media (max-width: 768px) {
       display: none;
@@ -99,7 +99,7 @@ const LandingPage = () => {
 
   const animatedSidebar = useSpring({
     transform: toggle ? "translateX(0%)" : "translateX(-100%)",
-    opacity: toggle ? 1 : 0,
+    marginLeft: toggle ? 0 : -100,
   });
 
   return (

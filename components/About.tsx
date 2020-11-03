@@ -4,19 +4,17 @@ import Image from "next/image";
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
-  padding: 0px 170px;
-  position: absolute;
 
   @media (max-width: 1080px) {
     padding: 0px 90px;
   }
 
   @media (max-width: 768px) {
-    padding: 0px 10px;
+    padding: 0px 60px;
   }
 
   @media (max-width: 492px) {
-    padding: 0px;
+    padding: 0px 30px;
   }
 
   .inner {
@@ -138,50 +136,43 @@ const About = () => {
   ];
 
   return (
-    <div className="container">
-      <div className="container-wrapper">
-        <StyledAboutSection>
-          <div id="cont">
-            <h2 className="numbered-heading">About Me</h2>
-            <div className="inner">
-              <StyledText>
-                <div>
-                  <p>
-                    Hi! There, Ian A. Drilon a student of Iloilo Science and
-                    Technology
-                  </p>
+    <StyledAboutSection id="about">
+      <h2 className="numbered-heading">About Me</h2>
+      <div className="inner">
+        <StyledText>
+          <div>
+            <p>
+              Hi! There, Ian A. Drilon a student of Iloilo Science and
+              Technology University,{" "}
+              <a href="https://www.isatu.edu.ph/">(ISATU)</a>
+            </p>
 
-                  <p>
-                    I enjoy creating things that resides in the internet,
-                    whether that be websites, applications, or any in between.
-                    My goal is always building a scalable, user friendly and
-                    pixel-perfect website with performant experience.
-                  </p>
+            <p>
+              I enjoy creating things that resides in the internet, whether that
+              be websites, applications, or any in between. My goal is always
+              building a scalable, user friendly and pixel-perfect website with
+              performant experience.
+            </p>
 
-                  <p>
-                    Here is some technology that i’ve been working recently:
-                  </p>
-                </div>
-
-                <ul className="skills-list">
-                  {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-                </ul>
-              </StyledText>
-              <StyledPic>
-                <div className="wrapper">
-                  <Image
-                    src={"/image/image.png"}
-                    alt="Picture of the author"
-                    width={500}
-                    height={500}
-                  />
-                </div>
-              </StyledPic>
-            </div>
+            <p>Here is some technology that i’ve been working recently:</p>
           </div>
-        </StyledAboutSection>
+
+          <ul className="skills-list">
+            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
+          </ul>
+        </StyledText>
+        <StyledPic>
+          <div className="wrapper">
+            <Image
+              src={"/image/image.png"}
+              alt="Picture of the author"
+              width={500}
+              height={500}
+            />
+          </div>
+        </StyledPic>
       </div>
-    </div>
+    </StyledAboutSection>
   );
 };
 

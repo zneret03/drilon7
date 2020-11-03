@@ -34,15 +34,44 @@ const SideBarWrapper = styled.div`
     cursor: pointer;
   }
 
-  li {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-sans);
-    color: var(--lightest-slate);
-    line-height: 100px;
-    font-size: 30px;
+  ul {
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+
+    .resume {
+      background-color: var(--light-navy);
+
+      &:hover {
+        background-color: #053041;
+      }
+    }
+
+    li {
+      position: relative;
+      margin: 0 auto 45px;
+      counter-increment: item 1;
+
+      &:before {
+        content: "0" counter(item) ".";
+        display: block;
+        margin-bottom: 5px;
+        color: var(--green);
+        font-size: var(--fz-sm);
+      }
+
+      a {
+        text-decoration: none;
+        color: var(--light-slate);
+        font-size: clamp(var(--fz-sm), 4vw, var(--fz-lg));
+        font-size: 25px;
+
+        &:hover {
+          color: var(--white);
+        }
+      }
+    }
   }
 `;
 
@@ -68,9 +97,15 @@ const Sidebar: React.FC<PropTypes> = ({
             <div onClick={(event) => toggleSideBar(event)}>
               <X color="#fff" />
             </div>
-            {sideLink.map((link: any) => (
-              <li key={link.id}>{link.name}</li>
-            ))}
+            <ul>
+              {sideLink.map((link: any) => (
+                <li key={link.id}>
+                  <a href="">{link.name}</a>
+                </li>
+              ))}
+
+              <button className="resume">Resume</button>
+            </ul>
           </SideBarWrapper>
         </animated.div>
       </Wrapper>

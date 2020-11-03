@@ -190,19 +190,54 @@ const GlobalStyle = createGlobalStyle`
 
   p{
     font-size : var(--fz-lg);
+    
+    a{
+      text-decoration : none;
+      color : var(--white);
+      position: absolute;
+      padding : 0px 5px;
+      z-index : 1;
+      
+      &:after {
+        content: '';
+        display: block;
+        width: 0px;
+        height: 1px;
+        background-color: #fff;
+        transition: width .3s;
+      }
+
+      &:hover::after{
+        width: 100%;  
+        transition : width .3s;
+      }
+    }
+
+  
 
     @media (max-width: 1080px) {
-     font-size : var(--fz-md);
+     font-size : var(--fz-lg);
     }
 
     @media (max-width: 480px) {
-      font-size : var(--fz-sm);
+      font-size : var(--fz-lg);
     }
 
     @media (max-width: 492px) {
-      font-size : var(--fz-sm);
+      font-size : var(--fz-lg);
     }
   }
+
+  section {
+    margin : 0 auto;
+    max-width: 1000px;
+    @media (max-width: 768px) {
+    }
+    @media (max-width: 480px) {
+
+    }
+  }
+
 
   ul{
     li{

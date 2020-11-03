@@ -1,7 +1,6 @@
 import React from "react";
 import { GlobalStyle } from "../css/index";
-import styled from "styled-components";
-import { LandingPage, About } from "../components/Index";
+import { LandingPage, About, Work } from "../components/Index";
 
 const index: React.FC = () => {
   return (
@@ -9,6 +8,7 @@ const index: React.FC = () => {
       <GlobalStyle />
       <LandingPage />
       <About />
+      <Work />
     </>
   );
 };

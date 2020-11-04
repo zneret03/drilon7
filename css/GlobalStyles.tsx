@@ -8,7 +8,7 @@ const GlobalStyle = createGlobalStyle`
         overflow-x: hidden;
         -moz-osx-font-smoothing: grayscale;
         -webkit-font-smoothing: antialiased;
-        background-color: var(--navy);
+        background-color: var(--navy);                                    
         color: var(--slate);
         font-family: var(--font-sans);
         font-size: var(--fz-xl);
@@ -23,6 +23,7 @@ const GlobalStyle = createGlobalStyle`
         header {
           background-color: transparent;
         }
+      
       .container  {
           filter: blur(5px) brightness(0.7);
           pointer-events: none;
@@ -30,30 +31,36 @@ const GlobalStyle = createGlobalStyle`
         }
     }
 
-    html {
-      box-sizing: border-box;
-      width: 100%;
-    }
-
+      html {
+        box-sizing: border-box;
+        width: 100%;
+      }
     }
 
     button {
-        padding: 15px 30px;
-        border : solid 1px;
-        border-radius : 3px;
-        border-color : #FAF3F3;
-        color : #FAF3F3;
-        font-size : 15px;
-        font-weight : lighter;
-        font-family : var(--font-mono);
-        background-color : #0A192F;
-        cursor: pointer;
-
-        &:hover{
-          background : #053041;
-        }
+      color: var(--green);
+      background-color: transparent;
+      border: 1px solid var(--green);
+      border-radius: var(--border-radius);
+      font-size: var(--fz-xs);
+      font-family: var(--font-mono);
+      line-height: 1;
+      text-decoration: none;
+      cursor: pointer;
+      transition: var(--transition);
+      padding: 1.25rem 1.75rem;
+      &:hover,
+      &:focus,
+      &:active {
+        background-color: var(--green-tint);
+        outline: none;
+      }
+      &:after {
+        display: none !important;
+      }
     }
 
+    /**Global css  */
     :root {
     --dark-navy: #020c1b;
     --navy: #0a192f;
@@ -231,10 +238,18 @@ const GlobalStyle = createGlobalStyle`
   section {
     margin : 0 auto;
     max-width: 1000px;
-    @media (max-width: 768px) {
-    }
-    @media (max-width: 480px) {
+    padding: 0 0 200px;
 
+    @media (max-width: 1080px) {
+      padding: 100px 0;
+    }
+
+    @media (max-width: 768px) {
+      padding: 80px 0;
+    }
+    
+    @media (max-width: 480px) {
+      padding: 60px 0;
     }
   }
 
@@ -248,4 +263,4 @@ const GlobalStyle = createGlobalStyle`
   }
 `;
 
-export { GlobalStyle };
+export default GlobalStyle;

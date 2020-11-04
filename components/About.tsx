@@ -6,15 +6,15 @@ const StyledAboutSection = styled.section`
   max-width: 900px;
 
   @media (max-width: 1080px) {
-    padding: 0px 90px;
+    padding: 0 90px;
   }
 
   @media (max-width: 768px) {
-    padding: 0px 60px;
+    padding: 0 60px;
   }
 
   @media (max-width: 492px) {
-    padding: 0px 30px;
+    padding: 0 30px;
   }
 
   .inner {

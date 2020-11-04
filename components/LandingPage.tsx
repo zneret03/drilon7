@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSpring, animated } from "react-spring";
+import { useSpring } from "react-spring";
 import styled from "styled-components";
 //*
 import Social from "./Social";
@@ -54,9 +54,9 @@ const DivWrapper = styled.div`
   section {
     padding: 60px 100px;
     color: #dbcfcf;
-    line-height: 9;
+    line-height: 7;
 
-    h3 {
+    h1 {
       font-family: var(--font-mono);
       margin: 0px 0px 15px 4px;
       font-size: clamp(5px, 5vw, 20px);
@@ -205,7 +205,7 @@ const LandingPage = () => {
             )}
             <section>
               <div>
-                <h3>Hi, my name is</h3>
+                <h1>Hi, my name is</h1>
               </div>
               <div>
                 <h2>Ian A Drilon.</h2>

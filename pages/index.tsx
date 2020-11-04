@@ -1,8 +1,8 @@
 import React from "react";
-import { GlobalStyle } from "../css/index";
 import { LandingPage, About, Work } from "../components/Index";
+import { GlobalStyle } from "../css";
 
-const index: React.FC = () => {
+const Home: React.FC = () => {
   return (
     <>
       <GlobalStyle />
@@ -13,4 +13,4 @@ const index: React.FC = () => {
   );
 };
 
-export default index;
+export default Home;

@@ -1,5 +1,12 @@
 import React from "react";
-import { Twitter, Instagram, LinkedIn, Facebook, Github } from "./Index";
+import {
+  Twitter,
+  Instagram,
+  LinkedIn,
+  Facebook,
+  Github,
+  External,
+} from "./Index";
 interface PropTypes {
   name: string;
 }
@@ -16,6 +23,8 @@ const Icons: React.FC<PropTypes> = ({ name }) => {
       return <Facebook />;
     case "Github":
       return <Github />;
+    case "External":
+      return <External />;
   }
 };
 

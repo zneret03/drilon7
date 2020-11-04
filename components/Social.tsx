@@ -30,7 +30,7 @@ const StyledSocialList = styled.ul`
 
     svg {
       &:hover,
-      &focuse {
+      &:focus {
         fill: #fff;
       }
 

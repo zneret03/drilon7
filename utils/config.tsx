@@ -40,4 +40,25 @@ const sideLink = [
   },
 ];
 
-export { socialMedia, sideLink };
+const projectInformation = [
+  {
+    feature: "Feature Project",
+    title: "Custom Shopify",
+    description:
+      "A custom build shopify, that will show case your fullstack skills and front end designing in different technology such as firebase, netlify-functions, tailwind and reactJs and more",
+    technology: ["Netlify-lambda", "TailwindCss", "React"],
+    icons: ["Github", "External"],
+    image: "dashboard.png",
+  },
+  {
+    feature: "Feature Project",
+    title: "GitProfile",
+    description:
+      "A nicer look at your GitHub profile and repository stats with data visualizations of your top languages and stars. Sort through your top repos by number of stars, forks, and size.",
+    technology: ["Chart.js", "TailwindCss", "React"],
+    icons: ["Github", "External"],
+    image: "frontpage.png",
+  },
+];
+
+export { socialMedia, sideLink, projectInformation };

@@ -111,9 +111,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   .container {
+    position: relative;
     width : 100%;
     margin : 0 auto;
-    max-width: 1600px;
+    max-width: 1400px;
     min-height: 100vh;
   }
 

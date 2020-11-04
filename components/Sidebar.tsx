@@ -10,7 +10,7 @@ const Wrapper = styled.div`
   top: 0;
   bottom: 0;
   left: 0;
-  z-index: 1;
+  z-index: 10;
 
   @media (max-width: 768px) {
     width: min(55vw, 400px);
@@ -41,8 +41,6 @@ const SideBarWrapper = styled.div`
     text-align: center;
 
     .resume {
-      background-color: var(--light-navy);
-
       &:hover {
         background-color: #053041;
       }

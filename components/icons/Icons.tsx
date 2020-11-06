@@ -6,6 +6,11 @@ import {
   Facebook,
   Github,
   External,
+  Menu,
+  Star,
+  Fork,
+  CurveRight,
+  CurveLeft,
 } from "./Index";
 interface PropTypes {
   name: string;
@@ -25,6 +30,16 @@ const Icons: React.FC<PropTypes> = ({ name }) => {
       return <Github />;
     case "External":
       return <External />;
+    case "Menu":
+      return <Menu />;
+    case "Star":
+      return <Star />;
+    case "Fork":
+      return <Fork />;
+    case "CurveRight":
+      return <CurveRight />;
+    case "CurveLeft":
+      return <CurveLeft />;
   }
 };
 

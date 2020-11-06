@@ -1,5 +1,5 @@
 import React from "react";
-import { LandingPage, About, Work } from "../components/Index";
+import { LandingPage, About, Work, Contact, Footer } from "../components/Index";
 import { GlobalStyle } from "../css";
 
 const Home: React.FC = () => {
@@ -9,6 +9,8 @@ const Home: React.FC = () => {
       <LandingPage />
       <About />
       <Work />
+      <Contact />
+      <Footer />
     </>
   );
 };

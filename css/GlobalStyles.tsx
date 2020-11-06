@@ -262,6 +262,16 @@ const GlobalStyle = createGlobalStyle`
       }
     }
   }
+
+  a {
+    color: var(--light-slate);
+    text-decoration: none;
+    text-align: center;
+
+    &:hover {
+    color: var(--green);
+  }
+  }
 `;
 
 export default GlobalStyle;

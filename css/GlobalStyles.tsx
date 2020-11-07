@@ -1,5 +1,5 @@
 import { createGlobalStyle } from "styled-components";
-
+import TranstionStyles from "./TransitionStyles";
 const GlobalStyle = createGlobalStyle`
     body {
         margin: 0;
@@ -114,7 +114,7 @@ const GlobalStyle = createGlobalStyle`
     position: relative;
     width : 100%;
     margin : 0 auto;
-    max-width: 1400px;
+    max-width: 1600px;
     min-height: 100vh;
   }
 
@@ -124,7 +124,7 @@ const GlobalStyle = createGlobalStyle`
 
     @media (max-width: 1080px) {
       padding: 35px 50px;
-      }
+    }
 
     @media (max-width: 768px) {
       padding: 35px 40px 0px;
@@ -270,8 +270,10 @@ const GlobalStyle = createGlobalStyle`
 
     &:hover {
     color: var(--green);
+    }
   }
-  }
+
+  ${TranstionStyles}
 `;
 
 export default GlobalStyle;

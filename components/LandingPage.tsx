@@ -1,15 +1,16 @@
 import React, { useState, useEffect } from "react";
 import { useSpring } from "react-spring";
 import styled from "styled-components";
-//*
+import { CSSTransition, TransitionGroup } from "react-transition-group";
+
+//*Component
 import Social from "./Social";
-import { socialMedia } from "../utils/config";
+import { socialMedia, loadDelay, enterDelay } from "./utils/config";
 import Icons from "./icons/Icons";
 import Sidebar from "./Sidebar";
 
 const DivWrapper = styled.div`
-  height: 100vh;
-  width: 100%;
+  min-height: 100vh;
 
   .Nav {
     position: fixed;
@@ -106,7 +107,6 @@ const LandingPage = () => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-
     window.location.href = "mailto:iandrilon2@gmail.com";
   };
 
@@ -139,12 +139,62 @@ const LandingPage = () => {
     return () => window.removeEventListener("scroll", mountNavbar);
   }, [sticky]);
 
-  console.log(sticky);
+  const [isMounted, setIsMounted] = useState<boolean>(false);
+
+  useEffect(() => {
+    const timeout = setTimeout(() => {
+      setIsMounted(true);
+    }, enterDelay);
+
+    return () => clearTimeout(timeout);
+  }, []);
 
   const animatedSidebar = useSpring({
     transform: toggle ? "translateX(0%)" : "translateX(-100%)",
     marginLeft: toggle ? "0px" : "-400px",
   });
+
+  const one = <h1>Hi, my name is</h1>;
+
+  const two = (
+    <div>
+      <h2>Ian A Drilon.</h2>
+      <h2>I build things for web.</h2>
+    </div>
+  );
+
+  const three = (
+    <p>
+      I’m a student of Iloilo Science and Technology University, taking a
+      Bachelor of Science in Computer Science.
+    </p>
+  );
+
+  const four = (
+    <button type="button" onClick={(event) => redirectEmail(event)}>
+      Get In Touch
+    </button>
+  );
+
+  const five = (
+    <div>
+      <Icons name="CurveRight" />
+    </div>
+  );
+
+  const six = !toggle && (
+    <div className={`${sticky ? "Nav" : "Menu"}`}>
+      <div onClick={(event) => toggleSideBar(event)}>
+        <Icons name="Menu" />
+      </div>
+      <div className="socialMedia">
+        {socialMedia && <Social socialMedia={socialMedia} toggle={toggle} />}
+      </div>
+    </div>
+  );
+
+  const items = [one, two, three, four];
+  const icons = [five, six];
 
   return (
     <>
@@ -156,41 +206,39 @@ const LandingPage = () => {
       <div className="container">
         <div className="container-wrapper">
           <DivWrapper>
-            <div>
-              <Icons name="CurveRight" />
-            </div>
-            {!toggle && (
-              <div className={`${sticky ? "Nav" : "Menu"}`}>
-                <div onClick={(event) => toggleSideBar(event)}>
-                  <Icons name="Menu" />
-                </div>
-                <div className="socialMedia">
-                  {socialMedia && (
-                    <Social socialMedia={socialMedia} toggle={toggle} />
-                  )}
-                </div>
-              </div>
-            )}
-            <section>
-              <div>
-                <h1>Hi, my name is</h1>
-              </div>
-              <div>
-                <h2>Ian A Drilon.</h2>
-                <h2>I build things for web.</h2>
-              </div>
-              <div>
-                <p>
-                  I’m a student of Iloilo Science and Technology University,
-                  taking a Bachelor of Science in Computer Science.
-                </p>
-              </div>
-              <div>
-                <button type="button" onClick={(event) => redirectEmail(event)}>
-                  Get In Touch
-                </button>
-              </div>
-            </section>
+            <TransitionGroup component={null}>
+              {isMounted &&
+                icons.map((icons: any, index: number) => (
+                  <CSSTransition
+                    key={index}
+                    in={true}
+                    classNames="fade"
+                    timeout={loadDelay}
+                  >
+                    <div style={{ transitionDelay: `${index + 1}00ms` }}>
+                      {icons}
+                    </div>
+                  </CSSTransition>
+                ))}
+            </TransitionGroup>
+
+            <TransitionGroup component={null}>
+              <section>
+                {isMounted &&
+                  items.map((items: any, index: number) => (
+                    <CSSTransition
+                      in={true}
+                      key={index}
+                      classNames="fadeup"
+                      timeout={loadDelay}
+                    >
+                      <div style={{ transitionDelay: `${index + 1}00ms` }}>
+                        {items}
+                      </div>
+                    </CSSTransition>
+                  ))}
+              </section>
+            </TransitionGroup>
           </DivWrapper>
         </div>
       </div>

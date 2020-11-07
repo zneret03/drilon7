@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Image from "next/image";
+import AosInit from "./utils/aos";
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -135,8 +136,10 @@ const About = () => {
     "Firebase",
   ];
 
+  useEffect(AosInit, []);
+
   return (
-    <StyledAboutSection id="about">
+    <StyledAboutSection data-aos="fade-up" id="about">
       <h2 className="numbered-heading">About Me</h2>
       <div className="inner">
         <StyledText>

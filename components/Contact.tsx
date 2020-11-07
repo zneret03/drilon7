@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
+import AosInit from "./utils/aos";
 
 const StyledContactSection = styled.section`
   max-width: 480px;
@@ -49,8 +50,14 @@ const StyledContactSection = styled.section`
 `;
 
 const Contact: React.FC = () => {
+  const contact = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    window.location.href = "mailto:iandrilon2@gmail.com";
+  };
+
+  useEffect(AosInit, []);
   return (
-    <StyledContactSection id="contact">
+    <StyledContactSection data-aos="fade-up" id="contact">
       <h2 className="numbered-heading overline">What's Next?</h2>
       <h2 className="title">Get In Touch</h2>
 
@@ -61,7 +68,13 @@ const Contact: React.FC = () => {
         </p>
       </div>
 
-      <button className="button">Say Hello</button>
+      <button
+        type="button"
+        onClick={(event) => contact(event)}
+        className="button"
+      >
+        Say Hello
+      </button>
     </StyledContactSection>
   );
 };

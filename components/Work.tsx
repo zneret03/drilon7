@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Icons from "./icons/Icons";
 import styled from "styled-components";
-import { projectInformation } from "../utils/config";
+import AosInit from "./utils/aos";
+import { projectInformation } from "./utils/config";
 
 const StyleWorkSection = styled.section`
   @media (max-width: 1080px) {
@@ -295,11 +296,13 @@ const StyledProject = styled.div`
 `;
 
 const Work: React.FC = () => {
+  useEffect(AosInit, []);
+
   return (
     <StyleWorkSection>
       <h2 className="numbered-heading">Some Things I've Built</h2>
       {projectInformation.map((project: any, index: number) => (
-        <StyledProject key={index}>
+        <StyledProject key={index} data-aos="fade-up">
           <div className="project-content">
             <p className="project-overline">{project.feature}</p>
             <h3 className="project-title">{project.title}</h3>
@@ -315,16 +318,17 @@ const Work: React.FC = () => {
             </ul>
 
             <div className="project-links">
-              {project.icons.map((icon: any, index: number) => (
-                <a href="" key={index} aria-label={icon}>
-                  <Icons name={icon} />
-                </a>
-              ))}
+              <a href={project.source}>
+                <Icons name={"Github"} />
+              </a>
+              <a href={project.demo}>
+                <Icons name={"External"} />
+              </a>
             </div>
           </div>
 
           <div className="project-image">
-            <a href="">
+            <a href={project.demo}>
               <img src={`/image/${project.image}`} className="img" alt="" />
             </a>
           </div>

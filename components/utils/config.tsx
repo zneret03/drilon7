@@ -47,7 +47,8 @@ const projectInformation = [
     description:
       "A custom build shopify, that will show case your fullstack skills and front end designing in different technology such as firebase, netlify-functions, tailwind and reactJs and more",
     technology: ["Netlify-lambda", "TailwindCss", "React"],
-    icons: ["Github", "External"],
+    demo: "https://ecommerceid.netlify.app",
+    source: "https://github.com/zneret03/ecommerce",
     image: "dashboard.png",
   },
   {
@@ -56,9 +57,13 @@ const projectInformation = [
     description:
       "A nicer look at your GitHub profile and repository stats with data visualizations of your top languages and stars. Sort through your top repos by number of stars, forks, and size.",
     technology: ["Chart.js", "TailwindCss", "React"],
-    icons: ["Github", "External"],
+    demo: "https://gitprofilee.netlify.app/",
+    source: "https://github.com/zneret03/gitprofile",
     image: "frontpage.png",
   },
 ];
 
-export { socialMedia, sideLink, projectInformation };
+const loadDelay = 2000;
+const enterDelay = 1000;
+
+export { socialMedia, sideLink, projectInformation, loadDelay, enterDelay };

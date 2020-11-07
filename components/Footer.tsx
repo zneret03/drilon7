@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import styled from "styled-components";
 import Icons from "./icons/Icons";
+import { GithubContext } from "../Context/GithubProvider";
 
 const SyledFooterSection = styled.div`
   position: relative;
   padding: 0;
   margin: 0 auto;
-  max-width: 1400px;
+  max-width: 1600px;
 
   #curvedLeft {
     position: absolute;
@@ -52,6 +53,8 @@ const StyledCredits = styled.div`
 `;
 
 const Footer: React.FC = () => {
+  const { information }: any = useContext(GithubContext);
+
   return (
     <SyledFooterSection>
       <div>
@@ -59,18 +62,21 @@ const Footer: React.FC = () => {
       </div>
 
       <StyledCredits>
-        <a href="">
+        <a href={information.html_url}>
           <div className="title">Designed &amp; Built By Ian Drilon</div>
-          <div className="github-icons">
-            <span>
-              <Icons name="Star" />
-              <span>2,506</span>
-            </span>
-            <span>
-              <Icons name="Fork" />
-              <span>1,503</span>
-            </span>
-          </div>
+          {information.stargazers_count !== undefined &&
+            information.forks !== undefined && (
+              <div className="github-icons">
+                <span>
+                  <Icons name="Star" />
+                  <span>{information.stargazers_count.toLocaleString()}</span>
+                </span>
+                <span>
+                  <Icons name="Fork" />
+                  <span>{information.forks.toLocaleString()}</span>
+                </span>
+              </div>
+            )}
         </a>
       </StyledCredits>
     </SyledFooterSection>

@@ -1,19 +1,16 @@
 import React from "react";
-import { GithubProvider } from "../Context/GithubProvider";
 import { LandingPage, About, Work, Contact, Footer } from "../components/Index";
-import { GlobalStyle } from "../css";
-import "aos/dist/aos.css";
+import Layout from "../components/Layout";
 
 const Home: React.FC = () => {
   return (
-    <GithubProvider>
-      <GlobalStyle />
+    <Layout>
       <LandingPage />
       <About />
       <Work />
       <Contact />
       <Footer />
-    </GithubProvider>
+    </Layout>
   );
 };
 

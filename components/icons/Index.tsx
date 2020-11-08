@@ -7,5 +7,6 @@ export { default as External } from "./External";
 export { default as Menu } from "./Menu";
 export { default as Star } from "./Star";
 export { default as Fork } from "./Fork";
+export { default as Logo } from "./Logo";
 export { default as CurveRight } from "./CurveRight";
 export { default as CurveLeft } from "./CurveLeft";

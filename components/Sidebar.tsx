@@ -12,13 +12,26 @@ const Wrapper = styled.div`
   left: 0;
   z-index: 10;
 
+  /**Firefox */
+  @-moz-document url-prefix() {
+    width: 350px;
+
+    @media (max-width: 768px) {
+      width: 300px;
+    }
+
+    @media (max-width: 480px) {
+      width: 250px;
+    }
+  }
+  /* 
   @media (max-width: 768px) {
-    width: min(55vw, 400px);
+    width: min(vw, 400px);
   }
 
   @media (max-width: 480px) {
     width: min(60vw, 400px);
-  }
+  } */
 `;
 
 const SideBarWrapper = styled.div`
@@ -98,7 +111,7 @@ const Sidebar: React.FC<PropTypes> = ({
             <ul>
               {sideLink.map((link: any) => (
                 <li key={link.id}>
-                  <a href="">{link.name}</a>
+                  <a href={link.url}>{link.name}</a>
                 </li>
               ))}
 

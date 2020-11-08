@@ -9,6 +9,7 @@ import {
   Menu,
   Star,
   Fork,
+  Logo,
   CurveRight,
   CurveLeft,
 } from "./Index";
@@ -36,6 +37,8 @@ const Icons: React.FC<PropTypes> = ({ name }) => {
       return <Star />;
     case "Fork":
       return <Fork />;
+    case "Logo":
+      return <Logo />;
     case "CurveRight":
       return <CurveRight />;
     case "CurveLeft":

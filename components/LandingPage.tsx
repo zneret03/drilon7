@@ -64,6 +64,10 @@ const DivWrapper = styled.div`
       font-size: clamp(5px, 5vw, 20px);
       font-weight: normal;
       color: #fff;
+
+      @-moz-document url-prefix() {
+        font-size: 20px;
+      }
     }
 
     h2 {
@@ -71,6 +75,23 @@ const DivWrapper = styled.div`
       font-size: clamp(45px, 5vw, 80px);
       font-weight: 600px;
       letter-spacing: 2px;
+
+      @-moz-document url-prefix() {
+        font-size: 60px;
+        font-weight: 600px;
+
+        @media (max-width: 1080px) {
+          font-size: 60px;
+        }
+
+        @media (max-width: 768px) {
+          font-size: 50px;
+        }
+
+        @media (max-width: 480px) {
+          font-size: 40px;
+        }
+      }
     }
 
     h2:nth-child(2) {
@@ -203,7 +224,7 @@ const LandingPage = () => {
         toogle={toggle}
         toggleSideBar={(event) => toggleSideBar(event)}
       />
-      <div className="container">
+      <div className="container" id="home">
         <div className="container-wrapper">
           <DivWrapper>
             <TransitionGroup component={null}>
@@ -222,7 +243,7 @@ const LandingPage = () => {
                 ))}
             </TransitionGroup>
 
-            <TransitionGroup component={null}>
+            <TransitionGroup in={true} component={null}>
               <section>
                 {isMounted &&
                   items.map((items: any, index: number) => (

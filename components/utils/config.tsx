@@ -25,18 +25,22 @@ const sideLink = [
   {
     id: "Home",
     name: "Home",
+    url: "#home",
   },
   {
     id: "About",
     name: "About",
+    url: "#about",
   },
   {
     id: "Works",
     name: "Works",
+    url: "#work",
   },
   {
     id: "Contact",
     name: "Contact",
+    url: "#contact",
   },
 ];
 

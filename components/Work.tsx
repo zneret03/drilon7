@@ -299,7 +299,7 @@ const Work: React.FC = () => {
   useEffect(AosInit, []);
 
   return (
-    <StyleWorkSection>
+    <StyleWorkSection id="work">
       <h2 className="numbered-heading">Some Things I've Built</h2>
       {projectInformation.map((project: any, index: number) => (
         <StyledProject key={index} data-aos="fade-up">

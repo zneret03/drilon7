@@ -42,6 +42,18 @@ const StyledContactSection = styled.section`
   .title {
     margin: 15px 0;
     font-size: clamp(40px, 5vw, 60px);
+
+    @-moz-document url-prefix() {
+      font-size: 40px;
+
+      @media (max-width: 1080px) {
+        font-size: 40px;
+      }
+
+      @media (max-width: 768px) {
+        font-size: 35px;
+      }
+    }
   }
 
   .button {

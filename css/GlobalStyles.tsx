@@ -1,6 +1,8 @@
 import { createGlobalStyle } from "styled-components";
 import TranstionStyles from "./TransitionStyles";
+
 const GlobalStyle = createGlobalStyle`
+
     body {
         margin: 0;
         width: 100%;
@@ -24,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
           background-color: transparent;
         }
       
-      .container  {
+      .container, section  {
           filter: blur(5px) brightness(0.7);
           pointer-events: none;
           user-select: none;
@@ -49,12 +51,14 @@ const GlobalStyle = createGlobalStyle`
       cursor: pointer;
       transition: var(--transition);
       padding: 1.25rem 1.75rem;
+
       &:hover,
       &:focus,
       &:active {
         background-color: var(--green-tint);
         outline: none;
       }
+      
       &:after {
         display: none !important;
       }
@@ -143,6 +147,19 @@ const GlobalStyle = createGlobalStyle`
     width: 100%;
     font-size: clamp(26px, 5vw, var(--fz-heading));
     white-space: nowrap;
+
+    @-moz-document url-prefix(){
+      font-size : var(--fz-heading);
+
+      @media (max-width: 1080px) {
+        font-size : var(--fz-heading);
+      }
+
+      @media (max-width: 768px) {
+        font-size : var(--fz-xxl);
+      }
+
+    }
     
     &:before {
       position: relative;

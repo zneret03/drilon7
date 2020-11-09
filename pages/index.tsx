@@ -1,5 +1,12 @@
 import React from "react";
-import { LandingPage, About, Work, Contact, Footer } from "../components/Index";
+import {
+  LandingPage,
+  About,
+  Work,
+  Projects,
+  Contact,
+  Footer,
+} from "../components/Index";
 import Layout from "../components/Layout";
 
 const Home: React.FC = () => {
@@ -8,6 +15,7 @@ const Home: React.FC = () => {
       <LandingPage />
       <About />
       <Work />
+      <Projects />
       <Contact />
       <Footer />
     </Layout>

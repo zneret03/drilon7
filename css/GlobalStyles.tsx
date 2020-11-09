@@ -138,7 +138,6 @@ const GlobalStyle = createGlobalStyle`
       padding: 35px 27px;
     }
   }
-
   
   .numbered-heading {
     display: flex;
@@ -213,11 +212,8 @@ const GlobalStyle = createGlobalStyle`
     line-height: 1.1;
   }
 
-  p{
-    font-size : var(--fz-lg);
-    
-    a{
-      text-decoration : none;
+  .link {
+    text-decoration : none;
       color : var(--white);
       position: absolute;
       padding : 0px 5px;
@@ -236,10 +232,11 @@ const GlobalStyle = createGlobalStyle`
         width: 100%;  
         transition : width .3s;
       }
-    }
+  }
 
-  
-
+  p{
+    font-size : var(--fz-lg);
+    
     @media (max-width: 1080px) {
      font-size : var(--fz-lg);
     }
@@ -259,15 +256,15 @@ const GlobalStyle = createGlobalStyle`
     padding: 0 0 200px;
 
     @media (max-width: 1080px) {
-      padding: 100px 0;
+      padding: 100px 90px;
     }
 
     @media (max-width: 768px) {
-      padding: 80px 0;
+      padding: 80px 60px;
     }
     
     @media (max-width: 480px) {
-      padding: 60px 0;
+      padding: 60px 30px;
     }
   }
 

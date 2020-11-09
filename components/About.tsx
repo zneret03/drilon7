@@ -7,15 +7,15 @@ const StyledAboutSection = styled.section`
   max-width: 900px;
 
   @media (max-width: 1080px) {
-    padding: 0 90px;
+    padding: 0px 90px;
   }
 
   @media (max-width: 768px) {
-    padding: 0 60px;
+    padding: 0px 60px;
   }
 
   @media (max-width: 492px) {
-    padding: 0 30px;
+    padding: 0px 30px;
   }
 
   .inner {
@@ -147,7 +147,9 @@ const About = () => {
             <p>
               Hi! There, Ian A. Drilon a student of Iloilo Science and
               Technology University,{" "}
-              <a href="https://www.isatu.edu.ph/">(ISATU)</a>
+              <a className="link" href="https://www.isatu.edu.ph/">
+                (ISATU)
+              </a>
             </p>
 
             <p>

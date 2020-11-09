@@ -67,7 +67,83 @@ const projectInformation = [
   },
 ];
 
+const OtherProjects = [
+  {
+    id: 1,
+    projectTitle: "E-Commerce with reactJs and Firebse, Netlify-Functions",
+    demo: "https://ecommerceid.netlify.app/",
+    source: "https://github.com/zneret03/ecommerce",
+    projectDescription:
+      "A custom build shopify, that will show case your fullstack skills and front end designing in different technology",
+    projectTechnology: ["Netlify-lambda", "TailwindCss", "React"],
+  },
+  {
+    id: 2,
+    projectTitle: "Integrating Github Api with ReactJs, Tailwind and Chart.js",
+    demo: "https://gitprofilee.netlify.app/",
+    source: "https://github.com/zneret03/gitprofile",
+    projectDescription:
+      "A nicer look at your GitHub profile and repository stats with data visualizations of your top languages and stars.",
+    projectTechnology: ["Chart.js", "TailwindCss", "React"],
+  },
+  {
+    id: 3,
+    projectTitle: "A Dynamic Website that is built in with Boostrap and PHP",
+    source: "https://github.com/zneret03/Clinic_Management",
+    projectDescription:
+      "A Clinic management system with boostrap, html5, css3 and PHP using MVC architecture. To showcase my skills in oop.",
+    projectTechnology: ["Boostrap", "PHP", "HTML5 & CSS3"],
+  },
+  {
+    id: 4,
+    projectTitle: "Html, Css and vanilla JS example static portfolio",
+    demo: "https://zneret03.github.io/practice/",
+    source: "https://github.com/zneret03/practice",
+    projectDescription: "Making fun with animations and other css elements",
+    projectTechnology: ["HTML5", "CSS3", "Javascript"],
+  },
+  {
+    id: 5,
+    projectTitle: "Church Website built in React and tailwind",
+    demo: "https://bcif.netlify.app/",
+    source: "https://github.com/zneret03/bethlehem",
+    projectDescription:
+      "A Simple static Church website in reactJs and Tailwind",
+    projectTechnology: ["React", "TailwindCss"],
+  },
+  {
+    id: 6,
+    projectTitle: "Supply Management System with POS",
+    source: "https://github.com/zneret03/supply_management",
+    projectDescription: "A Simple OOP Supply Management System built in C#",
+    projectTechnology: ["C#", "Bunifu Framework"],
+  },
+  {
+    id: 7,
+    projectTitle: "CPU Algorithm",
+    source: "https://github.com/zneret03/CPU_algorithm",
+    projectDescription:
+      "A simple algorithm showing the realtime instruction and process using shortest job first and others",
+    projectTechnology: ["C#", "Bunifu Framework"],
+  },
+  {
+    id: 8,
+    projectTitle: "Ordering System",
+    source: "https://github.com/zneret03/Ordering",
+    projectDescription:
+      "A Simple Ordering System using a data structure sample just as linkedList and others",
+    projectTechnology: ["Java"],
+  },
+];
+
 const loadDelay = 2000;
 const enterDelay = 1000;
 
-export { socialMedia, sideLink, projectInformation, loadDelay, enterDelay };
+export {
+  socialMedia,
+  sideLink,
+  projectInformation,
+  OtherProjects,
+  loadDelay,
+  enterDelay,
+};

@@ -89,12 +89,14 @@ const SideBarWrapper = styled.div`
 interface PropTypes {
   animatedSidebar: any;
   toogle: boolean;
+  children: React.ReactNode;
   toggleSideBar: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
 }
 
 const Sidebar: React.FC<PropTypes> = ({
   animatedSidebar,
   toggleSideBar,
+  children,
   toogle,
 }) => {
   return (
@@ -120,6 +122,7 @@ const Sidebar: React.FC<PropTypes> = ({
           </SideBarWrapper>
         </animated.div>
       </Wrapper>
+      {children}
     </>
   );
 };

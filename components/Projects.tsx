@@ -1,44 +1,9 @@
-import React, { useEffect, useState } from "react";
-import styled, { css } from "styled-components";
+import React, { useEffect } from "react";
+import styled from "styled-components";
 import { OtherProjects } from "./utils/config";
 import AosInit from "./utils/aos";
+import Theme from "../css/CssVariables";
 import Icons from "./icons/Icons";
-
-const theme = {
-  inlineLink: css`
-    display: inline-block;
-    text-decoration: none;
-    text-decoration-skip-ink: auto;
-    position: relative;
-    transition: var(--transition);
-    cursor: pointer;
-    color: var(--green);
-    &:hover,
-    &:focus,
-    &:active {
-      color: var(--green);
-      outline: 0;
-      &:after {
-        width: 100%;
-      }
-      & > * {
-        color: var(--green) !important;
-        transition: var(--transition);
-      }
-    }
-    &:after {
-      content: "";
-      display: block;
-      width: 0;
-      height: 1px;
-      position: relative;
-      bottom: 0.37em;
-      background-color: var(--green);
-      transition: var(--transition);
-      opacity: 0.5;
-    }
-  `,
-};
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -167,7 +132,7 @@ const StyledProject = styled.div`
       text-overflow: ellipsis;
 
       a {
-        ${theme.inlineLink}
+        ${Theme.inlineLink}
       }
     }
 
@@ -177,7 +142,7 @@ const StyledProject = styled.div`
       flex-grow: 1;
       flex-wrap: wrap;
       padding: 0;
-      margin: 20px 0 10px 0;
+      margin: 30px 0 0 0;
       list-style: none;
       li {
         font-family: var(--font-mono);
@@ -263,7 +228,7 @@ const Projects: React.FC = () => {
         data-aos="fade-up"
         onClick={(event) => httpRedirect(event)}
       >
-        Show More
+        Show Archive
       </button>
     </StyledProjectsSection>
   );

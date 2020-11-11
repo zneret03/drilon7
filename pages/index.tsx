@@ -5,7 +5,6 @@ import {
   Work,
   Projects,
   Contact,
-  Footer,
 } from "../components/Index";
 import Layout from "../components/Layout";
 
@@ -17,7 +16,6 @@ const Home: React.FC = () => {
       <Work />
       <Projects />
       <Contact />
-      <Footer />
     </Layout>
   );
 };

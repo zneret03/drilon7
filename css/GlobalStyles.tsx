@@ -1,6 +1,6 @@
 import { createGlobalStyle } from "styled-components";
 import TranstionStyles from "./TransitionStyles";
-
+import Theme from "./CssVariables";
 const GlobalStyle = createGlobalStyle`
 
     body {
@@ -274,6 +274,30 @@ const GlobalStyle = createGlobalStyle`
       @media (max-width: 492px) {
         margin : 0px 2px 0px;
       }
+    }
+  }
+
+  .big-heading {
+    margin: 0;
+    font-size: clamp(40px, 8vw, 80px);
+  }
+
+  .subtitle {
+    color: var(--green);
+    margin: 0 0 20px 0;
+    font-size: var(--fz-md);
+    font-family: var(--font-mono);
+    font-weight: 400;
+    line-height: 1.5;
+    @media (max-width: 1080px) {
+      font-size: var(--fz-sm);
+    }
+    @media (max-width: 768px) {
+      font-size: var(--fz-xs);
+    }
+    a {
+      ${Theme.inlineLink}
+      line-height: 1.5;
     }
   }
 

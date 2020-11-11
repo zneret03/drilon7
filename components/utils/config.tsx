@@ -25,22 +25,22 @@ const sideLink = [
   {
     id: "Home",
     name: "Home",
-    url: "#home",
+    url: "/#home",
   },
   {
     id: "About",
     name: "About",
-    url: "#about",
+    url: "/#about",
   },
   {
     id: "Works",
     name: "Works",
-    url: "#work",
+    url: "/#work",
   },
   {
     id: "Contact",
     name: "Contact",
-    url: "#contact",
+    url: "/#contact",
   },
 ];
 
@@ -50,7 +50,7 @@ const projectInformation = [
     title: "Custom Shopify",
     description:
       "A custom build shopify, that will show case your fullstack skills and front end designing in different technology such as firebase, netlify-functions, tailwind and reactJs and more",
-    technology: ["Netlify-lambda", "TailwindCss", "React"],
+    technology: ["Netlify-lambda", "TailwindCss", "React", "Chart.js"],
     demo: "https://ecommerceid.netlify.app",
     source: "https://github.com/zneret03/ecommerce",
     image: "dashboard.png",
@@ -70,6 +70,9 @@ const projectInformation = [
 const OtherProjects = [
   {
     id: 1,
+    projectYear: 2020,
+    projectName: "E-commerce",
+    projectMadeAt: null,
     projectTitle: "E-Commerce with reactJs and Firebse, Netlify-Functions",
     demo: "https://ecommerceid.netlify.app/",
     source: "https://github.com/zneret03/ecommerce",
@@ -79,6 +82,9 @@ const OtherProjects = [
   },
   {
     id: 2,
+    projectYear: 2020,
+    projectName: "gitProfile",
+    projectMadeAt: null,
     projectTitle: "Integrating Github Api with ReactJs, Tailwind and Chart.js",
     demo: "https://gitprofilee.netlify.app/",
     source: "https://github.com/zneret03/gitprofile",
@@ -88,6 +94,9 @@ const OtherProjects = [
   },
   {
     id: 3,
+    projectYear: 2020,
+    projectName: "Clinic Management System",
+    projectMadeAt: "College University",
     projectTitle: "A Dynamic Website that is built in with Boostrap and PHP",
     source: "https://github.com/zneret03/Clinic_Management",
     projectDescription:
@@ -96,6 +105,9 @@ const OtherProjects = [
   },
   {
     id: 4,
+    projectYear: 2020,
+    projectName: "Sample Portfolio",
+    projectMadeAt: null,
     projectTitle: "Html, Css and vanilla JS example static portfolio",
     demo: "https://zneret03.github.io/practice/",
     source: "https://github.com/zneret03/practice",
@@ -104,6 +116,9 @@ const OtherProjects = [
   },
   {
     id: 5,
+    projectYear: 2020,
+    projectName: "BCIF Website",
+    projectMadeAt: "Church Place",
     projectTitle: "Church Website built in React and tailwind",
     demo: "https://bcif.netlify.app/",
     source: "https://github.com/zneret03/bethlehem",
@@ -113,6 +128,9 @@ const OtherProjects = [
   },
   {
     id: 6,
+    projectYear: 2020,
+    projectName: "Supply Management System",
+    projectMadeAt: "College University",
     projectTitle: "Supply Management System with POS",
     source: "https://github.com/zneret03/supply_management",
     projectDescription: "A Simple OOP Supply Management System built in C#",
@@ -120,6 +138,9 @@ const OtherProjects = [
   },
   {
     id: 7,
+    projectYear: 2019,
+    projectName: "CPU Algorithm",
+    projectMadeAt: "College University",
     projectTitle: "CPU Algorithm",
     source: "https://github.com/zneret03/CPU_algorithm",
     projectDescription:
@@ -128,6 +149,9 @@ const OtherProjects = [
   },
   {
     id: 8,
+    projectYear: 2019,
+    projectName: "Ordering System",
+    projectMadeAt: "College University",
     projectTitle: "Ordering System",
     source: "https://github.com/zneret03/Ordering",
     projectDescription:

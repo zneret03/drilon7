@@ -4,43 +4,11 @@ import styled from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 //*Component
-import Social from "./Social";
-import { socialMedia, loadDelay, enterDelay } from "./utils/config";
+import { loadDelay, enterDelay } from "./utils/config";
 import Icons from "./icons/Icons";
-import Sidebar from "./Sidebar";
 
 const DivWrapper = styled.div`
   min-height: 100vh;
-
-  .Nav {
-    position: fixed;
-    top: 0;
-    left: 0;
-    cursor: pointer;
-    background-color: var(--navy);
-    box-shadow: -10px 0px 30px -15px var(--lightest-navy);
-    padding: 15px 30px;
-    width: 100%;
-    z-index: 10;
-
-    .socialMedia {
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-  }
-
-  .Menu {
-    position: fixed;
-    cursor: pointer;
-    z-index: 10;
-
-    .socialMedia {
-      @media (max-width: 768px) {
-        display: none;
-      }
-    }
-  }
 
   #curvedRight {
     position: absolute;
@@ -170,11 +138,6 @@ const LandingPage = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const animatedSidebar = useSpring({
-    transform: toggle ? "translateX(0%)" : "translateX(-100%)",
-    marginLeft: toggle ? "0px" : "-400px",
-  });
-
   const one = <h1>Hi, my name is</h1>;
 
   const two = (
@@ -203,67 +166,43 @@ const LandingPage = () => {
     </div>
   );
 
-  const six = !toggle && (
-    <div className={`${sticky ? "Nav" : "Menu"}`}>
-      <div onClick={(event) => toggleSideBar(event)}>
-        <Icons name="Menu" />
-      </div>
-      <div className="socialMedia">
-        {socialMedia && <Social socialMedia={socialMedia} toggle={toggle} />}
-      </div>
-    </div>
-  );
-
   const items = [one, two, three, four];
-  const icons = [five, six];
+  const icons = [five];
 
   return (
-    <>
-      <Sidebar
-        animatedSidebar={animatedSidebar}
-        toogle={toggle}
-        toggleSideBar={(event) => toggleSideBar(event)}
-      />
-      <div className="container" id="home">
-        <div className="container-wrapper">
-          <DivWrapper>
-            <TransitionGroup component={null}>
-              {isMounted &&
-                icons.map((icons: any, index: number) => (
-                  <CSSTransition
-                    key={index}
-                    in={true}
-                    classNames="fade"
-                    timeout={loadDelay}
-                  >
-                    <div style={{ transitionDelay: `${index + 1}00ms` }}>
-                      {icons}
-                    </div>
-                  </CSSTransition>
-                ))}
-            </TransitionGroup>
+    <DivWrapper id="home">
+      <TransitionGroup component={null}>
+        {isMounted &&
+          icons.map((icons: any, index: number) => (
+            <CSSTransition
+              key={index}
+              in={true}
+              classNames="fade"
+              timeout={loadDelay}
+            >
+              <div style={{ transitionDelay: `${index + 1}00ms` }}>{icons}</div>
+            </CSSTransition>
+          ))}
+      </TransitionGroup>
 
-            <TransitionGroup in={true} component={null}>
-              <section>
-                {isMounted &&
-                  items.map((items: any, index: number) => (
-                    <CSSTransition
-                      in={true}
-                      key={index}
-                      classNames="fadeup"
-                      timeout={loadDelay}
-                    >
-                      <div style={{ transitionDelay: `${index + 1}00ms` }}>
-                        {items}
-                      </div>
-                    </CSSTransition>
-                  ))}
-              </section>
-            </TransitionGroup>
-          </DivWrapper>
-        </div>
-      </div>
-    </>
+      <TransitionGroup in={true} component={null}>
+        <section>
+          {isMounted &&
+            items.map((items: any, index: number) => (
+              <CSSTransition
+                in={true}
+                key={index}
+                classNames="fadeup"
+                timeout={loadDelay}
+              >
+                <div style={{ transitionDelay: `${index + 1}00ms` }}>
+                  {items}
+                </div>
+              </CSSTransition>
+            ))}
+        </section>
+      </TransitionGroup>
+    </DivWrapper>
   );
 };
 

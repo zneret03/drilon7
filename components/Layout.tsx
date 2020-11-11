@@ -2,8 +2,11 @@ import React, { useState, useEffect } from "react";
 import { GlobalStyle } from "../css";
 import { GithubProvider } from "../Context/GithubProvider";
 import { Loader } from "./Index";
-
 import "aos/dist/aos.css";
+
+//*Components
+import { Footer } from "../components/Index";
+import LeftContent from "./LeftContent";
 
 if (typeof window !== "undefined") {
   require("smooth-scroll")('a[href*="#"]');
@@ -27,7 +30,16 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
   return (
     <GithubProvider>
       <GlobalStyle />
-      {isMounted ? <Loader /> : <div id="content">{children}</div>}
+      {isMounted ? (
+        <Loader />
+      ) : (
+        <LeftContent>
+          <>
+            <div id="content">{children}</div>
+            <Footer />
+          </>
+        </LeftContent>
+      )}
     </GithubProvider>
   );
 };

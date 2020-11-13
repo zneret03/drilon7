@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { OtherProjects } from "../components/utils/config";
 import Icons from "../components/icons/Icons";
 import AosInit from "../components/utils/aos";
+import Link from "next/link";
 
 const StyledArchive = styled.div`
   margin: -50px 90px;
@@ -203,14 +204,18 @@ const Archive = () => {
                     <td className="links">
                       <div className="links-flex">
                         {project.demo && (
-                          <a href={project.demo} aria-label="External Link">
-                            <Icons name="External" />
-                          </a>
+                          <Link href={project.demo}>
+                            <a aria-label="External Link">
+                              <Icons name="External" />
+                            </a>
+                          </Link>
                         )}
                         {project.source && (
-                          <a href={project.source} aria-label="Github Link">
-                            <Icons name="Github" />
-                          </a>
+                          <Link href={project.source}>
+                            <a aria-label="Github Link">
+                              <Icons name="Github" />
+                            </a>
+                          </Link>
                         )}
                       </div>
                     </td>

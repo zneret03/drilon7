@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import Icons from "./icons/Icons";
+import Link from "next/link";
 
 const StyledSocialList = styled.ul`
   display: flex;
@@ -51,9 +52,11 @@ const Social: React.FC<PropTypes> = ({ socialMedia, toggle }) => {
         <StyledSocialList>
           {socialMedia.map((icon: any, index: number) => (
             <li key={index}>
-              <a href={icon.url} aria-label={icon.name}>
-                <Icons name={icon.name} />
-              </a>
+              <Link href={icon.url}>
+                <a aria-label={icon.name}>
+                  <Icons name={icon.name} />
+                </a>
+              </Link>
             </li>
           ))}
         </StyledSocialList>

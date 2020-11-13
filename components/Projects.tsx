@@ -4,6 +4,7 @@ import { OtherProjects } from "./utils/config";
 import AosInit from "./utils/aos";
 import Theme from "../css/CssVariables";
 import Icons from "./icons/Icons";
+import Link from "next/link";
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -160,13 +161,6 @@ const Projects: React.FC = () => {
   const GRID_LIMIT = 6;
   const firstSix = OtherProjects.slice(0, GRID_LIMIT);
 
-  const httpRedirect = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
-  ) => {
-    event.preventDefault();
-    window.location.href = "Archive";
-  };
-
   useEffect(AosInit, []);
 
   return (
@@ -190,14 +184,18 @@ const Projects: React.FC = () => {
 
                     <div className="project-links">
                       {info.source && (
-                        <a href={info.source} aria-label="Github Link">
-                          <Icons name="Github" />
-                        </a>
+                        <Link href={info.source}>
+                          <a aria-label="Github Link">
+                            <Icons name="Github" />
+                          </a>
+                        </Link>
                       )}
                       {info.demo && (
-                        <a href={info.demo} aria-label="External Link">
-                          <Icons name="External" />
-                        </a>
+                        <Link href={info.demo}>
+                          <a aria-label="External Link">
+                            <Icons name="External" />
+                          </a>
+                        </Link>
                       )}
                     </div>
                   </div>
@@ -223,12 +221,8 @@ const Projects: React.FC = () => {
             </StyledProject>
           ))}
       </div>
-      <button
-        className="more-button"
-        data-aos="fade-up"
-        onClick={(event) => httpRedirect(event)}
-      >
-        Show Archive
+      <button className="more-button" data-aos="fade-up">
+        <Link href="Archive">Show Archive</Link>
       </button>
     </StyledProjectsSection>
   );

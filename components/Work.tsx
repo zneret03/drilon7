@@ -2,6 +2,8 @@ import React, { useEffect } from "react";
 import Icons from "./icons/Icons";
 import styled from "styled-components";
 import AosInit from "./utils/aos";
+import Link from "next/link";
+import Image from "next/image";
 import { projectInformation } from "./utils/config";
 
 const StyleWorkSection = styled.section`
@@ -318,19 +320,25 @@ const Work: React.FC = () => {
             </ul>
 
             <div className="project-links">
-              <a href={project.source}>
-                <Icons name={"Github"} />
-              </a>
-              <a href={project.demo}>
-                <Icons name={"External"} />
-              </a>
+              <Link href={project.source}>
+                <a>
+                  <Icons name={"Github"} />
+                </a>
+              </Link>
+              <Link href={project.demo}>
+                <a>
+                  <Icons name={"External"} />
+                </a>
+              </Link>
             </div>
           </div>
 
           <div className="project-image">
-            <a href={project.demo}>
-              <img src={`/image/${project.image}`} className="img" alt="" />
-            </a>
+            <Link href={project.demo}>
+              <a>
+                <img src={`/image/${project.image}`} className="img" alt="" />
+              </a>
+            </Link>
           </div>
         </StyledProject>
       ))}

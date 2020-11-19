@@ -22,7 +22,7 @@ const DivWrapper = styled.div`
   }
 
   section {
-    padding: 60px 100px;
+    padding: 50px 100px;
     color: #dbcfcf;
     line-height: 7;
 
@@ -68,8 +68,8 @@ const DivWrapper = styled.div`
 
     p {
       font-family: var(--font-sans);
-      font-size: clamp(10px, 5vw, 20px);
-      max-width: 430px;
+      font-size: clamp(10px, 5vw, 17px);
+      max-width: 440px;
       resize: both;
       line-height: 27px;
       color: var(--slate);
@@ -150,7 +150,8 @@ const LandingPage = () => {
   const three = (
     <p>
       I’m a student of Iloilo Science and Technology University, taking a
-      Bachelor of Science in Computer Science.
+      Bachelor of Science in Computer Science. building exceptional web
+      application dynamic or static
     </p>
   );
 

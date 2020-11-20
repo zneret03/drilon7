@@ -28,6 +28,7 @@ const StyledCredits = styled.div`
   margin: 0 auto;
   max-width: 300px;
   display: flex;
+  line-height: 1.5;
   justify-content: center;
 
   .title {
@@ -63,7 +64,7 @@ const Footer: React.FC = () => {
 
       <StyledCredits>
         <a href={information.html_url}>
-          <div className="title">Designed &amp; Built By Ian Drilon</div>
+          <div className="title">Built By Ian Adorable Drilon</div>
           {information.stargazers_count !== undefined &&
             information.forks !== undefined && (
               <div className="github-icons">

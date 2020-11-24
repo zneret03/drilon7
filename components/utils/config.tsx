@@ -38,6 +38,11 @@ const sideLink = [
     url: "/#work",
   },
   {
+    id: "Project",
+    name: "project",
+    url: "/#project",
+  },
+  {
     id: "Contact",
     name: "Contact",
     url: "/#contact",

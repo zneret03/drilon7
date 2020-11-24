@@ -11,6 +11,7 @@ const Wrapper = styled.div`
   bottom: 0;
   left: 0;
   z-index: 10;
+  overflow: auto;
 
   /**Firefox */
   @-moz-document url-prefix() {

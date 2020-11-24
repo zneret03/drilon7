@@ -164,7 +164,7 @@ const Projects: React.FC = () => {
   useEffect(AosInit, []);
 
   return (
-    <StyledProjectsSection>
+    <StyledProjectsSection id="project">
       <div className="heading">
         <h2 className="numbered-heading">Other Noteworthy Projects</h2>
 

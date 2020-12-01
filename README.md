@@ -26,7 +26,9 @@ Though this portfolio is syncing through github api, this is soon to be using gr
 ### Getting Started
 
 1. Install Dependencies
+
    `npm install`
 
 2. Development
+
    `npm run dev`

@@ -13,7 +13,7 @@ credit to [Brittanychiang.com](https://brittanychiang.com/) for design and conce
 
 - [Dr. Storage Prototype Design](https://www.figma.com/file/LMNzChPXkVAIR15soctRA3/Hackathon?node-id=0%3A1)
 
-![demo](https://github.com/zneret03/Dr-Storage/blob/development/src/static/Figma%20Design.png)
+![demo](https://github.com/zneret03/drilon7/blob/development/static/prototype.png)
 
 ---
 

@@ -108,10 +108,12 @@ const OtherProjects = [
     projectYear: 2020,
     projectName: "Sample Portfolio",
     projectMadeAt: null,
-    projectTitle: "Html, Css and vanilla JS example static portfolio",
+    projectTitle:
+      "Experimenting Html, Css3 and vanilla JS example static portfolio",
     demo: "https://zneret03.github.io/practice/",
     source: "https://github.com/zneret03/practice",
-    projectDescription: "Making fun with animations and other css elements",
+    projectDescription:
+      "Experimenting with animations with CSS3 and vanilla JS, with animations and other stuffs, to showcase my vanilla JS and CSS 3 skills",
     projectTechnology: ["HTML5", "CSS3", "Javascript"],
   },
   {
@@ -119,11 +121,11 @@ const OtherProjects = [
     projectYear: 2020,
     projectName: "BCIF Website",
     projectMadeAt: "Church Place",
-    projectTitle: "Church Website built in React and tailwind",
+    projectTitle: "Church Website built in React and tailwind and other stuffs",
     demo: "https://bcif.netlify.app/",
     source: "https://github.com/zneret03/bethlehem",
     projectDescription:
-      "A Simple static Church website in reactJs and Tailwind",
+      "knowing the basics fundamentals by building a simple static Church website in reactJs and Tailwind",
     projectTechnology: ["React", "TailwindCss"],
   },
   {
@@ -131,9 +133,10 @@ const OtherProjects = [
     projectYear: 2020,
     projectName: "Supply Management System",
     projectMadeAt: "College University",
-    projectTitle: "Supply Management System with POS",
+    projectTitle: "Supply Management System with sub system (Point Of Sale)",
     source: "https://github.com/zneret03/supply_management",
-    projectDescription: "A Simple OOP Supply Management System built in C#",
+    projectDescription:
+      "My school unversity project a simple OOP Supply Management System built in C#, with MVC architecture for reusable methods and C# classes",
     projectTechnology: ["C#", "Bunifu Framework"],
   },
   {

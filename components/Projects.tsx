@@ -81,7 +81,7 @@ const StyledProject = styled.div`
     flex-direction: column;
     align-items: flex-start;
     position: relative;
-    height: 100%;
+    height: 300px;
     padding: 2rem 1.75rem;
     border-radius: var(--border-radius);
     background-color: var(--light-navy);

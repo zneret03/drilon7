@@ -96,7 +96,8 @@ const LandingPage = () => {
     event: React.MouseEvent<HTMLButtonElement, MouseEvent>
   ) => {
     event.preventDefault();
-    window.location.href = "mailto:iandrilon2@gmail.com";
+    window.location.href =
+      "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=iandrilon2@gmail.com&tf=1";
   };
 
   const toggleSideBar = (

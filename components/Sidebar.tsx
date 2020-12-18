@@ -100,6 +100,11 @@ const Sidebar: React.FC<PropTypes> = ({
   children,
   toogle,
 }) => {
+  const resume = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+    event.preventDefault();
+    window.location.href = "/Resume.pdf";
+  };
+
   return (
     <>
       <Helmet>
@@ -118,7 +123,9 @@ const Sidebar: React.FC<PropTypes> = ({
                 </li>
               ))}
 
-              <button className="resume">Resume</button>
+              <button className="resume" onClick={(event) => resume(event)}>
+                Resume
+              </button>
             </ul>
           </SideBarWrapper>
         </animated.div>

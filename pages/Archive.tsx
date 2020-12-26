@@ -2,7 +2,6 @@ import React, { useEffect, useContext } from "react";
 import Layout from "../components/Layout";
 import styled from "styled-components";
 import { ProjectsContext } from "../Context/ProjectsProvider";
-import { OtherProjects } from "../components/utils/config";
 import Icons from "../components/icons/Icons";
 import AosInit from "../components/utils/aos";
 import Link from "next/link";

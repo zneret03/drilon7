@@ -1,4 +1,5 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
+import { ProjectsContext } from "../Context/ProjectsProvider";
 import styled from "styled-components";
 import { OtherProjects } from "./utils/config";
 import AosInit from "./utils/aos";
@@ -159,7 +160,10 @@ const StyledProject = styled.div`
 
 const Projects: React.FC = () => {
   const GRID_LIMIT = 6;
-  const firstSix = OtherProjects.slice(0, GRID_LIMIT);
+  const { projects } = useContext(ProjectsContext);
+  const firstSix = projects.slice(0, GRID_LIMIT);
+
+  console.log(projects);
 
   useEffect(AosInit, []);
 
@@ -212,9 +216,11 @@ const Projects: React.FC = () => {
 
                 <footer>
                   <ul className="project-tech-list">
-                    {info.projectTechnology.map((tech: any, index: number) => (
-                      <li key={index}>{tech}</li>
-                    ))}
+                    {info.projectTechnology.projectTechnology.map(
+                      (tech: any, index: number) => (
+                        <li key={index}>{tech}</li>
+                      )
+                    )}
                   </ul>
                 </footer>
               </div>

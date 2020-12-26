@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { GlobalStyle } from "../css";
 import { GithubProvider } from "../Context/GithubProvider";
 import { Loader } from "./Index";
+import Head from "next/head";
 import "aos/dist/aos.css";
 
 //*Components
@@ -29,6 +30,9 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
 
   return (
     <GithubProvider>
+      <Head>
+        <title>Portfolio</title>
+      </Head>
       <GlobalStyle />
       {isMounted ? (
         <Loader />

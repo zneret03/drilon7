@@ -3,7 +3,6 @@ import Icons from "./icons/Icons";
 import styled from "styled-components";
 import AosInit from "./utils/aos";
 import Link from "next/link";
-import Image from "next/image";
 import { projectInformation } from "./utils/config";
 
 const StyleWorkSection = styled.section`

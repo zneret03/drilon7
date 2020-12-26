@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext } from "react";
 import Layout from "../components/Layout";
 import styled from "styled-components";
+import { ProjectsContext } from "../Context/ProjectsProvider";
 import { OtherProjects } from "../components/utils/config";
 import Icons from "../components/icons/Icons";
 import AosInit from "../components/utils/aos";
@@ -155,6 +156,7 @@ const StyledArchive = styled.div`
 `;
 
 const Archive = () => {
+  const { projects } = useContext(ProjectsContext);
   useEffect(AosInit, []);
 
   return (
@@ -176,20 +178,20 @@ const Archive = () => {
                 <th colSpan={2}>Link</th>
               </thead>
               <tbody>
-                {OtherProjects.map((project: any) => (
-                  <tr key={project.id} data-aos="fade-up">
-                    <td className="overline year">{project.projectYear}</td>
-                    <td className="title">{project.projectName}</td>
+                {projects.map((info: any) => (
+                  <tr key={info.id} data-aos="fade-up">
+                    <td className="overline year">{info.year}</td>
+                    <td className="title">{info.projectName}</td>
                     <td className="company hide-on-mobile">
-                      {project.projectMadeAt ? (
-                        <span>{project.projectMadeAt}</span>
+                      {info.projectMadeAt ? (
+                        <span>{info.projectMadeAt}</span>
                       ) : (
                         <span>—</span>
                       )}
                     </td>
 
                     <td className="tech hide-on-mobile">
-                      {project.projectTechnology.map(
+                      {info.projectTechnology.projectTechnology.map(
                         (tech: any, index: number) => (
                           <span key={index}>
                             {tech}
@@ -203,15 +205,15 @@ const Archive = () => {
 
                     <td className="links">
                       <div className="links-flex">
-                        {project.demo && (
-                          <Link href={project.demo}>
+                        {info.demo && (
+                          <Link href={info.demo}>
                             <a aria-label="External Link">
                               <Icons name="External" />
                             </a>
                           </Link>
                         )}
-                        {project.source && (
-                          <Link href={project.source}>
+                        {info.source && (
+                          <Link href={info.source}>
                             <a aria-label="Github Link">
                               <Icons name="Github" />
                             </a>

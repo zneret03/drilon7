@@ -23,6 +23,7 @@ This modern portfolio is using graphQL to make endpoints simplier and query mani
 - [styled-components](https://styled-components.com/)
 - [GithubAPI](https://developer.github.com/v3/)
 - [GraphQL](https://graphql.org/)
+- [Strapi](https://strapi.io/)
 
 ### Getting Started
 

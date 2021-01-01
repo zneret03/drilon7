@@ -22,6 +22,7 @@ This modern portfolio is using graphQL to make endpoints simplier and query mani
 - [next.js](https://nextjs.org/)
 - [styled-components](https://styled-components.com/)
 - [GithubAPI](https://developer.github.com/v3/)
+- [GraphQL](https://graphql.org/)
 
 ### Getting Started
 

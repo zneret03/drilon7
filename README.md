@@ -4,7 +4,7 @@ I've built this modern portfolio using [next.js](https://nextjs.org/) + [react.j
 
 ![demo](https://github.com/zneret03/drilon7/blob/development/static/design.png)
 
-Though this portfolio is syncing through github api, this is soon to be using graphQL for data management.
+This modern portfolio is using graphQL to make endpoints simplier and query manipuliation by how i like
 
 ---
 

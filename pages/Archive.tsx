@@ -1,7 +1,8 @@
-import React, { useEffect, useContext } from "react";
+import React, { useEffect } from "react";
 import Layout from "../components/Layout";
 import styled from "styled-components";
-import { ProjectsContext } from "../Context/ProjectsProvider";
+import { graphql } from "react-apollo";
+import { filterProjects } from "../components/utils/GraphQuery";
 import Icons from "../components/icons/Icons";
 import AosInit from "../components/utils/aos";
 import Link from "next/link";
@@ -154,8 +155,12 @@ const StyledArchive = styled.div`
   }
 `;
 
-const Archive = () => {
-  const { projects } = useContext(ProjectsContext);
+interface PropTypes {
+  data: any;
+}
+
+const Archive: React.FC<PropTypes> = ({ data }) => {
+  const { projects } = data;
   useEffect(AosInit, []);
 
   return (
@@ -166,7 +171,6 @@ const Archive = () => {
             <h2 className="big-heading">Archive</h2>
             <p className="subtitle">A big list of things I’ve worked on</p>
           </header>
-
           <div>
             <table>
               <thead>
@@ -177,51 +181,52 @@ const Archive = () => {
                 <th colSpan={2}>Link</th>
               </thead>
               <tbody>
-                {projects.map((info: any) => (
-                  <tr key={info.id} data-aos="fade-up">
-                    <td className="overline year">{info.year}</td>
-                    <td className="title">{info.projectName}</td>
-                    <td className="company hide-on-mobile">
-                      {info.projectMadeAt ? (
-                        <span>{info.projectMadeAt}</span>
-                      ) : (
-                        <span>—</span>
-                      )}
-                    </td>
-
-                    <td className="tech hide-on-mobile">
-                      {info.projectTechnology.projectTechnology.map(
-                        (tech: any, index: number) => (
-                          <span key={index}>
-                            {tech}
-                            {index !== tech.length && (
-                              <span className="separator">&middot;</span>
-                            )}
-                          </span>
-                        )
-                      )}
-                    </td>
-
-                    <td className="links">
-                      <div className="links-flex">
-                        {info.demo && (
-                          <Link href={info.demo}>
-                            <a aria-label="External Link">
-                              <Icons name="External" />
-                            </a>
-                          </Link>
+                {projects &&
+                  projects.map((info: any) => (
+                    <tr key={info.id} data-aos="fade-up">
+                      <td className="overline year">{info.year}</td>
+                      <td className="title">{info.projectName}</td>
+                      <td className="company hide-on-mobile">
+                        {info.projectMadeAt ? (
+                          <span>{info.projectMadeAt}</span>
+                        ) : (
+                          <span>—</span>
                         )}
-                        {info.source && (
-                          <Link href={info.source}>
-                            <a aria-label="Github Link">
-                              <Icons name="Github" />
-                            </a>
-                          </Link>
+                      </td>
+
+                      <td className="tech hide-on-mobile">
+                        {info.projectTechnology.projectTechnology.map(
+                          (tech: any, index: number) => (
+                            <span key={index}>
+                              {tech}
+                              {index !== tech.length && (
+                                <span className="separator">&middot;</span>
+                              )}
+                            </span>
+                          )
                         )}
-                      </div>
-                    </td>
-                  </tr>
-                ))}
+                      </td>
+
+                      <td className="links">
+                        <div className="links-flex">
+                          {info.demo && (
+                            <Link href={info.demo}>
+                              <a aria-label="External Link">
+                                <Icons name="External" />
+                              </a>
+                            </Link>
+                          )}
+                          {info.source && (
+                            <Link href={info.source}>
+                              <a aria-label="Github Link">
+                                <Icons name="Github" />
+                              </a>
+                            </Link>
+                          )}
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
               </tbody>
             </table>
           </div>
@@ -231,4 +236,4 @@ const Archive = () => {
   );
 };
 
-export default Archive;
+export default graphql<PropTypes>(filterProjects)(Archive);

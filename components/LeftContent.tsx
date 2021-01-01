@@ -5,7 +5,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 //*Components
 import Icons from "../components/icons/Icons";
-import { loadDelay, enterDelay, socialMedia } from "../components/utils/config";
+import { loadDelay, socialMedia } from "../components/utils/config";
 import Social from "../components/Social";
 import Sidebar from "../components/Sidebar";
 

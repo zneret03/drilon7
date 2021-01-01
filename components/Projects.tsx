@@ -1,11 +1,11 @@
-import React, { useEffect, useContext } from "react";
-import { ProjectsContext } from "../Context/ProjectsProvider";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { OtherProjects } from "./utils/config";
 import AosInit from "./utils/aos";
 import Theme from "../css/CssVariables";
 import Icons from "./icons/Icons";
 import Link from "next/link";
+import { getProjects } from "./utils/GraphQuery";
+import { graphql } from "react-apollo";
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -158,80 +158,84 @@ const StyledProject = styled.div`
   }
 `;
 
-const Projects: React.FC = () => {
-  const GRID_LIMIT = 6;
-  const { projects } = useContext(ProjectsContext);
-  const firstSix = projects.slice(0, GRID_LIMIT);
+interface PropTypes {
+  data: any;
+}
 
-  console.log(projects);
+const Projects: React.FC<PropTypes> = ({ data }) => {
+  const { projects } = data;
+  const GRID_LIMIT: number = 6;
+  const firstSix: Object[] = projects && projects.slice(0, GRID_LIMIT);
 
   useEffect(AosInit, []);
 
   return (
-    <StyledProjectsSection id="project">
-      <div className="heading">
-        <h2 className="numbered-heading">Other Noteworthy Projects</h2>
+    <>
+      <StyledProjectsSection id="project">
+        <div className="heading">
+          <h2 className="numbered-heading">Other Noteworthy Projects</h2>
 
-        <span className="archive-link link">Other Projects</span>
-      </div>
-      <div className="project-grid">
-        {firstSix &&
-          firstSix.map((info: any) => (
-            <StyledProject key={info.id} data-aos="fade-up">
-              {console.log(info)}
-              <div className="project-inner">
-                <header>
-                  <div className="project-top">
-                    <div className="folder">
-                      <Icons name="Folder" />
+          <span className="archive-link link">Other Projects</span>
+        </div>
+        <div className="project-grid">
+          {firstSix &&
+            firstSix.map((info: any) => (
+              <StyledProject key={info.id} data-aos="fade-up">
+                <div className="project-inner">
+                  <header>
+                    <div className="project-top">
+                      <div className="folder">
+                        <Icons name="Folder" />
+                      </div>
+
+                      <div className="project-links">
+                        {info.source && (
+                          <Link href={info.source}>
+                            <a aria-label="Github Link">
+                              <Icons name="Github" />
+                            </a>
+                          </Link>
+                        )}
+                        {info.demo && (
+                          <Link href={info.demo}>
+                            <a aria-label="External Link">
+                              <Icons name="External" />
+                            </a>
+                          </Link>
+                        )}
+                      </div>
                     </div>
 
-                    <div className="project-links">
-                      {info.source && (
-                        <Link href={info.source}>
-                          <a aria-label="Github Link">
-                            <Icons name="Github" />
-                          </a>
-                        </Link>
+                    <h3 className="project-title">{info.projectTitle}</h3>
+
+                    <div
+                      className="project-description"
+                      dangerouslySetInnerHTML={{
+                        __html: info.projectDescription,
+                      }}
+                    />
+                  </header>
+
+                  <footer>
+                    <ul className="project-tech-list">
+                      {info.projectTechnology.projectTechnology.map(
+                        (tech: any, index: number) => (
+                          <li key={index}>{tech}</li>
+                        )
                       )}
-                      {info.demo && (
-                        <Link href={info.demo}>
-                          <a aria-label="External Link">
-                            <Icons name="External" />
-                          </a>
-                        </Link>
-                      )}
-                    </div>
-                  </div>
+                    </ul>
+                  </footer>
+                </div>
+              </StyledProject>
+            ))}
+        </div>
 
-                  <h3 className="project-title">{info.projectTitle}</h3>
-
-                  <div
-                    className="project-description"
-                    dangerouslySetInnerHTML={{
-                      __html: info.projectDescription,
-                    }}
-                  />
-                </header>
-
-                <footer>
-                  <ul className="project-tech-list">
-                    {info.projectTechnology.projectTechnology.map(
-                      (tech: any, index: number) => (
-                        <li key={index}>{tech}</li>
-                      )
-                    )}
-                  </ul>
-                </footer>
-              </div>
-            </StyledProject>
-          ))}
-      </div>
-      <button className="more-button" data-aos="fade-up">
-        <Link href="Archive">Show Archive</Link>
-      </button>
-    </StyledProjectsSection>
+        <button className="more-button" data-aos="fade-up">
+          <Link href="Archive">Show Archive</Link>
+        </button>
+      </StyledProjectsSection>
+    </>
   );
 };
 
-export default Projects;
+export default graphql<PropTypes>(getProjects)(Projects);

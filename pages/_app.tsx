@@ -1,10 +1,15 @@
-import { ProjectsProvider } from "../Context/ProjectsProvider";
+import ApolloClient from "apollo-boost";
+import { ApolloProvider } from "react-apollo";
+
+const client = new ApolloClient({
+  uri: "https://strapi-drilon7.herokuapp.com/graphql",
+});
 
 function App({ Component, pageProps }) {
   return (
-    <ProjectsProvider>
+    <ApolloProvider client={client}>
       <Component {...pageProps} />
-    </ProjectsProvider>
+    </ApolloProvider>
   );
 }
 

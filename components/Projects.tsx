@@ -11,6 +11,11 @@ const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
 
+  .loading {
+    text-align: center;
+    color: var(--lightest-slate);
+  }
+
   .heading {
     position: relative;
     top: 50%;
@@ -163,9 +168,11 @@ interface PropTypes {
 }
 
 const Projects: React.FC<PropTypes> = ({ data }) => {
-  const { projects } = data;
+  const { projects, loading } = data;
   const GRID_LIMIT: number = 6;
   const firstSix: Object[] = projects && projects.slice(0, GRID_LIMIT);
+
+  console.log(loading);
 
   useEffect(AosInit, []);
 
@@ -177,58 +184,62 @@ const Projects: React.FC<PropTypes> = ({ data }) => {
 
           <span className="archive-link link">Other Projects</span>
         </div>
-        <div className="project-grid">
-          {firstSix &&
-            firstSix.map((info: any) => (
-              <StyledProject key={info.id} data-aos="fade-up">
-                <div className="project-inner">
-                  <header>
-                    <div className="project-top">
-                      <div className="folder">
-                        <Icons name="Folder" />
+        {loading ? (
+          <div className="loading">Please Wait...</div>
+        ) : (
+          <div className="project-grid">
+            {firstSix &&
+              firstSix.map((info: any) => (
+                <StyledProject key={info.id} data-aos="fade-up">
+                  <div className="project-inner">
+                    <header>
+                      <div className="project-top">
+                        <div className="folder">
+                          <Icons name="Folder" />
+                        </div>
+
+                        <div className="project-links">
+                          {info.source && (
+                            <Link href={info.source}>
+                              <a aria-label="Github Link">
+                                <Icons name="Github" />
+                              </a>
+                            </Link>
+                          )}
+                          {info.demo && (
+                            <Link href={info.demo}>
+                              <a aria-label="External Link">
+                                <Icons name="External" />
+                              </a>
+                            </Link>
+                          )}
+                        </div>
                       </div>
 
-                      <div className="project-links">
-                        {info.source && (
-                          <Link href={info.source}>
-                            <a aria-label="Github Link">
-                              <Icons name="Github" />
-                            </a>
-                          </Link>
+                      <h3 className="project-title">{info.projectTitle}</h3>
+
+                      <div
+                        className="project-description"
+                        dangerouslySetInnerHTML={{
+                          __html: info.projectDescription,
+                        }}
+                      />
+                    </header>
+
+                    <footer>
+                      <ul className="project-tech-list">
+                        {info.projectTechnology.projectTechnology.map(
+                          (tech: any, index: number) => (
+                            <li key={index}>{tech}</li>
+                          )
                         )}
-                        {info.demo && (
-                          <Link href={info.demo}>
-                            <a aria-label="External Link">
-                              <Icons name="External" />
-                            </a>
-                          </Link>
-                        )}
-                      </div>
-                    </div>
-
-                    <h3 className="project-title">{info.projectTitle}</h3>
-
-                    <div
-                      className="project-description"
-                      dangerouslySetInnerHTML={{
-                        __html: info.projectDescription,
-                      }}
-                    />
-                  </header>
-
-                  <footer>
-                    <ul className="project-tech-list">
-                      {info.projectTechnology.projectTechnology.map(
-                        (tech: any, index: number) => (
-                          <li key={index}>{tech}</li>
-                        )
-                      )}
-                    </ul>
-                  </footer>
-                </div>
-              </StyledProject>
-            ))}
-        </div>
+                      </ul>
+                    </footer>
+                  </div>
+                </StyledProject>
+              ))}
+          </div>
+        )}
 
         <button className="more-button" data-aos="fade-up">
           <Link href="Archive">Show Archive</Link>

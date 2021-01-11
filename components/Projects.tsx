@@ -51,6 +51,10 @@ const StyledProjectsSection = styled.section`
 
   .more-button {
     margin: 80px auto 0;
+
+    a {
+      color: var(--green);
+    }
   }
 
   /* @media (max-width: 1080px) {
@@ -242,7 +246,9 @@ const Projects: React.FC<PropTypes> = ({ data }) => {
         )}
 
         <button className="more-button" data-aos="fade-up">
-          <Link href="Archive">Show Archive</Link>
+          <Link href="Archive">
+            <a>Show Archive</a>
+          </Link>
         </button>
       </StyledProjectsSection>
     </>

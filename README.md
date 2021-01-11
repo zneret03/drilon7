@@ -2,7 +2,7 @@
 
 I've built this modern portfolio using [next.js](https://nextjs.org/) + [react.js](https://reactjs.org/) with [styled-components](https://styled-components.com/)
 
-![demo](https://github.com/zneret03/drilon7/blob/development/static/design.png)
+![demo](https://github.com/zneret03/drilon7/blob/development/public/image/design.png)
 
 This modern portfolio is using graphQL to make endpoints simplier and query manipuliation by how i like
 
@@ -12,7 +12,7 @@ This modern portfolio is using graphQL to make endpoints simplier and query mani
 
 - [Portfolio Prototype Design](https://www.figma.com/file/VSsmwU3BV2nMfXin1lGSjx/Modern-portfolio?node-id=0%3A1)
 
-![demo](https://github.com/zneret03/drilon7/blob/development/static/prototype.png)
+![demo](https://github.com/zneret03/drilon7/blob/development/public/image/prototype.png)
 
 ---
 

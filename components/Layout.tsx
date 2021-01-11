@@ -30,9 +30,6 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
 
   return (
     <GithubProvider>
-      <Head>
-        <title>Portfolio</title>
-      </Head>
       <GlobalStyle />
       {isMounted ? (
         <Loader />

@@ -11,6 +11,7 @@ function App({ Component, pageProps }) {
     <>
       <div>
         <Head>
+          <title>Ian Drilon</title>
           <link rel="shortcut icon" href="/image/favicon.ico" />
         </Head>
       </div>

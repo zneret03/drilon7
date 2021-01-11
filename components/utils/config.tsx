@@ -65,6 +65,16 @@ const projectInformation = [
     source: "https://github.com/zneret03/gitprofile",
     image: "frontpage.png",
   },
+  {
+    feature: "Feature Project",
+    title: "Erebus Theme",
+    description:
+      "A minimal dark blue in visual studio code theme, it helps to rest your eyes and enjoy your project development in your free time",
+    technology: ["vscode", "Dark", "Erebus"],
+    demo: "https://marketplace.visualstudio.com/items?itemName=Erebus.erebus",
+    source: "https://github.com/zneret03/Erebus-Theme",
+    image: "Erebus.png",
+  },
 ];
 
 const loadDelay = 2000;

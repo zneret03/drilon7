@@ -47,7 +47,7 @@ const sideLink = [
 const projectInformation = [
   {
     feature: "Feature Project",
-    title: "Custom Shopify",
+    title: "Fullstack Shopify",
     description:
       "A custom build shopify, that will show case your fullstack skills and front end designing in different technology such as firebase, netlify-functions, tailwind and reactJs and more",
     technology: ["Netlify-lambda", "TailwindCss", "React", "Chart.js"],

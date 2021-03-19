@@ -81,11 +81,11 @@ const DivWrapper = styled.div`
     }
 
     @media (max-width: 768px) {
-      padding: 60px 0px;
+      padding: 60px 40px;
     }
 
     @media (max-width: 480px) {
-      padding: 60px 10px;
+      padding: 60px 27px;
     }
   }
 `;

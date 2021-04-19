@@ -1,4 +1,3 @@
-import { type } from "os";
 import React, { useEffect, createContext, useState } from "react";
 
 interface IContext {

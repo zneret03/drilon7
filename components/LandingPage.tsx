@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
+import { SEO } from "@components";
 import styled from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
+import Image from "next/image";
+import Head from "next/head";
 
 //*Component
 import { loadDelay, enterDelay } from "./utils/config";
 import Icons from "./icons/Icons";
 
 const DivWrapper = styled.div`
+  background-color: #06172f;
   min-height: 100vh;
 
-  #curvedRight {
+  @media (max-width: 1080px) {
+    background-color: var(--navy);
+  }
+
+  /* #curvedRight {
     position: absolute;
     top: 0;
     right: 0;
@@ -18,12 +26,78 @@ const DivWrapper = styled.div`
     @media (max-width: 768px) {
       display: none;
     }
-  }
+  } */
 
   section {
-    padding: 50px 100px;
+    position: relative;
+    padding: 155px 0;
     color: #dbcfcf;
     line-height: 7;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    gap: 8rem;
+
+    @media (max-width: 1100px) {
+      display: block;
+    }
+
+    .left-content {
+      @media (max-width: 1100px) {
+        display: none;
+      }
+
+      .card {
+        border-radius: var(--border-radius);
+        position: absolute;
+        right: 0;
+        z-index: 1;
+        height: 50px;
+        background-color: var(--dark-navy-50);
+        transform: translateX(80px);
+      }
+
+      .image {
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        transform: translateX(120px);
+
+        @media (max-width: 1200px) {
+          transform: translateX(80px);
+        }
+      }
+
+      .box {
+        background: transparent;
+        border: 2px solid var(--green);
+        border-radius: 5px;
+        width: 350px;
+        height: 350px;
+        transform: rotate(-430deg);
+      }
+    }
+
+    .btn-contact {
+      transition: var(--transition);
+      margin-top: 80px;
+      display: flex;
+      align-items: center;
+      gap: 0.9em;
+      cursor: pointer;
+      width: 160px;
+      height: 20px;
+
+      .btn-text {
+        font-weight: bold;
+        font-size: 15px;
+        font-family: var(--font-mono);
+      }
+
+      &:hover {
+        transform: translateX(5px);
+      }
+    }
 
     h1 {
       font-family: var(--font-mono);
@@ -39,12 +113,24 @@ const DivWrapper = styled.div`
 
     h2 {
       font-family: var(--font-sans);
-      font-size: clamp(45px, 5vw, 80px);
+      font-size: clamp(45px, 5vw, 150px);
       font-weight: 600px;
       letter-spacing: 2px;
 
+      @media (max-width: 1080px) {
+        font-size: clamp(65px, 5vw, 150px);
+      }
+
+      @media (max-width: 768px) {
+        font-size: clamp(50px, 5vw, 150px);
+      }
+
+      @media (max-width: 480px) {
+        font-size: clamp(45px, 5vw, 150px);
+      }
+
       @-moz-document url-prefix() {
-        font-size: 60px;
+        font-size: 45px;
         font-weight: 600px;
 
         @media (max-width: 1080px) {
@@ -75,16 +161,16 @@ const DivWrapper = styled.div`
       color: var(--slate);
     }
 
-    @media (max-width: 1080px) {
-      padding: 60px 90px;
+    @media (max-width: 1200px) {
+      padding: 120px 100px;
     }
 
     @media (max-width: 768px) {
-      padding: 60px 40px;
+      padding: 100px 40px;
     }
 
     @media (max-width: 480px) {
-      padding: 60px 27px;
+      padding: 110px 27px;
     }
   }
 `;
@@ -93,7 +179,7 @@ const LandingPage = () => {
   const [toggle, setToggle] = useState(false);
 
   const redirectEmail = (
-    event: React.MouseEvent<HTMLButtonElement, MouseEvent>
+    event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     event.preventDefault();
     window.location.href =
@@ -139,41 +225,65 @@ const LandingPage = () => {
     return () => clearTimeout(timeout);
   }, []);
 
-  const one = <h1>Hi, my name is</h1>;
-
-  const two = (
+  const one = (
     <div>
-      <h2>Ian A Drilon.</h2>
-      <h2>I build things for web.</h2>
+      <h2>Hey Folks</h2>
+      <h2>I'm Ian Drilon</h2>
     </div>
   );
 
-  const three = (
+  const two = (
     <p>
-      I’m a Computer Science student of Iloilo Science and Technology
-      University, specializing in building websites application dynamic, static
-      or anything in between.
+      A freelance developer in Philippines, and a student of Iloilo Science and
+      Technology University, taking up Bachelor in Computer Science degree
     </p>
   );
 
-  const four = (
-    <button type="button" onClick={(event) => redirectEmail(event)}>
-      Get In Touch
-    </button>
-  );
-
-  const five = (
-    <div>
-      <Icons name="CurveRight" />
+  const three = (
+    <div className="btn-contact">
+      <span className="btn-text" onClick={(event) => redirectEmail(event)}>
+        Reach me out
+      </span>
+      <i>
+        <Icons name="Arrow" />
+      </i>
     </div>
   );
 
-  const items = [one, two, three, four];
-  const icons = [five];
+  const four = (
+    <div className="left-content">
+      {/* <div className="card">
+        <span>Ian Drilon</span>
+      </div> */}
+
+      <div className="box" />
+
+      <div className="image">
+        <Image
+          src={"/image/self.png"}
+          alt="Picture of the author"
+          width={600}
+          height={600}
+        />
+      </div>
+    </div>
+  );
+
+  // const five = (
+  //   <div>
+  //     <Icons name="CurveRight" />
+  //   </div>
+  // );
+
+  const items = [one, two, three];
+  const leftContent = [four];
+  // const icons = [five];
 
   return (
-    <DivWrapper id="home">
-      <TransitionGroup component={null}>
+    <>
+      <SEO title="Ian Drilon" content="Landing Page" />
+      <DivWrapper id="home">
+        {/* <TransitionGroup component={null}>
         {isMounted &&
           icons.map((icons: any, index: number) => (
             <CSSTransition
@@ -185,26 +295,42 @@ const LandingPage = () => {
               <div style={{ transitionDelay: `${index + 1}00ms` }}>{icons}</div>
             </CSSTransition>
           ))}
-      </TransitionGroup>
+      </TransitionGroup> */}
 
-      <TransitionGroup in={true} component={null}>
-        <section>
-          {isMounted &&
-            items.map((items: any, index: number) => (
-              <CSSTransition
-                in={true}
-                key={index}
-                classNames="fadeup"
-                timeout={loadDelay}
-              >
-                <div style={{ transitionDelay: `${index + 1}00ms` }}>
-                  {items}
-                </div>
-              </CSSTransition>
-            ))}
-        </section>
-      </TransitionGroup>
-    </DivWrapper>
+        <TransitionGroup in={true} component={null}>
+          <section>
+            <div>
+              {isMounted &&
+                items.map((items: any, index: number) => (
+                  <CSSTransition
+                    in={true}
+                    key={index}
+                    classNames="fadeup"
+                    timeout={loadDelay}
+                  >
+                    <div style={{ transitionDelay: `${index + 1}00ms` }}>
+                      {items}
+                    </div>
+                  </CSSTransition>
+                ))}
+            </div>
+            {isMounted &&
+              leftContent.map((items: any, index: number) => (
+                <CSSTransition
+                  in={true}
+                  key={index}
+                  classNames="fade"
+                  timeout={1000}
+                >
+                  <div style={{ transitionDelay: `${index + 1}00ms` }}>
+                    {items}
+                  </div>
+                </CSSTransition>
+              ))}
+          </section>
+        </TransitionGroup>
+      </DivWrapper>
+    </>
   );
 };
 

@@ -5,8 +5,8 @@ import {
   Work,
   Projects,
   Contact,
-} from "../components/Index";
-import Layout from "../components/Layout";
+  Layout,
+} from "@components";
 
 const Home: React.FC = () => {
   return (

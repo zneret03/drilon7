@@ -1,12 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { GlobalStyle } from "../css";
 import { GithubProvider } from "../Context/GithubProvider";
-import { Loader } from "./Index";
-import Head from "next/head";
+import { Loader } from "./";
 import "aos/dist/aos.css";
 
 //*Components
-import { Footer } from "../components/Index";
+import { Footer } from "@components";
 import LeftContent from "./LeftContent";
 
 if (typeof window !== "undefined") {

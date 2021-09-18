@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
+import { SEO } from "@components";
 import styled from "styled-components";
 import Image from "next/image";
 import AosInit from "./utils/aos";
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
+
+  padding: 150px 90px;
 
   @media (max-width: 1080px) {
     padding: 0px 90px;
@@ -20,7 +23,8 @@ const StyledAboutSection = styled.section`
 
   .inner {
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    align-items: center;
+    grid-template-columns: 2fr 3fr;
     grid-gap: 50px;
 
     @media (max-width: 768px) {
@@ -62,8 +66,12 @@ const StyledPic = styled.div`
   max-width: 300px;
 
   @media (max-width: 768px) {
-    margin: 50px auto 0px;
+    margin: 50px auto 100px;
     width: 70%;
+  }
+
+  @media (max-width: 480px) {
+    margin: 0px auto 100px;
   }
 
   .wrapper {
@@ -81,10 +89,12 @@ const StyledPic = styled.div`
       outline: 0;
       -webkit-filter: var(--webkit-filter-colored); /* Safari 6.0 - 9.0 */
       filter: var(--filter-colored);
+
       &:after {
         top: 15px;
-        left: 15px;
+        right: 15px;
       }
+
       .img {
         filter: none;
         mix-blend-mode: normal;
@@ -94,8 +104,6 @@ const StyledPic = styled.div`
     .img {
       position: relative;
       border-radius: var(--border-radius);
-      mix-blend-mode: multiply;
-      filter: grayscale(100%) contrast(1);
       transition: var(--transition);
     }
 
@@ -120,7 +128,7 @@ const StyledPic = styled.div`
     &:after {
       border: 2px solid var(--green);
       top: 20px;
-      left: 20px;
+      right: 20px;
       z-index: -1;
     }
   }
@@ -132,52 +140,72 @@ const About = () => {
     "HTML & Css3",
     "Node.js",
     "React",
-    "Netlify",
+    "Next.js",
     "Firebase",
   ];
 
   useEffect(AosInit, []);
 
   return (
-    <StyledAboutSection data-aos="fade-up" id="about">
-      <h2 className="numbered-heading">About Me</h2>
-      <div className="inner">
-        <StyledText>
-          <div>
-            <p>
-              Hi! There, Ian A. Drilon a student of Iloilo Science and
-              Technology University,{" "}
-              <a className="link" href="https://www.isatu.edu.ph/">
-                (ISATU)
-              </a>
-            </p>
+    <>
+      <SEO title="Ian Drilon" content="About Page" />
+      <StyledAboutSection data-aos="fade-up" id="about">
+        <div className="inner">
+          <StyledPic>
+            <div className="wrapper">
+              <Image
+                className="img"
+                src={"/image/image.jpg"}
+                alt="Picture of the author"
+                width={500}
+                height={500}
+              />
+            </div>
+          </StyledPic>
+          <StyledText>
+            <h2 className="numbered-heading">Who's Ian?</h2>
+            <div>
+              <p>
+                Hi! There, Ian A. Drilon a student of Iloilo Science and
+                Technology University,{" "}
+                <a
+                  className="link"
+                  href="https://www.isatu.edu.ph/"
+                  target="_blank"
+                >
+                  (ISATU)
+                </a>
+              </p>
 
-            <p>
-              I enjoy creating things that resides in the internet, whether that
-              be websites, applications, or any in between. My goal is always
-              building a scalable, user friendly and pixel-perfect website with
-              performant experience.
-            </p>
+              <p>
+                Former Front-end Engineer of{" "}
+                <a
+                  className="link"
+                  href="https://www.acadarena.com/"
+                  target="_blank"
+                >
+                  AcadArena Inc.
+                </a>
+              </p>
 
-            <p>Here is some technology that i’ve been working recently:</p>
-          </div>
+              <p>
+                {" "}
+                I Enjoy creating things that resides in the internet. whether
+                that be websites, applications, or any in between. My goal is
+                always building a scalable, user friendly and pixel-perfect
+                website with performant experience.
+              </p>
 
-          <ul className="skills-list">
-            {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
-          </ul>
-        </StyledText>
-        <StyledPic>
-          <div className="wrapper">
-            <Image
-              src={"/image/image.png"}
-              alt="Picture of the author"
-              width={500}
-              height={500}
-            />
-          </div>
-        </StyledPic>
-      </div>
-    </StyledAboutSection>
+              <p>Here is some technology that i’ve been working recently:</p>
+            </div>
+
+            <ul className="skills-list">
+              {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
+            </ul>
+          </StyledText>
+        </div>
+      </StyledAboutSection>
+    </>
   );
 };
 

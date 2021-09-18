@@ -11,12 +11,14 @@ import Sidebar from "../components/Sidebar";
 
 const StyledSide = styled.div`
   .Menu {
+    padding-top: 45px;
     position: fixed;
     cursor: pointer;
     z-index: 10;
 
     .socialMedia {
       @media (max-width: 768px) {
+        padding-top: 10px;
         display: none;
       }
     }

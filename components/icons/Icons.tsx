@@ -13,6 +13,7 @@ import {
   Folder,
   CurveRight,
   CurveLeft,
+  Arrow,
 } from "./Index";
 interface PropTypes {
   name: string;
@@ -20,6 +21,8 @@ interface PropTypes {
 
 const Icons: React.FC<PropTypes> = ({ name }) => {
   switch (name) {
+    case "Arrow":
+      return <Arrow />;
     case "Twitter":
       return <Twitter />;
     case "Instagram":

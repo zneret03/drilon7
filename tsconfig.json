@@ -13,7 +13,12 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "baseUrl": ".",
+    "paths": {
+      "@components": ["components"],
+      "@lib/*": ["lib/*"]
+    }
   },
   "include": ["components", "components/Sidebar.tsx"],
   "exclude": ["node_modules"]

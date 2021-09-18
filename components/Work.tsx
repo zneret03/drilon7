@@ -6,9 +6,7 @@ import Link from "next/link";
 import { projectInformation } from "./utils/config";
 
 const StyleWorkSection = styled.section`
-  @media (max-width: 1080px) {
-    padding: 200px 90px;
-  }
+  padding: 40px 90px;
 
   @media (max-width: 768px) {
     padding: 180px 60px;

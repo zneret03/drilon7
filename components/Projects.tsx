@@ -10,6 +10,7 @@ import { graphql } from "react-apollo";
 const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
+  padding: 170px 20px;
 
   .loading {
     text-align: center;
@@ -175,8 +176,6 @@ const Projects: React.FC<PropTypes> = ({ data }) => {
   const { projects, loading } = data;
   const GRID_LIMIT: number = 6;
   const firstSix: Object[] = projects && projects.slice(0, GRID_LIMIT);
-
-  console.log(loading);
 
   useEffect(AosInit, []);
 

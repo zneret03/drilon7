@@ -5,7 +5,7 @@ import { Loader } from "./";
 import "aos/dist/aos.css";
 
 //*Components
-import { Footer, SEO } from "@components";
+import { Footer } from "@components";
 import LeftContent from "./LeftContent";
 
 if (typeof window !== "undefined") {
@@ -29,7 +29,6 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
 
   return (
     <GithubProvider>
-      <SEO />
       <GlobalStyle />
       {isMounted ? (
         <Loader />

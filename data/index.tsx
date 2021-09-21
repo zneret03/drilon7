@@ -80,7 +80,7 @@ const projectInformation = [
 const workExperience = [
   {
     id: 1,
-    title: "AcadArena",
+    title: "AcadArena Inc.",
     imageSource: "/image/AcadArena.png",
     source: "AcadArena.com",
     description:

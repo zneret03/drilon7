@@ -1,7 +1,7 @@
 import React from "react";
 import { animated } from "react-spring";
 import styled from "styled-components";
-import { sideLink } from "./utils/config";
+import { sideLink } from "@data";
 import { X } from "react-feather";
 import { Helmet } from "react-helmet";
 

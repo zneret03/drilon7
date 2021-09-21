@@ -1,10 +1,10 @@
 import React, { useEffect } from "react";
-import Layout from "../components/Layout";
+import Layout from "@components/Layout";
 import styled from "styled-components";
 import { graphql } from "react-apollo";
-import { filterProjects } from "../components/utils/GraphQuery";
-import Icons from "../components/icons/Icons";
-import AosInit from "../components/utils/aos";
+import { filterProjects } from "@components/utils/GraphQuery";
+import Icons from "@components/icons/Icons";
+import AosInit from "@components/utils/aos";
 import Link from "next/link";
 
 const StyledArchive = styled.div`

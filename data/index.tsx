@@ -77,7 +77,47 @@ const projectInformation = [
   },
 ];
 
+const workExperience = [
+  {
+    id: 1,
+    title: "AcadArena",
+    imageSource: "/image/AcadArena.png",
+    source: "AcadArena.com",
+    description:
+      "Designed and developed front-end web application that is made by react, nextJs, tailwind and firebase as leading technology, making web application that will be using by the different teams/university in different game platforms, transforming prototypes into reusable react components",
+    startDate: "April",
+    endDate: "August 2021",
+  },
+  {
+    id: 2,
+    title: "Archdiocese Jaro",
+    imageSource: "/image/Archdiocese.png",
+    source: "https://www.facebook.com/Jarosoccom/",
+    description: `Designed and developed user-friendly web application where they can store all the archives data with different category and search into it easily. and
+      Building wireframes & prototype design, which were turned into functional, fast and performance wise web application`,
+    startDate: "April",
+    endDate: "August 2019",
+  },
+  {
+    id: 3,
+    title: "Freelance",
+    imageSource: "/image/Freelance.png",
+    source: null,
+    description:
+      "Making Exceptional Web application, depending on the client requirements. Designing and making performance wise also user-friendly web and desktop applications. Designing and making prototypes that will later establish as web or desktop applications",
+    startDate: "Junuary 2019",
+    endDate: "Present",
+  },
+];
+
 const loadDelay = 2000;
 const enterDelay = 1000;
 
-export { socialMedia, sideLink, projectInformation, loadDelay, enterDelay };
+export {
+  socialMedia,
+  sideLink,
+  projectInformation,
+  loadDelay,
+  enterDelay,
+  workExperience,
+};

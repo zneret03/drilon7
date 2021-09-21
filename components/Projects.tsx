@@ -1,11 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import AosInit from "./utils/aos";
-import Theme from "../css/CssVariables";
-import Icons from "./icons/Icons";
+import Theme from "@css/CssVariables";
+import Icons from "@components/icons/Icons";
 import Link from "next/link";
-import { getProjects } from "./utils/GraphQuery";
-import { graphql } from "react-apollo";
+import AosInit from "@components/utils/aos";
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -168,11 +166,7 @@ const StyledProject = styled.div`
   }
 `;
 
-interface PropTypes {
-  data: any;
-}
-
-const Projects: React.FC<PropTypes> = ({ data }) => {
+const Projects = ({ data }): JSX.Element => {
   const { projects, loading } = data;
   const GRID_LIMIT: number = 6;
   const firstSix: Object[] = projects && projects.slice(0, GRID_LIMIT);
@@ -184,7 +178,6 @@ const Projects: React.FC<PropTypes> = ({ data }) => {
       <StyledProjectsSection id="project">
         <div className="heading">
           <h2 className="numbered-heading">Other Noteworthy Projects</h2>
-
           <span className="archive-link link">Other Projects</span>
         </div>
         {loading ? (
@@ -254,4 +247,4 @@ const Projects: React.FC<PropTypes> = ({ data }) => {
   );
 };
 
-export default graphql<PropTypes>(getProjects)(Projects);
+export default Projects;

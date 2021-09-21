@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import styled from "styled-components";
 import Icons from "./icons/Icons";
-import { GithubContext } from "../Context/GithubProvider";
+import { GithubContext } from "@Context/GithubProvider";
 
 const SyledFooterSection = styled.div`
   position: relative;

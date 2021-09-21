@@ -1,7 +1,7 @@
 import React from "react";
 import Icons from "./icons/Icons";
 import styled from "styled-components";
-import LogoAnimation from "../css/LogoAnimation";
+import LogoAnimation from "@css/LogoAnimation";
 
 const StyledLogo = styled.div`
   width: 100%;

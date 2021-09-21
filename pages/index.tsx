@@ -6,18 +6,24 @@ import {
   Projects,
   Contact,
   Layout,
+  WorkExperience,
 } from "@components";
+import { graphql } from "react-apollo";
+import { dataTypes } from "@lib/types";
+import { getProjects } from "@components/utils/GraphQuery";
+import { workExperience } from "@data";
 
-const Home: React.FC = () => {
+const Home = ({ data }) => {
   return (
     <Layout>
       <LandingPage />
       <About />
+      <WorkExperience jobs={workExperience} />
       <Work />
-      <Projects />
+      <Projects data={data} />
       <Contact />
     </Layout>
   );
 };
 
-export default Home;
+export default graphql<dataTypes>(getProjects)(Home);

@@ -4,10 +4,10 @@ import { useSpring } from "react-spring";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 
 //*Components
-import Icons from "../components/icons/Icons";
-import { loadDelay, socialMedia } from "../components/utils/config";
-import Social from "../components/Social";
-import Sidebar from "../components/Sidebar";
+import Icons from "@components/icons/Icons";
+import { loadDelay, socialMedia } from "@data";
+import Social from "@components/Social";
+import Sidebar from "@components/Sidebar";
 
 const StyledSide = styled.div`
   .Menu {

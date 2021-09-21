@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import Icons from "./icons/Icons";
+import Icons from "@components/icons/Icons";
 import styled from "styled-components";
-import AosInit from "./utils/aos";
+import AosInit from "@components/utils/aos";
 import Link from "next/link";
-import { projectInformation } from "./utils/config";
+import { projectInformation } from "@data";
 
 const StyleWorkSection = styled.section`
   padding: 40px 90px;
@@ -287,7 +287,7 @@ const StyledProject = styled.div`
       @media (max-width: 768px) {
         width: 100%;
         height: auto;
-        bject-fit: cover;
+        object-fit: cover;
         filter: grayscale(100%) contrast(1) brightness(80%);
       }
     }

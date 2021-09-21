@@ -3,10 +3,9 @@ import { SEO } from "@components";
 import styled from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Image from "next/image";
-import Head from "next/head";
 
 //*Component
-import { loadDelay, enterDelay } from "./utils/config";
+import { loadDelay, enterDelay } from "@data";
 import Icons from "./icons/Icons";
 
 const DivWrapper = styled.div`

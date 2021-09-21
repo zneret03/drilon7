@@ -16,8 +16,13 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
+      "@components/*": ["components/*"],
       "@components": ["components"],
-      "@lib/*": ["lib/*"]
+      "@lib/*": ["lib/*"],
+      "@css/*": ["css/*"],
+      "@css": ["css"],
+      "@data": ["data"],
+      "@Context/*": ["Context/*"]
     }
   },
   "include": ["components", "components/Sidebar.tsx"],

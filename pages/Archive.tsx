@@ -9,7 +9,7 @@ import Link from "next/link";
 
 const StyledArchive = styled.div`
   margin: -50px 90px;
-  padding: 45px 50px 200px;
+  padding: 80px 50px 200px;
 
   @media (max-width: 1080px) {
     margin: -50px 90px;

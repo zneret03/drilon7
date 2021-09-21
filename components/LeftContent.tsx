@@ -10,6 +10,7 @@ import Social from "@components/Social";
 import Sidebar from "@components/Sidebar";
 
 const StyledSide = styled.div`
+  padding: 10px 0%;
   .Menu {
     padding-top: 45px;
     position: fixed;

@@ -58,9 +58,9 @@ const Footer: React.FC = () => {
 
   return (
     <SyledFooterSection>
-      <div>
+      {/* <div>
         <Icons name="CurveLeft" />
-      </div>
+      </div> */}
 
       <StyledCredits>
         <a href={information.html_url}>

@@ -1,12 +1,24 @@
 import React, { useState, useEffect } from "react";
 import { SEO } from "@components";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import { CSSTransition, TransitionGroup } from "react-transition-group";
 import Image from "next/image";
 
 //*Component
 import { loadDelay, enterDelay } from "@data";
 import Icons from "./icons/Icons";
+
+const float = keyframes`
+  	0% {
+		  transform: translatey(0px);
+	  }
+    50% {
+      transform: translatey(-15px);
+    }
+    100% {
+      transform: translatey(0px);
+    }
+`;
 
 const DivWrapper = styled.div`
   background-color: #06172f;
@@ -31,7 +43,6 @@ const DivWrapper = styled.div`
     position: relative;
     padding: 155px 0;
     color: #dbcfcf;
-    line-height: 7;
     display: flex;
     flex-shrink: 0;
     align-items: center;
@@ -41,19 +52,54 @@ const DivWrapper = styled.div`
       display: block;
     }
 
-    .left-content {
+    .right-content {
       @media (max-width: 1100px) {
         display: none;
       }
 
       .card {
+        display: flex;
+        gap: 10px;
+        padding: 16px 20px;
         border-radius: var(--border-radius);
         position: absolute;
-        right: 0;
+        right: -120px;
         z-index: 1;
-        height: 50px;
+        height: auto;
         background-color: var(--dark-navy-50);
-        transform: translateX(80px);
+
+        animation: ${float} 6s ease-in-out infinite;
+
+        img {
+          border: 2px solid var(--light-slate);
+          object-fit: cover;
+          border-radius: 50%;
+          width: 36px;
+          height: 36px;
+        }
+
+        .card-wrapper {
+          line-height: 18px;
+          color: var(--lightest-slate-20);
+          display: flex;
+          flex-direction: column;
+          gap: 4px;
+
+          .rating {
+            gap: 2px;
+            margin: 4px 0 0;
+            display: flex;
+            align-items: center;
+          }
+
+          .title {
+            font-size: 16px;
+          }
+
+          .sub-title {
+            font-size: 14px;
+          }
+        }
       }
 
       .image {
@@ -250,10 +296,19 @@ const LandingPage = () => {
   );
 
   const four = (
-    <div className="left-content">
-      {/* <div className="card">
-        <span>Ian Drilon</span>
-      </div> */}
+    <div className="right-content">
+      <div className="card">
+        <img src="/image/card-profile.jpg" alt="" />
+        <div className="card-wrapper">
+          <span className="title">Ian Drilon</span>
+          <span className="sub-title">Soft. Developer</span>
+          <div className="rating">
+            {[...Array(5)].map(() => {
+              return <Icons name="Star" />;
+            })}
+          </div>
+        </div>
+      </div>
 
       <div className="box" />
 

@@ -21,3 +21,8 @@ export type JobTypes = {
         endDate : string
     }[]
 }
+
+export type IconTypes = {
+    name? : string,
+    fill? : string
+}

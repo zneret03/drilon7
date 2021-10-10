@@ -304,7 +304,7 @@ const LandingPage = () => {
           <span className="sub-title">Soft. Developer</span>
           <div className="rating">
             {[...Array(5)].map(() => {
-              return <Icons name="Star" />;
+              return <Icons name="Star" fill="#2AFF4C" />;
             })}
           </div>
         </div>

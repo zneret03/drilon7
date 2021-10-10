@@ -15,11 +15,9 @@ import {
   CurveLeft,
   Arrow,
 } from "./Index";
-interface PropTypes {
-  name: string;
-}
+import { IconTypes } from "@lib/types";
 
-const Icons: React.FC<PropTypes> = ({ name }) => {
+export default function Icons({ name, fill }: IconTypes): JSX.Element {
   switch (name) {
     case "Arrow":
       return <Arrow />;
@@ -38,7 +36,7 @@ const Icons: React.FC<PropTypes> = ({ name }) => {
     case "Menu":
       return <Menu />;
     case "Star":
-      return <Star />;
+      return <Star fill={fill} />;
     case "Folder":
       return <Folder />;
     case "Fork":
@@ -50,6 +48,4 @@ const Icons: React.FC<PropTypes> = ({ name }) => {
     case "CurveLeft":
       return <CurveLeft />;
   }
-};
-
-export default Icons;
+}

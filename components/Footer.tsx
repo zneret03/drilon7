@@ -69,7 +69,7 @@ const Footer: React.FC = () => {
             information.forks !== undefined && (
               <div className="github-icons">
                 <span>
-                  <Icons name="Star" />
+                  <Icons name="Star" fill="#CBD4F6" />
                   <span>{information.stargazers_count.toLocaleString()}</span>
                 </span>
                 <span>

@@ -1,4 +1,5 @@
 import ApolloClient from "apollo-boost";
+import { useEffect } from "react";
 import { ApolloProvider } from "react-apollo";
 import Head from "next/head";
 
@@ -7,11 +8,30 @@ const client = new ApolloClient({
 });
 
 function App({ Component, pageProps }) {
+  useEffect(() => {
+    if ("serviceWorker" in navigator) {
+      window.addEventListener("load", function () {
+        this.navigator.serviceWorker
+          .register("/sw.js")
+          .then(function (registration) {
+            console.log(
+              "Service Worker registration successful with scope: ",
+              registration.scope
+            );
+          }),
+          function (err: any) {
+            console.log("Service Worker registration failed: ", err);
+          };
+      });
+    }
+  }, []);
+
   return (
     <>
       <div>
         <Head>
           <title>Ian Drilon</title>
+          <link rel="manifest" href="/manifest.json" />
           <link rel="shortcut icon" href="/image/favicon.ico" />
         </Head>
       </div>

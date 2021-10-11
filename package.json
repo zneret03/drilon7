@@ -35,6 +35,7 @@
   "dependencies": {
     "apollo-boost": "^0.4.9",
     "graphql": "^15.4.0",
+    "next-pwa": "^5.3.1",
     "react-apollo": "^3.1.5"
   }
 }

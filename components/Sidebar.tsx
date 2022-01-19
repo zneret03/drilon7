@@ -102,7 +102,7 @@ const Sidebar: React.FC<PropTypes> = ({
 }) => {
   const resume = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
-    window.location.href = "/Resume.pdf";
+    window.open("/Resume.pdf");
   };
 
   return (

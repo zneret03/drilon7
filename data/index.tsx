@@ -75,6 +75,16 @@ const projectInformation = [
     source: "https://github.com/zneret03/Erebus-Theme",
     image: "Erebus.png",
   },
+  {
+    feature: "Feature Project",
+    title: "Rice Procurement Management System",
+    description:
+      "Rice Procurement Managment System is a bidding system that helps the farmers sell their product in the highest amount of bidding by the traders, it was also built by reactjs, tailwindcss, firebase and more...",
+    technology: ["Reactjs", "System", "TailwindCss"],
+    demo: "empty",
+    source: "https://github.com/EceLaaah/rptm",
+    image: "rptm.png",
+  },
 ];
 
 const workExperience = [

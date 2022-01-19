@@ -64,8 +64,9 @@ const StyledContactSection = styled.section`
 const Contact: React.FC = () => {
   const contact = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
-    window.location.href =
-      "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=iandrilon2@gmail.com&tf=1";
+    window.open(
+      "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=iandrilon2@gmail.com&tf=1"
+    );
   };
 
   useEffect(AosInit, []);

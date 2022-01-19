@@ -333,13 +333,11 @@ const Work: React.FC = () => {
           </div>
 
           <div className="project-image">
-            {project.demo !== "empty" && (
-              <Link href={project.demo}>
-                <a>
-                  <img src={`/image/${project.image}`} className="img" alt="" />
-                </a>
-              </Link>
-            )}
+            <Link href={project.demo}>
+              <a>
+                <img src={`/image/${project.image}`} className="img" alt="" />
+              </a>
+            </Link>
           </div>
         </StyledProject>
       ))}

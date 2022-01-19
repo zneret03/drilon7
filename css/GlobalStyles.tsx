@@ -1,7 +1,29 @@
 import { createGlobalStyle } from "styled-components";
 import TranstionStyles from "./TransitionStyles";
 import Theme from "./CssVariables";
+
 const GlobalStyle = createGlobalStyle`
+
+
+  /* Scrollbar Styles */
+  html {
+    scrollbar-width: thin;
+    scrollbar-color: var(--lightest-navy);
+  }
+
+  body::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  body::-webkit-scrollbar-track {
+    background: var(--navy);
+  }
+
+  body::-webkit-scrollbar-thumb {
+    background-color: var(--lightest-navy);
+    border: 3px solid var(--lightest-navy);
+    border-radius: 10px;
+  }
 
     body {
         margin: 0;
@@ -15,6 +37,7 @@ const GlobalStyle = createGlobalStyle`
         font-family: var(--font-sans);
         font-size: var(--fz-xl);
         line-height: 1.3;
+        scrollbar-width: thin;
 
       @media (max-width: 480px) {
         font-size: var(--fz-lg);

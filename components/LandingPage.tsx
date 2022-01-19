@@ -227,8 +227,9 @@ const LandingPage = () => {
     event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     event.preventDefault();
-    window.location.href =
-      "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=iandrilon2@gmail.com&tf=1";
+    window.open(
+      "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=iandrilon2@gmail.com&tf=1"
+    );
   };
 
   const toggleSideBar = (

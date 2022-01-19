@@ -322,20 +322,24 @@ const Work: React.FC = () => {
                   <Icons name={"Github"} />
                 </a>
               </Link>
-              <Link href={project.demo}>
-                <a>
-                  <Icons name={"External"} />
-                </a>
-              </Link>
+              {project.demo !== "empty" && (
+                <Link href={project.demo}>
+                  <a>
+                    <Icons name={"External"} />
+                  </a>
+                </Link>
+              )}
             </div>
           </div>
 
           <div className="project-image">
-            <Link href={project.demo}>
-              <a>
-                <img src={`/image/${project.image}`} className="img" alt="" />
-              </a>
-            </Link>
+            {project.demo !== "empty" && (
+              <Link href={project.demo}>
+                <a>
+                  <img src={`/image/${project.image}`} className="img" alt="" />
+                </a>
+              </Link>
+            )}
           </div>
         </StyledProject>
       ))}

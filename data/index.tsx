@@ -47,24 +47,34 @@ const sideLink = [
 const projectInformation = [
   {
     feature: "Feature Project",
+    title: "Nail Disease Detection",
+    description:
+      "nail disease detection is an application that is built in ReactJs, Sass, Electron, Python and Flask. This application track the early stage of nail disease using tensorflow and cnn. this is also my thesis propsal in my last year in college",
+    technology: ["ReactJs", "Sass", "Electron", "Python Flask"],
+    demo: "empty",
+    source: "https://github.com/zneret03/nail_detection",
+    image: "nail_disease.png",
+  },
+  {
+    feature: "Feature Project",
     title: "Fullstack Shopify",
     description:
       "A  fullstack shopify, that will show case your fullstack skills and front end designing in different technology such as firebase, netlify-functions, tailwind and reactJs and more",
     technology: ["Netlify-lambda", "TailwindCss", "React", "Chart.js"],
-    demo: "https://shopifyid.netlify.app/",
+    demo: "empty",
     source: "https://github.com/zneret03/shopify",
     image: "dashboard.png",
   },
-  {
-    feature: "Feature Project",
-    title: "GitProfile",
-    description:
-      "A nicer look at your GitHub profile and repository stats with data visualizations of your top languages and stars. Sort through your top repos by number of stars, forks, and size.",
-    technology: ["Chart.js", "TailwindCss", "React"],
-    demo: "https://gitprofilee.netlify.app/",
-    source: "https://github.com/zneret03/gitprofile",
-    image: "frontpage.png",
-  },
+  // {
+  //   feature: "Feature Project",
+  //   title: "GitProfile",
+  //   description:
+  //     "A nicer look at your GitHub profile and repository stats with data visualizations of your top languages and stars. Sort through your top repos by number of stars, forks, and size.",
+  //   technology: ["Chart.js", "TailwindCss", "React"],
+  //   demo: "https://gitprofilee.netlify.app/",
+  //   source: "https://github.com/zneret03/gitprofile",
+  //   image: "frontpage.png",
+  // },
   {
     feature: "Feature Project",
     title: "Erebus Theme",

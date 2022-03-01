@@ -12,3 +12,4 @@ export { default as Folder } from "./Folder";
 export { default as CurveRight } from "./CurveRight";
 export { default as CurveLeft } from "./CurveLeft";
 export { default as Arrow } from "./Arrow";
+export {default as ArrowDown} from "./ArrowDown"

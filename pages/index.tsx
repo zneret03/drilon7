@@ -18,9 +18,9 @@ const Home = ({ data }) => {
     <Layout>
       <LandingPage />
       <About />
-      <WorkExperience jobs={workExperience} />
       <Work />
       <Projects data={data} />
+      <WorkExperience jobs={workExperience} />
       <Contact />
     </Layout>
   );

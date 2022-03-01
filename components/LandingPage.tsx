@@ -22,7 +22,6 @@ const float = keyframes`
 
 const DivWrapper = styled.div`
   background-color: #06172f;
-  min-height: 100vh;
 
   @media (max-width: 1080px) {
     background-color: var(--navy);
@@ -227,9 +226,8 @@ const LandingPage = () => {
     event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     event.preventDefault();
-    window.open(
-      "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=iandrilon2@gmail.com&tf=1"
-    );
+    const typeFormRedirect = "TypeForm"
+    window.open(typeFormRedirect);
   };
 
   const toggleSideBar = (

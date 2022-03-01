@@ -1,8 +1,59 @@
 import React, { useEffect } from "react";
 import { SEO } from "@components";
-import styled from "styled-components";
+import styled, { keyframes } from "styled-components";
 import Image from "next/image";
 import AosInit from "./utils/aos";
+import Icons from "@components/icons/Icons";
+
+// const animatedArrow = keyframes`
+//     0% {
+//       transform: translateY(0px);
+//     }
+//     50% {
+//       transform: translateY(-18px);
+//     }
+//     100% {
+//       transform: translateY(0px);
+//     }
+// `;
+
+const pulse = keyframes`
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(134, 144, 176, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(134, 144, 176, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(134, 144, 176, 0);
+  }
+`;
+
+const ArrowDownStyled = styled.div`
+  display: block;
+  cursor: pointer;
+  width: 100px;
+  height: 100px;
+  margin: 0 auto;
+  transform: translateY(-14px);
+
+  @media (max-width: 1100px) {
+    display: none;
+  }
+
+  svg {
+    border-radius: 50%;
+    box-shadow: 0 0 0 0 rgba(134, 144, 176, 1);
+    transform: scale(1);
+    animation: ${pulse} infinite 2s linear;
+  }
+`;
+
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -149,6 +200,12 @@ const About = () => {
   return (
     <>
       <SEO title="Ian Drilon" content="About Page" />
+
+      <ArrowDownStyled className="arrow-container">
+        <a href="#about"><Icons name="ArrowDown" /></a>
+        <div className="circle"/>
+      </ArrowDownStyled>
+
       <StyledAboutSection data-aos="fade-up" id="about">
         <div className="inner">
           <StyledPic>

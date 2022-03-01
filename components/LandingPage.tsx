@@ -22,6 +22,7 @@ const float = keyframes`
 
 const DivWrapper = styled.div`
   background-color: #06172f;
+  //height: 100vh;
 
   @media (max-width: 1080px) {
     background-color: var(--navy);
@@ -66,7 +67,6 @@ const DivWrapper = styled.div`
         z-index: 1;
         height: auto;
         background-color: var(--dark-navy-50);
-
         animation: ${float} 6s ease-in-out infinite;
 
         img {

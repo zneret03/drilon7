@@ -14,11 +14,14 @@ import {
   CurveRight,
   CurveLeft,
   Arrow,
+  ArrowDown
 } from "./Index";
 import { IconTypes } from "@lib/types";
 
 export default function Icons({ name, fill }: IconTypes): JSX.Element {
   switch (name) {
+    case "ArrowDown":
+      return <ArrowDown />;
     case "Arrow":
       return <Arrow />;
     case "Twitter":

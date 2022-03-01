@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Link from 'next/link'
 import styled from "styled-components";
 import AosInit from "./utils/aos";
 
@@ -64,9 +65,10 @@ const StyledContactSection = styled.section`
 const Contact: React.FC = () => {
   const contact = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
     event.preventDefault();
-    window.open(
-      "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=iandrilon2@gmail.com&tf=1"
-    );
+
+    //const googleEmail = "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=iandrilon2@gmail.com&tf=1"
+    const typeFormRedirect = "TypeForm"
+    window.open(typeFormRedirect);
   };
 
   useEffect(AosInit, []);

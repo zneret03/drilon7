@@ -1,3 +1,13 @@
+const jobs = [
+  {
+    id : 1,
+    company : "AcadArena",
+    url : null,
+    range : "Janguary - June 2017",
+    description : 'dwadawdwa'
+  }
+]
+
 const socialMedia = [
   {
     name: "Twitter",
@@ -140,4 +150,5 @@ export {
   loadDelay,
   enterDelay,
   workExperience,
+  jobs
 };

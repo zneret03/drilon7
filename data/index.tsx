@@ -1,12 +1,12 @@
 const jobs = [
   {
-    id : 1,
-    company : "AcadArena",
-    url : null,
-    range : "Janguary - June 2017",
-    description : 'dwadawdwa'
-  }
-]
+    id: 1,
+    company: "AcadArena",
+    url: null,
+    range: "Janguary - June 2017",
+    description: "dwadawdwa",
+  },
+];
 
 const socialMedia = [
   {
@@ -138,9 +138,19 @@ const workExperience = [
     startDate: "Junuary 2019",
     endDate: "Present",
   },
+  {
+    id: 4,
+    title: "Alabaster Tech",
+    imageSource: "/image/ecommerce.png",
+    source: null,
+    description:
+      "Meeting and planning in different type of projects, while managing other inters, also making wireframes and converting into functional web application. collaborating with senior developer for different and better approach on revamping their product which is takeOutPh",
+    startDate: "March",
+    endDate: "May",
+  },
 ];
 
-const loadDelay = 2000;
+const loadDelay = 2000; 
 const enterDelay = 1000;
 
 export {
@@ -150,5 +160,5 @@ export {
   loadDelay,
   enterDelay,
   workExperience,
-  jobs
+  jobs,
 };

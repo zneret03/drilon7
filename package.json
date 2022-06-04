@@ -37,6 +37,8 @@
     "apollo-boost": "^0.4.9",
     "graphql": "^15.4.0",
     "next-pwa": "^5.3.1",
-    "react-apollo": "^3.1.5"
+    "react-apollo": "^3.1.5",
+    "react-slick": "^0.29.0",
+    "slick-carousel": "^1.8.1"
   }
 }

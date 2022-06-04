@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import Theme from "@css/CssVariables";
 import Icons from "@components/icons/Icons";
+import useToggle from "@hooks/useToggle";
 import Link from "next/link";
 import AosInit from "@components/utils/aos";
 
@@ -27,6 +28,7 @@ const StyledProjectsSection = styled.section`
   }
 
   .archive-link {
+    cursor: pointer;
     font-family: var(--font-mono);
     font-size: var(--fz-sm);
     color: var(--green);
@@ -96,6 +98,12 @@ const StyledProject = styled.div`
     background-color: var(--light-navy);
     transition: var(--transition);
 
+    &:hover {
+      .project-title {
+        color: var(--green);
+      }
+    }
+
     .project-top {
       display: flex;
       justify-content: space-between;
@@ -138,8 +146,12 @@ const StyledProject = styled.div`
 
     .project-description {
       color: var(--light-slate);
+      display: -webkit-box;
       font-size: 16px;
-      text-overflow: ellipsis;
+      max-width: 4 00px;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
 
       a {
         ${Theme.inlineLink}
@@ -169,7 +181,9 @@ const StyledProject = styled.div`
 const Projects = ({ data }): JSX.Element => {
   const { projects, loading } = data;
   const GRID_LIMIT: number = 6;
+  const [isShow, isToggle] = useToggle();
   const firstSix: Object[] = projects && projects.slice(0, GRID_LIMIT);
+  const projectsData = isShow ? projects : firstSix;
 
   useEffect(AosInit, []);
 
@@ -178,14 +192,16 @@ const Projects = ({ data }): JSX.Element => {
       <StyledProjectsSection id="project">
         <div className="heading">
           <h2 className="numbered-heading">Other Noteworthy Projects</h2>
-          <span className="archive-link link">Other Projects</span>
+          <Link href="Archive">
+            <span className="archive-link link">explore more</span>
+          </Link>
         </div>
         {loading ? (
           <div className="loading">Please Wait...</div>
         ) : (
           <div className="project-grid">
-            {firstSix &&
-              firstSix.map((info: any) => (
+            {projectsData &&
+              projectsData.map((info: any) => (
                 <StyledProject key={info.id} data-aos="fade-up">
                   <div className="project-inner">
                     <header>
@@ -237,10 +253,8 @@ const Projects = ({ data }): JSX.Element => {
           </div>
         )}
 
-        <button className="more-button" data-aos="fade-up">
-          <Link href="Archive">
-            <a>Show Archive</a>
-          </Link>
+        <button className="more-button" data-aos="fade-up" onClick={isToggle}>
+          <a>Show {isShow ? "less" : "more"}</a>
         </button>
       </StyledProjectsSection>
     </>

@@ -8,3 +8,4 @@ export { default as Footer } from "./Footer";
 export { default as SEO } from "./SEO";
 export { default as Layout } from "./Layout";
 export { default as WorkExperience } from "./WorkExperience";
+export { default as AppendDots } from "./AppendDots";

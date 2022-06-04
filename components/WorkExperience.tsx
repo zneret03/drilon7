@@ -1,5 +1,7 @@
 import { useEffect } from "react";
 import { JobTypes } from "@lib/types";
+import Slider from "react-slick";
+import { AppendDots } from "@components";
 import styled from "styled-components";
 import AosInit from "@components/utils/aos";
 
@@ -22,7 +24,7 @@ const StyledWorkExperience = styled.section`
     grid-gap: 40px;
 
     @media (max-width: 780px) {
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       grid-gap: 5px;
     }
 
@@ -141,38 +143,66 @@ const StyledWorkExperience = styled.section`
 `;
 
 export default function WorkExperience({ jobs }: JobTypes): JSX.Element {
+  const settings = {
+    autoplay: true,
+    dots: true,
+    infinite: true,
+    speed: 1000,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+    lazyLoad: true,
+    arrows: false,
+    appendDots: (dots: any) => {
+      return <AppendDots dots={dots} />;
+    },
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          centerPadding: "60px",
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          initialSlide: 1,
+        },
+      },
+    ],
+  };
+
   useEffect(AosInit, []);
 
   return (
     <StyledWorkExperience data-aos="fade-up">
       <h2 className="numbered-heading">Work Experience</h2>
       <span className="sub-title">Software Companies</span>
-      <div className="card">
+      <Slider {...settings}>
         {jobs.map((type) => (
-          <figure className="image-block">
-            <img src={type.imageSource} alt="" />
-            <figcaption>
-              <div className="title">
-                <h3>{type.title}</h3>
-                <span>
-                  {type.startDate} - {type.endDate}
-                </span>
-              </div>
-              <div
-                className="job-description"
-                dangerouslySetInnerHTML={{ __html: type.description }}
-              />
-              {/* <p>
-               Pellentesque habitant morbi tristique senectus et netus et
-               malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat
-               vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit
-               amet quam egestas semper. Aenean ultricies mi vitae est. Mauris
-               placerat eleifend leo.
-             </p> */}
-            </figcaption>
-          </figure>
+          <div className="card">
+            <figure className="image-block">
+              <img src={type.imageSource} alt="" />
+              <figcaption>
+                <div className="title">
+                  <h3>{type.title}</h3>
+                  <span>
+                    {type.startDate} - {type.endDate}
+                  </span>
+                </div>
+                <div
+                  className="job-description"
+                  dangerouslySetInnerHTML={{ __html: type.description }}
+                />
+              </figcaption>
+            </figure>
+          </div>
         ))}
-      </div>
+      </Slider>
     </StyledWorkExperience>
   );
 }

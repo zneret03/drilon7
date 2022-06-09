@@ -1,28 +1,32 @@
+export type SlickDotTypes = {
+  dots: Object;
+};
+
 export type SEOTypes = {
-    title : string,
-    content : string,
-}
+  title: string;
+  content: string;
+};
 
 export type dataTypes = {
-    data : {
-        projects : Array<Object>;
-        loading : boolean
-    }
-}
+  data: {
+    projects: Array<Object>;
+    loading: boolean;
+  };
+};
 
 export type JobTypes = {
-    jobs : {
-        id: number,
-        title : string,
-        imageSource: string,
-        source: string,
-        description: string,
-        startDate: string,
-        endDate : string
-    }[]
-}
+  jobs: {
+    id: number;
+    title: string;
+    imageSource: string;
+    source: string;
+    description: string;
+    startDate: string;
+    endDate: string;
+  }[];
+};
 
 export type IconTypes = {
-    name? : string,
-    fill? : string
-}
+  name?: string;
+  fill?: string;
+};

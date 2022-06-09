@@ -1,6 +1,7 @@
 import React from "react";
 import {
   LandingPage,
+  Certificates,
   About,
   Work,
   Projects,
@@ -21,6 +22,7 @@ const Home = ({ data }) => {
       <Work />
       <Projects data={data} />
       <WorkExperience jobs={workExperience} />
+      <Certificates />
       <Contact />
     </Layout>
   );

@@ -155,13 +155,15 @@ const certificates = [
     id: 1,
     title: "HackFest Loyola",
     subtitle: "hackfest",
-    source: "",
+    source:
+      "https://github.com/zneret03/drilon7/blob/development/public/certificates/unplugged%2C%20IanDrilon.pdf",
   },
   {
     id: 2,
     title: "Asean Data Science Explorers",
     subtitle: "DSE",
-    source: "",
+    source:
+      "https://github.com/zneret03/drilon7/blob/development/public/certificates/03%20Second%20Runner%20Up%20-%20National%20Finals%20Certificate.pdf",
   },
 ];
 

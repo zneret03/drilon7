@@ -1,6 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import Theme from "@css/CssVariables";
+import Link from "next/link";
+import { certificates } from "data";
 
 const CertificatesContainer = styled.section`
   line-height: 1.6rem;
@@ -62,29 +64,22 @@ export default function Certificates(): JSX.Element {
       <span className="sub-title">some of my certificates</span>
 
       <div className="card-certificates-wrapper">
-        <div className="card-certificates">
-          <h4>Huawei Developer Expert</h4>
-          <div className="certificate-subtitle">Huawei</div>
-          <div className="redirect-btn">
-            <span>View Certificate</span>
-          </div>
-        </div>
-
-        <div className="card-certificates">
-          <h4>Huawei Developer Expert</h4>
-          <div className="certificate-subtitle">Huawei</div>
-          <div className="redirect-btn">
-            <span>View Certificate</span>
-          </div>
-        </div>
-
-        <div className="card-certificates">
-          <h4>Huawei Developer Expert</h4>
-          <div className="certificate-subtitle">Huawei</div>
-          <div className="redirect-btn">
-            <span>View Certificate</span>
-          </div>
-        </div>
+        {certificates.map((type) => {
+          return (
+            <div className="card-certificates">
+              <h4>{type.title}</h4>
+              <div className="certificate-subtitle">{type.subtitle}</div>
+              <a
+                href={type.source}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="redirect-btn"
+              >
+                <span>View Certificate</span>
+              </a>
+            </div>
+          );
+        })}
       </div>
     </CertificatesContainer>
   );

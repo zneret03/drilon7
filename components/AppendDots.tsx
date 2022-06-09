@@ -1,3 +1,4 @@
+import { SlickDotTypes } from "@lib/types";
 import React from "react";
 import styled from "styled-components";
 
@@ -34,17 +35,8 @@ const Dots = styled.ul`
       border-bottom: 2px solid var(--green);
     }
   }
-
-  /* .slick-dots li.slick-active button:before {
-    color: #fff;
-  }
-
-  .slick-dots li button:before {
-    color: blue;
-  } */
 `;
 
-export default function AppendDots({ dots }): JSX.Element {
-  console.log(dots);
+export default function AppendDots({ dots }: SlickDotTypes): JSX.Element {
   return <Dots>{dots}</Dots>;
 }

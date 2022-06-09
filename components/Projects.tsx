@@ -39,9 +39,7 @@ const StyledProjectsSection = styled.section`
   }
 
   .project-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-    grid-gap: 15px;
+    ${Theme.grid}
     position: relative;
     margin-top: 50px;
 
@@ -72,6 +70,7 @@ const StyledProjectsSection = styled.section`
 `;
 
 const StyledProject = styled.div`
+  ${Theme.boxShadow}
   cursor: default;
   transition: var(--transition);
 

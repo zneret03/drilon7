@@ -134,7 +134,7 @@ const workExperience = [
     imageSource: "/image/Freelance.png",
     source: null,
     description:
-      "Making Exceptional Web application, depending on the client requirements. Designing and making performance wise also user-friendly web and desktop applications. Designing and making prototypes that will later establish as web or desktop applications",
+      "Making Exceptional Web application, depending on the client requirements. Designing and making performance wise also user-friendly web and desktop applications. Designing and making prototypes that will later establish as web or desktop application",
     startDate: "Junuary 2019",
     endDate: "Present",
   },
@@ -150,10 +150,28 @@ const workExperience = [
   },
 ];
 
-const loadDelay = 2000; 
+const certificates = [
+  {
+    id: 1,
+    title: "HackFest Loyola",
+    subtitle: "hackfest",
+    source:
+      "https://github.com/zneret03/drilon7/blob/development/public/certificates/unplugged%2C%20IanDrilon.pdf",
+  },
+  {
+    id: 2,
+    title: "Asean Data Science Explorers",
+    subtitle: "DSE",
+    source:
+      "https://github.com/zneret03/drilon7/blob/development/public/certificates/03%20Second%20Runner%20Up%20-%20National%20Finals%20Certificate.pdf",
+  },
+];
+
+const loadDelay = 2000;
 const enterDelay = 1000;
 
 export {
+  certificates,
   socialMedia,
   sideLink,
   projectInformation,

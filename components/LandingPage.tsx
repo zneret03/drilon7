@@ -226,7 +226,7 @@ const LandingPage = () => {
     event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     event.preventDefault();
-    const typeFormRedirect = "TypeForm"
+    const typeFormRedirect = "TypeForm";
     window.open(typeFormRedirect);
   };
 

@@ -54,7 +54,6 @@ const ArrowDownStyled = styled.div`
   }
 `;
 
-
 const StyledAboutSection = styled.section`
   max-width: 900px;
 
@@ -89,6 +88,7 @@ const StyledText = styled.div`
   ul.skills-list {
     display: grid;
     grid-template-columns: repeat(2, minmax(140px, 200px));
+    align-items: center;
     padding: 0;
     margin: 19px 0 0 0;
     overflow: hidden;
@@ -100,13 +100,14 @@ const StyledText = styled.div`
       padding-left: 20px;
       font-family: var(--font-mono);
       font-size: var(--fz-xs);
+
       &:before {
         content: "▹";
         position: absolute;
         left: 0;
         color: var(--green);
-        font-size: var(--fz-sm);
-        line-height: 12px;
+        font-size: var(--fz-md);
+        line-height: 18px;
       }
     }
   }
@@ -202,8 +203,10 @@ const About = () => {
       <SEO title="Ian Drilon" content="About Page" />
 
       <ArrowDownStyled className="arrow-container">
-        <a href="#about"><Icons name="ArrowDown" /></a>
-        <div className="circle"/>
+        <a href="#about">
+          <Icons name="ArrowDown" />
+        </a>
+        <div className="circle" />
       </ArrowDownStyled>
 
       <StyledAboutSection data-aos="fade-up" id="about">

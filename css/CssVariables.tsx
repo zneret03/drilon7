@@ -38,10 +38,17 @@ const Theme = {
   boxShadow: css`
     box-shadow: 0 10px 30px -15px var(--navy-shadow);
     transition: var(--transition);
+
     &:hover,
     &:focus {
       box-shadow: 0 20px 30px -15px var(--navy-shadow);
     }
+  `,
+
+  grid: css`
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-gap: 15px;
   `,
 };
 

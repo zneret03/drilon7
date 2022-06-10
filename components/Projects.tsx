@@ -11,11 +11,6 @@ const StyledProjectsSection = styled.section`
   flex-direction: column;
   padding: 170px 20px;
 
-  .loading {
-    text-align: center;
-    color: var(--lightest-slate);
-  }
-
   .heading {
     position: relative;
     top: 50%;

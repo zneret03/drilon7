@@ -9,6 +9,7 @@ export type SEOTypes = {
 
 export type dataTypes = {
   data: {
+    certificates: Array<Object>;
     projects: Array<Object>;
     loading: boolean;
   };

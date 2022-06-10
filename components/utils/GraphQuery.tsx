@@ -1,7 +1,12 @@
 import { gql } from "apollo-boost";
 
-const getProjects = gql`
+const getData = gql`
   {
+    certificates {
+      title
+      subtitle
+      source
+    }
     projects {
       id
       projectName
@@ -30,4 +35,4 @@ const filterProjects = gql`
   }
 `;
 
-export { getProjects, filterProjects };
+export { getData, filterProjects };

@@ -15,7 +15,6 @@ import { getData } from "@components/utils/GraphQuery";
 import { workExperience } from "@data";
 
 const Home = ({ data }) => {
-  console.log(data);
   return (
     <Layout>
       <LandingPage />

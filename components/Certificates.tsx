@@ -66,7 +66,7 @@ export default function Certificates({ data }): JSX.Element {
         <div className="loading">Please Wait...</div>
       ) : (
         <div className="card-certificates-wrapper">
-          {certificates.map((type: any) => {
+          {certificates?.map((type: any) => {
             return (
               <div className="card-certificates">
                 <h4>{type.title}</h4>

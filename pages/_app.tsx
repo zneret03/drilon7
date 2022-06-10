@@ -6,7 +6,7 @@ import { ApolloProvider } from "react-apollo";
 import Head from "next/head";
 
 function App({ Component, pageProps }) {
-  const [currentServer, setCurrentServer] = useState(null);
+  const [currentServer, setCurrentServer] = useState("");
 
   const DEVELOPMENT_SERVER = "http://localhost:1337/graphql";
   const PRODUCTION_SERVER = "https://strapi-drilon7.herokuapp.com/graphql";
@@ -19,8 +19,6 @@ function App({ Component, pageProps }) {
     uri: SERVER_URL,
     cache: new InMemoryCache(),
   });
-
-  console.log(SERVER_URL);
 
   useEffect(() => {
     if ("serviceWorker" in navigator) {

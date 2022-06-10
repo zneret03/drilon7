@@ -11,10 +11,11 @@ import {
 } from "@components";
 import { graphql } from "react-apollo";
 import { dataTypes } from "@lib/types";
-import { getProjects } from "@components/utils/GraphQuery";
+import { getData } from "@components/utils/GraphQuery";
 import { workExperience } from "@data";
 
 const Home = ({ data }) => {
+  console.log(data);
   return (
     <Layout>
       <LandingPage />
@@ -22,10 +23,10 @@ const Home = ({ data }) => {
       <Work />
       <Projects data={data} />
       <WorkExperience jobs={workExperience} />
-      <Certificates />
+      <Certificates data={data} />
       <Contact />
     </Layout>
   );
 };
 
-export default graphql<dataTypes>(getProjects)(Home);
+export default graphql<dataTypes>(getData)(Home);

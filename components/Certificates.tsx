@@ -1,8 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import Theme from "@css/CssVariables";
-import Link from "next/link";
-import { certificates } from "data";
 
 const CertificatesContainer = styled.section`
   line-height: 1.6rem;
@@ -57,30 +55,35 @@ const CertificatesContainer = styled.section`
   }
 `;
 
-export default function Certificates(): JSX.Element {
+export default function Certificates({ data }): JSX.Element {
+  const { certificates, loading } = data;
   return (
     <CertificatesContainer>
       <h2 className="numbered-heading">My Certificates</h2>
       <span className="sub-title">some of my certificates</span>
 
-      <div className="card-certificates-wrapper">
-        {certificates.map((type) => {
-          return (
-            <div className="card-certificates">
-              <h4>{type.title}</h4>
-              <div className="certificate-subtitle">{type.subtitle}</div>
-              <a
-                href={type.source}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="redirect-btn"
-              >
-                <span>View Certificate</span>
-              </a>
-            </div>
-          );
-        })}
-      </div>
+      {loading ? (
+        <div className="loading">Please Wait...</div>
+      ) : (
+        <div className="card-certificates-wrapper">
+          {certificates.map((type: any) => {
+            return (
+              <div className="card-certificates">
+                <h4>{type.title}</h4>
+                <div className="certificate-subtitle">{type.subtitle}</div>
+                <a
+                  href={type.source}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="redirect-btn"
+                >
+                  <span>View Certificate</span>
+                </a>
+              </div>
+            );
+          })}
+        </div>
+      )}
     </CertificatesContainer>
   );
 }

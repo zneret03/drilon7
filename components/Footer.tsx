@@ -8,6 +8,7 @@ const SyledFooterSection = styled.div`
   padding: 0;
   margin: 0 auto;
   max-width: 1600px;
+  min-height: 100%;
 
   #curvedLeft {
     position: absolute;

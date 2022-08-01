@@ -226,8 +226,8 @@ const About = () => {
             <h2 className="numbered-heading">Who's Ian?</h2>
             <div>
               <p>
-                Hi! There, Ian A. Drilon a student of Iloilo Science and
-                Technology University,{" "}
+                Hi! There, Ian A. Drilon Graduated in Iloilo Science and
+                Technology University
                 <a
                   className="link"
                   href="https://www.isatu.edu.ph/"
@@ -238,13 +238,9 @@ const About = () => {
               </p>
 
               <p>
-                Former Front-end Engineer of{" "}
-                <a
-                  className="link"
-                  href="https://www.acadarena.com/"
-                  target="_blank"
-                >
-                  AcadArena Inc.
+                A Cloud Engineer of
+                <a className="link" href="https://senti.ai/" target="_blank">
+                  Senti.AI
                 </a>
               </p>
 

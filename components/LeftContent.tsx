@@ -17,6 +17,11 @@ const StyledSide = styled.div`
     cursor: pointer;
     z-index: 10;
 
+    @media (max-width: 768px) {
+      left: 2.5rem;
+      top: 3rem;
+    }
+
     .socialMedia {
       @media (max-width: 768px) {
         padding-top: 10px;

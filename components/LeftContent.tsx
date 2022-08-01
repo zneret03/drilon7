@@ -10,9 +10,9 @@ import Social from "@components/Social";
 import Sidebar from "@components/Sidebar";
 
 const StyledSide = styled.div`
-  padding: 10px 0%;
   .Menu {
-    padding-top: 45px;
+    left: 5rem;
+    top: 4rem;
     position: fixed;
     cursor: pointer;
     z-index: 10;
@@ -87,6 +87,7 @@ const LeftContent: React.FC<PropTypes> = ({ children }) => {
 
   return (
     <TransitionGroup component={null}>
+      {children}
       <CSSTransition in={true} classNames="fade" timeout={loadDelay}>
         <Sidebar
           animatedSidebar={animatedSidebar}
@@ -111,7 +112,6 @@ const LeftContent: React.FC<PropTypes> = ({ children }) => {
                 </div>
               )}
             </div>
-            {children}
           </StyledSide>
         </Sidebar>
       </CSSTransition>

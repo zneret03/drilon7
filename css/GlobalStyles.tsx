@@ -166,7 +166,7 @@ const GlobalStyle = createGlobalStyle`
     width : 100%;
     margin : 0 auto;
     max-width: 1600px;
-    min-height: 100vh;
+    /* min-height: 100vh; */
   }
 
   .container-wrapper {

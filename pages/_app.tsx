@@ -1,5 +1,5 @@
 import ApolloClient, { InMemoryCache } from "apollo-boost";
-import { useEffect, useState } from "react";
+import { useEffect, useState, Fragment } from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { ApolloProvider } from "react-apollo";
@@ -41,7 +41,7 @@ function App({ Component, pageProps }) {
   }, []);
 
   return (
-    <>
+    <Fragment>
       <div>
         <Head>
           <title>Ian Drilon</title>
@@ -52,7 +52,7 @@ function App({ Component, pageProps }) {
       <ApolloProvider client={client}>
         <Component {...pageProps} />
       </ApolloProvider>
-    </>
+    </Fragment>
   );
 }
 

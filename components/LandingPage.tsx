@@ -22,7 +22,6 @@ const float = keyframes`
 
 const DivWrapper = styled.div`
   background-color: #06172f;
-  //height: 100vh;
 
   @media (max-width: 1080px) {
     background-color: var(--navy);
@@ -40,6 +39,7 @@ const DivWrapper = styled.div`
   } */
 
   section {
+    width: 100vw;
     position: relative;
     padding: 155px 0;
     color: #dbcfcf;
@@ -278,8 +278,9 @@ const LandingPage = () => {
 
   const two = (
     <p>
-      A freelance developer in Philippines, and a student of Iloilo Science and
-      Technology University, taking up Bachelor in Computer Science degree
+      A freelance Developer and Cloud Engineer in Philippines, and a student of
+      Iloilo Science and Technology University, taking up Bachelor in Computer
+      Science degree
     </p>
   );
 

@@ -179,6 +179,8 @@ const Projects = ({ data }): JSX.Element => {
   const firstSix: Object[] = projects && projects.slice(0, GRID_LIMIT);
   const projectsData = isShow ? projects : firstSix;
 
+  console.log(projectsData);
+
   useEffect(AosInit, []);
 
   return (

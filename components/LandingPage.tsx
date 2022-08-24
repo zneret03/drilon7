@@ -278,7 +278,7 @@ const LandingPage = () => {
 
   const two = (
     <p>
-      A freelance Developer and Cloud Engineer in Philippines, and a student of
+      A freelance Developer/Software Developer in Philippines, and a student of
       Iloilo Science and Technology University, taking up Bachelor in Computer
       Science degree
     </p>

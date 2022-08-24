@@ -238,9 +238,9 @@ const About = () => {
               </p>
 
               <p>
-                A Cloud Engineer of
-                <a className="link" href="https://senti.ai/" target="_blank">
-                  Senti.AI
+                A former Front-end Engineer of
+                <a className="link" href="https://www.acadarena.com/" target="_blank">
+                  AcadArena
                 </a>
               </p>
 

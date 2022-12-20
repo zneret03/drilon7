@@ -19,6 +19,7 @@
     "@types/react-helmet": "^6.1.0",
     "@types/react-transition-group": "^4.4.0",
     "@types/styled-components": "^5.1.4",
+    "@types/uuid": "^9.0.0",
     "aos": "^2.3.4",
     "babel-plugin-styled-components": "^1.11.1",
     "next": "^10.0.0",
@@ -39,6 +40,7 @@
     "next-pwa": "^5.3.1",
     "react-apollo": "^3.1.5",
     "react-slick": "^0.29.0",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "uuid": "^9.0.0"
   }
 }

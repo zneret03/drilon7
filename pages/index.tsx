@@ -1,4 +1,4 @@
-import React from "react";
+import React from "react"
 import {
   LandingPage,
   Certificates,
@@ -8,11 +8,11 @@ import {
   Contact,
   Layout,
   WorkExperience,
-} from "@components";
-import { graphql } from "react-apollo";
-import { dataTypes } from "@lib/types";
-import { getData } from "@components/utils/GraphQuery";
-import { workExperience } from "@data";
+} from "@components"
+import { graphql } from "react-apollo"
+import { dataTypes } from "@lib/types"
+import { getData } from "@components/utils/GraphQuery"
+import { workExperience, noteworthProject, certificates } from "@data"
 
 const Home = ({ data }) => {
   return (
@@ -20,12 +20,12 @@ const Home = ({ data }) => {
       <LandingPage />
       <About />
       <Work />
-      <Projects data={data} />
+      <Projects data={noteworthProject} />
       <WorkExperience jobs={workExperience} />
-      <Certificates data={data} />
+      <Certificates data={certificates} />
       <Contact />
     </Layout>
-  );
-};
+  )
+}
 
-export default graphql<dataTypes>(getData)(Home);
+export default graphql<dataTypes>(getData)(Home)

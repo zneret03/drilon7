@@ -1,10 +1,10 @@
-import React, { useEffect } from "react";
-import styled from "styled-components";
-import Theme from "@css/CssVariables";
-import Icons from "@components/icons/Icons";
-import useToggle from "@hooks/useToggle";
-import Link from "next/link";
-import AosInit from "@components/utils/aos";
+import React, { useEffect } from "react"
+import styled from "styled-components"
+import Theme from "@css/CssVariables"
+import Icons from "@components/icons/Icons"
+import useToggle from "@hooks/useToggle"
+import Link from "next/link"
+import AosInit from "@components/utils/aos"
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -62,7 +62,7 @@ const StyledProjectsSection = styled.section`
   @media (max-width: 492px) {
     padding: 70px 30px;
   } */
-`;
+`
 
 const StyledProject = styled.div`
   ${Theme.boxShadow}
@@ -170,18 +170,18 @@ const StyledProject = styled.div`
       }
     }
   }
-`;
+`
 
 const Projects = ({ data }): JSX.Element => {
-  const { projects, loading } = data;
-  const GRID_LIMIT: number = 6;
-  const [isShow, isToggle] = useToggle();
-  const firstSix: Object[] = projects && projects.slice(0, GRID_LIMIT);
-  const projectsData = isShow ? projects : firstSix;
+  const projects = data
+  const GRID_LIMIT: number = 6
+  const [isShow, isToggle] = useToggle()
+  const firstSix: Object[] = projects && projects.slice(0, GRID_LIMIT)
+  const projectsData = isShow ? projects : firstSix
 
-  console.log(projectsData);
+  console.log(projectsData)
 
-  useEffect(AosInit, []);
+  useEffect(AosInit, [])
 
   return (
     <>
@@ -192,7 +192,7 @@ const Projects = ({ data }): JSX.Element => {
             <span className="archive-link link">explore more</span>
           </Link>
         </div>
-        {loading ? (
+        {projects.length <= 0 ? (
           <div className="loading">Please Wait...</div>
         ) : (
           <div className="project-grid">
@@ -209,14 +209,14 @@ const Projects = ({ data }): JSX.Element => {
                         <div className="project-links">
                           {info.source && (
                             <Link href={info.source}>
-                              <a aria-label="Github Link">
+                              <a aria-label="Github Link" target="_blank">
                                 <Icons name="Github" />
                               </a>
                             </Link>
                           )}
                           {info.demo && (
                             <Link href={info.demo}>
-                              <a aria-label="External Link">
+                              <a aria-label="External Link" target="_blank">
                                 <Icons name="External" />
                               </a>
                             </Link>
@@ -254,7 +254,7 @@ const Projects = ({ data }): JSX.Element => {
         </button>
       </StyledProjectsSection>
     </>
-  );
-};
+  )
+}
 
-export default Projects;
+export default Projects

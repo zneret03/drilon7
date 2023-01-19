@@ -1,9 +1,9 @@
-import React from "react";
-import { animated } from "react-spring";
-import styled from "styled-components";
-import { sideLink } from "@data";
-import { X } from "react-feather";
-import { Helmet } from "react-helmet";
+import React from "react"
+import { animated } from "react-spring"
+import styled from "styled-components"
+import { sideLink } from "@data"
+import { X } from "react-feather"
+import { Helmet } from "react-helmet"
 
 const Wrapper = styled.div`
   position: fixed;
@@ -33,7 +33,7 @@ const Wrapper = styled.div`
   @media (max-width: 480px) {
     width: min(60vw, 400px);
   } */
-`;
+`
 
 const SideBarWrapper = styled.div`
   list-style: none;
@@ -85,13 +85,13 @@ const SideBarWrapper = styled.div`
       }
     }
   }
-`;
+`
 
 interface PropTypes {
-  animatedSidebar: any;
-  toogle: boolean;
-  children: React.ReactNode;
-  toggleSideBar: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void;
+  animatedSidebar: any
+  toogle: boolean
+  children: React.ReactNode
+  toggleSideBar: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
 }
 
 const Sidebar: React.FC<PropTypes> = ({
@@ -101,9 +101,11 @@ const Sidebar: React.FC<PropTypes> = ({
   toogle,
 }) => {
   const resume = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.preventDefault();
-    window.open("/Resume.pdf");
-  };
+    event.preventDefault()
+    window.open(
+      "https://docs.google.com/document/d/17J66_oH5CYMqbK6NmBIL36s1SVR7DDvM3VEAEt5dOaw/edit?usp=sharing"
+    )
+  }
 
   return (
     <>
@@ -132,7 +134,7 @@ const Sidebar: React.FC<PropTypes> = ({
       </Wrapper>
       {children}
     </>
-  );
-};
+  )
+}
 
-export default Sidebar;
+export default Sidebar

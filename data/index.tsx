@@ -377,8 +377,8 @@ const workExperience = [
     source: null,
     description:
       "Meeting and colaborating with co-engineers to build and implement AI strategies using DOC.AI and Optical Character Reconignition, helping building deployment automation so that engineers will have easy and developer friendly approach of deployment using terraform",
-    startDate: "March",
-    endDate: "May",
+    startDate: "June 2022",
+    endDate: "Present",
   },
 ]
 

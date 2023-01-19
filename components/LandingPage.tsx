@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { SEO } from "@components";
-import styled, { keyframes } from "styled-components";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
-import Image from "next/image";
+import React, { useState, useEffect } from "react"
+import { SEO } from "@components"
+import styled, { keyframes } from "styled-components"
+import { CSSTransition, TransitionGroup } from "react-transition-group"
+import Image from "next/image"
 
 //*Component
-import { loadDelay, enterDelay } from "@data";
-import Icons from "./icons/Icons";
+import { loadDelay, enterDelay } from "@data"
+import Icons from "./icons/Icons"
 
 const float = keyframes`
   	0% {
@@ -18,7 +18,7 @@ const float = keyframes`
     100% {
       transform: translatey(0px);
     }
-`;
+`
 
 const DivWrapper = styled.div`
   background-color: #06172f;
@@ -217,72 +217,72 @@ const DivWrapper = styled.div`
       padding: 110px 27px;
     }
   }
-`;
+`
 
 const LandingPage = () => {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, setToggle] = useState(false)
 
   const redirectEmail = (
     event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
-    event.preventDefault();
-    const typeFormRedirect = "TypeForm";
-    window.open(typeFormRedirect);
-  };
+    event.preventDefault()
+    const typeFormRedirect = "TypeForm"
+    window.open(typeFormRedirect)
+  }
 
   const toggleSideBar = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
   ) => {
-    event.preventDefault();
+    event.preventDefault()
 
     if (!toggle) {
-      setToggle(true);
+      setToggle(true)
     } else {
-      setToggle(false);
+      setToggle(false)
     }
-  };
+  }
 
-  const [sticky, setSticky] = useState(false);
+  const [sticky, setSticky] = useState(false)
 
   useEffect(() => {
     const mountNavbar = () => {
-      const fixed = window.pageYOffset < 9;
-      const innerWidth = window.innerWidth < 763;
+      const fixed = window.pageYOffset < 9
+      const innerWidth = window.innerWidth < 763
       if (!fixed && innerWidth) {
-        setSticky(true);
+        setSticky(true)
       } else {
-        setSticky(false);
+        setSticky(false)
       }
-    };
+    }
 
-    window.addEventListener("scroll", mountNavbar);
-    return () => window.removeEventListener("scroll", mountNavbar);
-  }, [sticky]);
+    window.addEventListener("scroll", mountNavbar)
+    return () => window.removeEventListener("scroll", mountNavbar)
+  }, [sticky])
 
-  const [isMounted, setIsMounted] = useState<boolean>(false);
+  const [isMounted, setIsMounted] = useState<boolean>(false)
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setIsMounted(true);
-    }, enterDelay);
+      setIsMounted(true)
+    }, enterDelay)
 
-    return () => clearTimeout(timeout);
-  }, []);
+    return () => clearTimeout(timeout)
+  }, [])
 
   const one = (
     <div>
       <h2>Hey Folks</h2>
       <h2>I'm Ian Drilon</h2>
     </div>
-  );
+  )
 
   const two = (
     <p>
-      A freelance Developer/Software Developer in Philippines, and a student of
+      A freelance Developer/Software Developer in Philippines, graduated in
       Iloilo Science and Technology University, taking up Bachelor in Computer
       Science degree
     </p>
-  );
+  )
 
   const three = (
     <div className="btn-contact">
@@ -293,7 +293,7 @@ const LandingPage = () => {
         <Icons name="Arrow" />
       </i>
     </div>
-  );
+  )
 
   const four = (
     <div className="right-content">
@@ -304,7 +304,7 @@ const LandingPage = () => {
           <span className="sub-title">Soft. Developer</span>
           <div className="rating">
             {[...Array(5)].map(() => {
-              return <Icons name="Star" fill="#2AFF4C" />;
+              return <Icons name="Star" fill="#2AFF4C" />
             })}
           </div>
         </div>
@@ -321,7 +321,7 @@ const LandingPage = () => {
         />
       </div>
     </div>
-  );
+  )
 
   // const five = (
   //   <div>
@@ -329,8 +329,8 @@ const LandingPage = () => {
   //   </div>
   // );
 
-  const items = [one, two, three];
-  const leftContent = [four];
+  const items = [one, two, three]
+  const leftContent = [four]
   // const icons = [five];
 
   return (
@@ -385,7 +385,7 @@ const LandingPage = () => {
         </TransitionGroup>
       </DivWrapper>
     </>
-  );
-};
+  )
+}
 
-export default LandingPage;
+export default LandingPage

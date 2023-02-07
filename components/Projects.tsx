@@ -188,9 +188,7 @@ const Projects = ({ data }): JSX.Element => {
       <StyledProjectsSection id="project">
         <div className="heading">
           <h2 className="numbered-heading">Other Noteworthy Projects</h2>
-          <Link href="Archive">
-            <span className="archive-link link">explore more</span>
-          </Link>
+          <span className="archive-link link">explore more</span>
         </div>
         {projects.length <= 0 ? (
           <div className="loading">Please Wait...</div>

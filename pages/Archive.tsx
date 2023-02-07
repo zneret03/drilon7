@@ -1,11 +1,11 @@
-import React, { useEffect } from "react";
-import Layout from "@components/Layout";
-import styled from "styled-components";
-import { graphql } from "react-apollo";
-import { filterProjects } from "@components/utils/GraphQuery";
-import Icons from "@components/icons/Icons";
-import AosInit from "@components/utils/aos";
-import Link from "next/link";
+import React, { useEffect } from "react"
+import Layout from "@components/Layout"
+import styled from "styled-components"
+import { graphql } from "react-apollo"
+import { filterProjects } from "@components/utils/GraphQuery"
+import Icons from "@components/icons/Icons"
+import AosInit from "@components/utils/aos"
+import Link from "next/link"
 
 const StyledArchive = styled.div`
   margin: -50px 90px;
@@ -153,15 +153,15 @@ const StyledArchive = styled.div`
       }
     }
   }
-`;
+`
 
 interface PropTypes {
-  data: any;
+  data: any
 }
 
 const Archive: React.FC<PropTypes> = ({ data }) => {
-  const { projects } = data;
-  useEffect(AosInit, []);
+  const { projects } = data
+  useEffect(AosInit, [])
 
   return (
     <Layout>
@@ -233,7 +233,7 @@ const Archive: React.FC<PropTypes> = ({ data }) => {
         </StyledArchive>
       </div>
     </Layout>
-  );
-};
+  )
+}
 
-export default graphql<PropTypes>(filterProjects)(Archive);
+export default graphql<PropTypes>(filterProjects)(Archive)

@@ -1,6 +1,6 @@
-import { createGlobalStyle } from "styled-components";
-import TranstionStyles from "./TransitionStyles";
-import Theme from "./CssVariables";
+import { createGlobalStyle } from "styled-components"
+import TranstionStyles from "./TransitionStyles"
+import Theme from "./CssVariables"
 
 const GlobalStyle = createGlobalStyle`
 
@@ -359,6 +359,6 @@ const GlobalStyle = createGlobalStyle`
   }
 
   ${TranstionStyles}
-`;
+`
 
-export default GlobalStyle;
+export default GlobalStyle

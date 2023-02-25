@@ -1,7 +1,7 @@
-import React, { useContext } from "react";
-import styled from "styled-components";
-import Icons from "./icons/Icons";
-import { GithubContext } from "@Context/GithubProvider";
+import React, { useContext } from "react"
+import styled from "styled-components"
+import Icons from "./icons/Icons"
+import { GithubContext } from "@Context/GithubProvider"
 
 const SyledFooterSection = styled.div`
   position: relative;
@@ -10,17 +10,18 @@ const SyledFooterSection = styled.div`
   max-width: 1600px;
   min-height: 100%;
 
-  #curvedLeft {
+  .footer {
     position: absolute;
     bottom: 0;
     left: 0;
-    z-index: -1;
+    margin-bottom: 20px;
+    width: 100%;
 
     @media (max-width: 768px) {
       display: none;
     }
   }
-`;
+`
 
 const StyledCredits = styled.div`
   font-family: var(--font-mono);
@@ -52,10 +53,10 @@ const StyledCredits = styled.div`
       height: 18px;
     }
   }
-`;
+`
 
 const Footer: React.FC = () => {
-  const { information }: any = useContext(GithubContext);
+  const { information }: any = useContext(GithubContext)
 
   return (
     <SyledFooterSection>
@@ -64,7 +65,7 @@ const Footer: React.FC = () => {
       </div> */}
 
       <StyledCredits>
-        <a href={information.html_url}>
+        <a className="footer" href={information.html_url}>
           <div className="title">Built By Ian Adorable Drilon</div>
           {information.stargazers_count !== undefined &&
             information.forks !== undefined && (
@@ -82,7 +83,7 @@ const Footer: React.FC = () => {
         </a>
       </StyledCredits>
     </SyledFooterSection>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer

@@ -172,14 +172,12 @@ const StyledProject = styled.div`
   }
 `
 
-const Projects = ({ data }): JSX.Element => {
-  const projects = data
+const Projects = ({ projects }): JSX.Element => {
+  const project = projects
   const GRID_LIMIT: number = 6
   const [isShow, isToggle] = useToggle()
-  const firstSix: Object[] = projects && projects.slice(0, GRID_LIMIT)
-  const projectsData = isShow ? projects : firstSix
-
-  console.log(projectsData)
+  const firstSix: Object[] = project && project.slice(0, GRID_LIMIT)
+  const projectsData = isShow ? project : firstSix
 
   useEffect(AosInit, [])
 

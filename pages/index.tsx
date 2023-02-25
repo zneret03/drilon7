@@ -9,23 +9,37 @@ import {
   Layout,
   WorkExperience,
 } from "@components"
-import { graphql } from "react-apollo"
-import { dataTypes } from "@lib/types"
-import { getData } from "@components/utils/GraphQuery"
-import { workExperience, noteworthProject, certificates } from "@data"
 
-const Home = ({ data }) => {
+import { DataType } from "@lib/types.ts"
+
+const Home = (props: DataType) => {
+  const { projectInformation, noteworthProject, workExperience, certificates } =
+    props?.data
+
   return (
     <Layout>
       <LandingPage />
       <About />
-      <Work />
-      <Projects data={noteworthProject} />
+      <Work work={projectInformation} />
+      <Projects projects={noteworthProject} />
       <WorkExperience jobs={workExperience} />
-      <Certificates data={certificates} />
+      <Certificates certificates={certificates} />
       <Contact />
     </Layout>
   )
 }
 
-export default graphql<dataTypes>(getData)(Home)
+export async function getStaticProps() {
+  const response = await fetch(
+    "https://zneret03.github.io/drilon7_api/main.json"
+  )
+  const data = await response.json()
+
+  return {
+    props: {
+      ...data,
+    },
+  }
+}
+
+export default Home

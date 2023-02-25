@@ -55,10 +55,9 @@ const CertificatesContainer = styled.section`
   }
 `
 
-export default function Certificates({ data }): JSX.Element {
-  const certificates = data
+export default function Certificates({ certificates }): JSX.Element {
   return (
-    <CertificatesContainer>
+    <CertificatesContainer id="certificate">
       <h2 className="numbered-heading">My Certificates</h2>
       <span className="sub-title">some of my certificates</span>
 

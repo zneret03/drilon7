@@ -1,9 +1,8 @@
-import React, { useEffect } from "react";
-import Icons from "@components/icons/Icons";
-import styled from "styled-components";
-import AosInit from "@components/utils/aos";
-import Link from "next/link";
-import { projectInformation } from "@data";
+import React, { useEffect } from "react"
+import Icons from "@components/icons/Icons"
+import styled from "styled-components"
+import AosInit from "@components/utils/aos"
+import Link from "next/link"
 
 const StyleWorkSection = styled.section`
   padding: 40px 90px;
@@ -15,7 +14,7 @@ const StyleWorkSection = styled.section`
   @media (max-width: 492px) {
     padding: 160px 30px;
   }
-`;
+`
 
 const StyledProject = styled.div`
   display: grid;
@@ -292,15 +291,15 @@ const StyledProject = styled.div`
       }
     }
   }
-`;
+`
 
-const Work: React.FC = () => {
-  useEffect(AosInit, []);
+const Work = ({ work }): JSX.Element => {
+  useEffect(AosInit, [])
 
   return (
     <StyleWorkSection id="work">
       <h2 className="numbered-heading">Some Things I've Built</h2>
-      {projectInformation.map((project: any, index: number) => (
+      {work.map((project: any, index: number) => (
         <StyledProject key={index} data-aos="fade-up">
           <div className="project-content">
             <p className="project-overline">{project.feature}</p>
@@ -342,7 +341,7 @@ const Work: React.FC = () => {
         </StyledProject>
       ))}
     </StyleWorkSection>
-  );
-};
+  )
+}
 
-export default Work;
+export default Work

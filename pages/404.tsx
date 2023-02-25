@@ -1,11 +1,15 @@
-import styled from "styled-components";
-import { Layout } from "@components";
-import Link from "next/link";
+import styled from "styled-components"
+import { Layout } from "@components"
+import Link from "next/link"
 
-const StyledNotFound = styled.section`
-  text-align: center;
+const StyledNotFound = styled.div`
+  height: 100vh;
+  width: 100%;
   display: flex;
+  align-items: center;
+  justify-content: center;
   flex-direction: column;
+  margin-top: -20px;
 
   h1 {
     padding: 30px 0 0;
@@ -50,7 +54,7 @@ const StyledNotFound = styled.section`
       width: 110px;
     }
   }
-`;
+`
 
 export default function NotFound() {
   return (
@@ -63,5 +67,5 @@ export default function NotFound() {
         </StyledNotFound>
       </Link>
     </Layout>
-  );
+  )
 }

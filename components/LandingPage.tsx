@@ -262,11 +262,7 @@ const LandingPage = () => {
   const [isMounted, setIsMounted] = useState<boolean>(false)
 
   useEffect(() => {
-    const timeout = setTimeout(() => {
-      setIsMounted(true)
-    }, enterDelay)
-
-    return () => clearTimeout(timeout)
+    setIsMounted(true)
   }, [])
 
   const one = (

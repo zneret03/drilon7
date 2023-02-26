@@ -3,13 +3,12 @@ import {
   LandingPage,
   Certificates,
   About,
-  Work,
+  Featured,
   Projects,
   Contact,
   Layout,
   WorkExperience,
 } from "@components"
-
 import { DataType } from "@lib/types.ts"
 
 const Home = (props: DataType) => {
@@ -20,7 +19,7 @@ const Home = (props: DataType) => {
     <Layout>
       <LandingPage />
       <About />
-      <Work work={projectInformation} />
+      <Featured featured={projectInformation} />
       <Projects projects={noteworthProject} />
       <WorkExperience jobs={workExperience} />
       <Certificates certificates={certificates} />
@@ -30,9 +29,9 @@ const Home = (props: DataType) => {
 }
 
 export async function getStaticProps() {
-  const response = await fetch(
-    "https://zneret03.github.io/drilon7_api/main.json"
-  )
+  const api: string = process.env.STATIC_API as string
+
+  const response = await fetch(api)
   const data = await response.json()
 
   return {

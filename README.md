@@ -2,7 +2,7 @@
 
 I've built this modern portfolio using [next.js](https://nextjs.org/) + [react.js](https://reactjs.org/) with [styled-components](https://styled-components.com/)
 
-![demo](https://github.com/zneret03/drilon7/blob/development/public/image/design.png)
+![demo](https://github.com/zneret03/drilon7/blob/development/public/image/preview.png)
 
 This modern portfolio is using graphQL to make endpoints simplier and query manipuliation by how i like
 

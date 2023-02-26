@@ -1,7 +1,6 @@
-import React, { useEffect } from "react";
-import Link from 'next/link'
-import styled from "styled-components";
-import AosInit from "./utils/aos";
+import React, { useEffect, useRef } from "react"
+import { useAnimationScroll, usePrefersReducedMotion } from "@hooks/index"
+import styled from "styled-components"
 
 const StyledContactSection = styled.section`
   max-width: 480px;
@@ -60,20 +59,32 @@ const StyledContactSection = styled.section`
   .button {
     margin: 35px 0;
   }
-`;
+`
 
 const Contact: React.FC = () => {
+  const revealContainer = useRef(null)
+
+  const container = useAnimationScroll(revealContainer)
+
+  const preferReducedMotion = usePrefersReducedMotion()
+
   const contact = (event: React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
-    event.preventDefault();
+    event.preventDefault()
 
     //const googleEmail = "https://mail.google.com/mail/u/0/?view=cm&fs=1&to=iandrilon2@gmail.com&tf=1"
     const typeFormRedirect = "TypeForm"
-    window.open(typeFormRedirect);
-  };
+    window.open(typeFormRedirect)
+  }
 
-  useEffect(AosInit, []);
+  useEffect(() => {
+    if (preferReducedMotion) {
+      return
+    }
+
+    container()
+  }, [])
   return (
-    <StyledContactSection data-aos="fade-up" id="contact">
+    <StyledContactSection id="contact" ref={revealContainer}>
       <h2 className="numbered-heading overline">What's Next?</h2>
       <h2 className="title">Get In Touch</h2>
 
@@ -92,7 +103,7 @@ const Contact: React.FC = () => {
         Say Hello
       </button>
     </StyledContactSection>
-  );
-};
+  )
+}
 
-export default Contact;
+export default Contact

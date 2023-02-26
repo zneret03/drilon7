@@ -1,21 +1,9 @@
-import React, { useEffect } from "react";
-import { SEO } from "@components";
-import styled, { keyframes } from "styled-components";
-import Image from "next/image";
-import AosInit from "./utils/aos";
-import Icons from "@components/icons/Icons";
-
-// const animatedArrow = keyframes`
-//     0% {
-//       transform: translateY(0px);
-//     }
-//     50% {
-//       transform: translateY(-18px);
-//     }
-//     100% {
-//       transform: translateY(0px);
-//     }
-// `;
+import React, { useEffect, useRef } from "react"
+import { SEO } from "@components"
+import styled, { keyframes } from "styled-components"
+import Image from "next/image"
+import Icons from "@components/icons/Icons"
+import { usePrefersReducedMotion, useAnimationScroll } from "@hooks/index"
 
 const pulse = keyframes`
   0% {
@@ -32,7 +20,7 @@ const pulse = keyframes`
     transform: scale(0.95);
     box-shadow: 0 0 0 0 rgba(134, 144, 176, 0);
   }
-`;
+`
 
 const ArrowDownStyled = styled.div`
   display: block;
@@ -52,7 +40,7 @@ const ArrowDownStyled = styled.div`
     transform: scale(1);
     animation: ${pulse} infinite 2s linear;
   }
-`;
+`
 
 const StyledAboutSection = styled.section`
   max-width: 900px;
@@ -82,7 +70,7 @@ const StyledAboutSection = styled.section`
       position: relative;
     }
   }
-`;
+`
 
 const StyledText = styled.div`
   ul.skills-list {
@@ -111,7 +99,7 @@ const StyledText = styled.div`
       }
     }
   }
-`;
+`
 
 const StyledPic = styled.div`
   position: relative;
@@ -184,9 +172,23 @@ const StyledPic = styled.div`
       z-index: -1;
     }
   }
-`;
+`
 
 const About = () => {
+  const revealContainer = useRef(null)
+  const prefersReducedMotion = usePrefersReducedMotion()
+  const animate = useAnimationScroll(revealContainer)
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return
+    }
+
+    if (revealContainer) {
+      animate()
+    }
+  }, [])
+
   const skills = [
     "JavaScript (ES6+)",
     "HTML & Css3",
@@ -194,9 +196,7 @@ const About = () => {
     "React",
     "Next.js",
     "Firebase",
-  ];
-
-  useEffect(AosInit, []);
+  ]
 
   return (
     <>
@@ -209,7 +209,7 @@ const About = () => {
         <div className="circle" />
       </ArrowDownStyled>
 
-      <StyledAboutSection data-aos="fade-up" id="about">
+      <StyledAboutSection id="about" ref={revealContainer}>
         <div className="inner">
           <StyledPic>
             <div className="wrapper">
@@ -239,7 +239,11 @@ const About = () => {
 
               <p>
                 A former Front-end Engineer of
-                <a className="link" href="https://www.acadarena.com/" target="_blank">
+                <a
+                  className="link"
+                  href="https://www.acadarena.com/"
+                  target="_blank"
+                >
                   AcadArena
                 </a>
               </p>
@@ -262,7 +266,7 @@ const About = () => {
         </div>
       </StyledAboutSection>
     </>
-  );
-};
+  )
+}
 
-export default About;
+export default About

@@ -1,8 +1,11 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import Icons from "@components/icons/Icons"
 import styled from "styled-components"
-import AosInit from "@components/utils/aos"
 import Link from "next/link"
+import Image from "next/image"
+
+import { srConfig } from "@data"
+import { usePrefersReducedMotion, useAnimationScroll } from "@hooks/index"
 
 const StyleWorkSection = styled.section`
   padding: 40px 90px;
@@ -293,14 +296,36 @@ const StyledProject = styled.div`
   }
 `
 
-const Work = ({ work }): JSX.Element => {
-  useEffect(AosInit, [])
+const Featured = ({ featured }): JSX.Element => {
+  const revealTitle = useRef(null)
+  const revealFeatured = useRef<Array<any>>([])
+  const revealTitleAnimate = useAnimationScroll(revealTitle)
+  const revealFeatureAnimate = useAnimationScroll(revealFeatured)
+
+  const prefersReducedMotion = usePrefersReducedMotion()
+
+  useEffect(() => {
+    async function scrollReveal() {
+      if (prefersReducedMotion) {
+        return
+      }
+
+      await Promise.allSettled([revealTitleAnimate(), revealFeatureAnimate()])
+    }
+
+    scrollReveal()
+  }, [])
 
   return (
     <StyleWorkSection id="work">
-      <h2 className="numbered-heading">Some Things I've Built</h2>
-      {work.map((project: any, index: number) => (
-        <StyledProject key={index} data-aos="fade-up">
+      <h2 className="numbered-heading" ref={revealTitle}>
+        Some Things I've Built
+      </h2>
+      {featured.map((project: any, index: number) => (
+        <StyledProject
+          key={index}
+          ref={(el) => (revealFeatured.current[index] = el)}
+        >
           <div className="project-content">
             <p className="project-overline">{project.feature}</p>
             <h3 className="project-title">{project.title}</h3>
@@ -334,7 +359,12 @@ const Work = ({ work }): JSX.Element => {
           <div className="project-image">
             <Link href={project.demo}>
               <a>
-                <img src={`/image/${project.image}`} className="img" alt="" />
+                <Image
+                  unsized
+                  src={`/image/${project.image}`}
+                  className="img"
+                  alt="featured "
+                />
               </a>
             </Link>
           </div>
@@ -344,4 +374,4 @@ const Work = ({ work }): JSX.Element => {
   )
 }
 
-export default Work
+export default Featured

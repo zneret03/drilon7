@@ -183,7 +183,7 @@ const Archive: React.FC<PropTypes> = ({ data }) => {
               <tbody>
                 {projects &&
                   projects.map((info: any) => (
-                    <tr key={info.id} data-aos="fade-up">
+                    <tr key={info.id}>
                       <td className="overline year">{info.year}</td>
                       <td className="title">{info.projectName}</td>
                       <td className="company hide-on-mobile">

@@ -1,13 +1,46 @@
-import { useEffect } from "react";
-import { JobTypes } from "@lib/types";
-import Slider from "react-slick";
-import { AppendDots } from "@components";
-import styled from "styled-components";
-import AosInit from "@components/utils/aos";
+import { useEffect, useRef } from "react"
+import { JobTypes } from "@lib/types"
+import Slider from "react-slick"
+import { AppendDots } from "@components"
+import styled from "styled-components"
+import { useAnimationScroll, usePrefersReducedMotion } from "@hooks/index"
+
+const settings = {
+  autoplay: false,
+  dots: true,
+  infinite: true,
+  speed: 1000,
+  slidesToShow: 3,
+  slidesToScroll: 3,
+  lazyLoad: true,
+  arrows: false,
+  appendDots: (dots: Object) => {
+    return <AppendDots dots={dots} />
+  },
+  responsive: [
+    {
+      breakpoint: 1200,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 2,
+        initialSlide: 2,
+      },
+    },
+    {
+      breakpoint: 600,
+      settings: {
+        centerPadding: "60px",
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        initialSlide: 1,
+      },
+    },
+  ],
+}
 
 const StyledWorkExperience = styled.section`
   transition: var(--transition);
-`;
+`
 
 const Card = styled.div`
   display: grid;
@@ -129,51 +162,30 @@ const Card = styled.div`
       }
     }
   }
-`;
+`
 
 export default function WorkExperience({ jobs }: JobTypes): JSX.Element {
-  const settings = {
-    autoplay: true,
-    dots: true,
-    infinite: true,
-    speed: 1000,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    lazyLoad: true,
-    arrows: false,
-    appendDots: (dots: Object) => {
-      return <AppendDots dots={dots} />;
-    },
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 2,
-          initialSlide: 2,
-        },
-      },
-      {
-        breakpoint: 600,
-        settings: {
-          centerPadding: "60px",
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          initialSlide: 1,
-        },
-      },
-    ],
-  };
+  const container = useRef(null)
 
-  useEffect(AosInit, []);
+  const containerAnimation = useAnimationScroll(container)
+
+  const prefersReducedMotion = usePrefersReducedMotion()
+
+  useEffect(() => {
+    if (prefersReducedMotion) {
+      return
+    }
+
+    containerAnimation()
+  }, [])
 
   return (
-    <StyledWorkExperience data-aos="fade-up">
+    <StyledWorkExperience id="experience" ref={container}>
       <h2 className="numbered-heading">Work Experience</h2>
       <span className="sub-title">Software Companies</span>
       <Slider {...settings}>
-        {jobs.map((type) => (
-          <Card>
+        {jobs.map((type, index: number) => (
+          <Card key={index}>
             <figure className="image-block">
               <img src={type.imageSource} alt="" />
               <figcaption>
@@ -193,5 +205,5 @@ export default function WorkExperience({ jobs }: JobTypes): JSX.Element {
         ))}
       </Slider>
     </StyledWorkExperience>
-  );
+  )
 }

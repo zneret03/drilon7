@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import Theme from "@css/CssVariables"
+import { usePrefersReducedMotion, useAnimationScroll } from "@hooks/index"
 
 const CertificatesContainer = styled.section`
   line-height: 1.6rem;
@@ -56,18 +57,44 @@ const CertificatesContainer = styled.section`
 `
 
 export default function Certificates({ certificates }): JSX.Element {
+  const revealContainer = useRef(null)
+  const revealCertificates = useRef([])
+
+  const container = useAnimationScroll(revealContainer)
+  const certificate = useAnimationScroll(revealCertificates)
+
+  const preferReducedMotion = usePrefersReducedMotion()
+
+  useEffect(() => {
+    const scrollReveal = async () => {
+      if (preferReducedMotion) {
+        return
+      }
+
+      await Promise.allSettled([container(), certificate()])
+    }
+
+    scrollReveal()
+  }, [])
+
   return (
     <CertificatesContainer id="certificate">
-      <h2 className="numbered-heading">My Certificates</h2>
-      <span className="sub-title">some of my certificates</span>
+      <div ref={container}>
+        <h2 className="numbered-heading">My Certificates</h2>
+        <span className="sub-title">some of my certificates</span>
+      </div>
 
       {certificates.length <= 0 ? (
         <div className="loading">Please Wait...</div>
       ) : (
         <div className="card-certificates-wrapper">
-          {certificates?.map((type: any) => {
+          {certificates?.map((type: any, index: number) => {
             return (
-              <div className="card-certificates">
+              <div
+                className="card-certificates"
+                key={index}
+                ref={(el) => (revealCertificates.current[index] = el)}
+              >
                 <h4>{type.title}</h4>
                 <div className="certificate-subtitle">{type.subtitle}</div>
                 <a

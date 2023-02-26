@@ -1,10 +1,13 @@
-import React, { useEffect } from "react"
+import React, { useEffect, useRef } from "react"
 import styled from "styled-components"
 import Theme from "@css/CssVariables"
 import Icons from "@components/icons/Icons"
-import useToggle from "@hooks/useToggle"
+import {
+  useToggle,
+  useAnimationScroll,
+  usePrefersReducedMotion,
+} from "@hooks/index"
 import Link from "next/link"
-import AosInit from "@components/utils/aos"
 
 const StyledProjectsSection = styled.section`
   display: flex;
@@ -173,28 +176,62 @@ const StyledProject = styled.div`
 `
 
 const Projects = ({ projects }): JSX.Element => {
+  const revealTitle = useRef(null)
+  const revealSubTitle = useRef(null)
+  const revealProjects = useRef([])
+  const revealButton = useRef(null)
+
+  const title = useAnimationScroll(revealSubTitle)
+  const subTitle = useAnimationScroll(revealSubTitle)
+  const gitProjects = useAnimationScroll(revealProjects)
+  const showButton = useAnimationScroll(revealButton)
+
+  const prefersReducedMotion = usePrefersReducedMotion()
+
   const project = projects
   const GRID_LIMIT: number = 6
   const [isShow, isToggle] = useToggle()
   const firstSix: Object[] = project && project.slice(0, GRID_LIMIT)
   const projectsData = isShow ? project : firstSix
 
-  useEffect(AosInit, [])
+  useEffect(() => {
+    const scrollReveal = async () => {
+      if (prefersReducedMotion) {
+        return
+      }
+
+      await Promise.allSettled([
+        title(),
+        subTitle(),
+        gitProjects(),
+        showButton(),
+      ])
+    }
+
+    scrollReveal()
+  }, [])
 
   return (
     <>
       <StyledProjectsSection id="project">
         <div className="heading">
-          <h2 className="numbered-heading">Other Noteworthy Projects</h2>
-          <span className="archive-link link">explore more</span>
+          <h2 className="numbered-heading" ref={revealTitle}>
+            Other Noteworthy Projects
+          </h2>
+          <span className="archive-link link" ref={revealSubTitle}>
+            explore more
+          </span>
         </div>
         {projects.length <= 0 ? (
           <div className="loading">Please Wait...</div>
         ) : (
           <div className="project-grid">
             {projectsData &&
-              projectsData.map((info: any) => (
-                <StyledProject key={info.id} data-aos="fade-up">
+              projectsData.map((info: any, index: number) => (
+                <StyledProject
+                  key={index}
+                  ref={(el) => (revealProjects.current[index] = el)}
+                >
                   <div className="project-inner">
                     <header>
                       <div className="project-top">
@@ -245,7 +282,7 @@ const Projects = ({ projects }): JSX.Element => {
           </div>
         )}
 
-        <button className="more-button" data-aos="fade-up" onClick={isToggle}>
+        <button className="more-button" onClick={isToggle}>
           <a>Show {isShow ? "less" : "more"}</a>
         </button>
       </StyledProjectsSection>

@@ -12,7 +12,16 @@ import Link from "next/link"
 const StyledProjectsSection = styled.section`
   display: flex;
   flex-direction: column;
-  padding: 170px 20px;
+  width: 100%;
+  padding: 170px 30px;
+
+  @media (max-width: 768px) {
+    padding: 80px 60px;
+  }
+
+  @media (max-width: 492px) {
+    padding: 10px 30px;
+  }
 
   .heading {
     position: relative;
@@ -53,24 +62,13 @@ const StyledProjectsSection = styled.section`
       color: var(--green);
     }
   }
-
-  /* @media (max-width: 1080px) {
-    padding: 100px 90px;
-  }
-
-  @media (max-width: 768px) {
-    padding: 80px 60px;
-  }
-
-  @media (max-width: 492px) {
-    padding: 70px 30px;
-  } */
 `
 
 const StyledProject = styled.div`
   ${Theme.boxShadow}
   cursor: default;
   transition: var(--transition);
+  width: 100%;
 
   &:hover,
   &:focus {

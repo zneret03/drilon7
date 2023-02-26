@@ -9,6 +9,7 @@ import { usePrefersReducedMotion, useAnimationScroll } from "@hooks/index"
 
 const StyleWorkSection = styled.section`
   padding: 40px 90px;
+  width: 100%;
 
   @media (max-width: 768px) {
     padding: 180px 60px;

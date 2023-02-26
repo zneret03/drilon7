@@ -1,4 +1,4 @@
-import { css } from "styled-components";
+import { css } from "styled-components"
 
 const Theme = {
   inlineLink: css`
@@ -50,6 +50,6 @@ const Theme = {
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     grid-gap: 15px;
   `,
-};
+}
 
-export default Theme;
+export default Theme

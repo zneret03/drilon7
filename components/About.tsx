@@ -23,12 +23,14 @@ const pulse = keyframes`
 `
 
 const ArrowDownStyled = styled.div`
+  position: relative;
   display: block;
   cursor: pointer;
   width: 100px;
   height: 100px;
   margin: 0 auto;
   transform: translateY(-14px);
+  z-index: 2;
 
   @media (max-width: 1100px) {
     display: none;
@@ -226,7 +228,7 @@ const About = () => {
             <h2 className="numbered-heading">Who's Ian?</h2>
             <div>
               <p>
-                Hi! There, Ian A. Drilon Graduated in Iloilo Science and
+                Hi! There, I'm Ian A. Drilon Graduated in Iloilo Science and
                 Technology University
                 <a
                   className="link"
@@ -238,18 +240,13 @@ const About = () => {
               </p>
 
               <p>
-                A former Front-end Engineer of
-                <a
-                  className="link"
-                  href="https://www.acadarena.com/"
-                  target="_blank"
-                >
-                  AcadArena
+                A former Cloud Engineer of
+                <a className="link" href="https://senti.ai/" target="_blank">
+                  Senti.AI
                 </a>
               </p>
 
               <p>
-                {" "}
                 I Enjoy creating things that resides in the internet. whether
                 that be websites, applications, or any in between. My goal is
                 always building a scalable, user friendly and pixel-perfect

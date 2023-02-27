@@ -1,3 +1,5 @@
+const email = "iandrilon2@gmail.com"
+
 const socialMedia = [
   {
     name: "Twitter",
@@ -68,4 +70,4 @@ const srConfig = (delay = 200, viewFactor = 0.25) => ({
   viewOffset: { top: 0, right: 0, bottom: 0, left: 0 },
 })
 
-export { socialMedia, sideLink, loadDelay, enterDelay, srConfig }
+export { socialMedia, sideLink, loadDelay, enterDelay, email, srConfig }

@@ -5,7 +5,7 @@ import { CSSTransition, TransitionGroup } from "react-transition-group"
 import Image from "next/image"
 
 //*Component
-import { loadDelay, enterDelay } from "@data"
+import { loadDelay } from "@data"
 import Icons from "./icons/Icons"
 
 const float = keyframes`
@@ -23,7 +23,7 @@ const float = keyframes`
 const DivWrapper = styled.div`
   background-color: #06172f;
 
-  @media (max-width: 1080px) {
+  @media (max-width: 1200px) {
     background-color: var(--navy);
   }
 
@@ -39,21 +39,22 @@ const DivWrapper = styled.div`
   } */
 
   section {
-    width: 100vw;
     position: relative;
+    width: 100vw;
     padding: 155px 0;
     color: #dbcfcf;
     display: flex;
     flex-shrink: 0;
     align-items: center;
     gap: 8rem;
+    z-index: 2;
 
     @media (max-width: 1100px) {
       display: block;
     }
 
     .right-content {
-      @media (max-width: 1100px) {
+      @media (max-width: 1200px) {
         display: none;
       }
 
@@ -162,7 +163,7 @@ const DivWrapper = styled.div`
       letter-spacing: 2px;
 
       @media (max-width: 1080px) {
-        font-size: clamp(65px, 5vw, 150px);
+        font-size: clamp(80px, 5vw, 150px);
       }
 
       @media (max-width: 768px) {
@@ -358,7 +359,10 @@ const LandingPage = () => {
                     classNames="fadeup"
                     timeout={loadDelay}
                   >
-                    <div style={{ transitionDelay: `${index + 1}00ms` }}>
+                    <div
+                      key={index}
+                      style={{ transitionDelay: `${index + 1}00ms` }}
+                    >
                       {items}
                     </div>
                   </CSSTransition>
@@ -372,7 +376,10 @@ const LandingPage = () => {
                   classNames="fade"
                   timeout={1000}
                 >
-                  <div style={{ transitionDelay: `${index + 1}00ms` }}>
+                  <div
+                    key={index}
+                    style={{ transitionDelay: `${index + 1}00ms` }}
+                  >
                     {items}
                   </div>
                 </CSSTransition>

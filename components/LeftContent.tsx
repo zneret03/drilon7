@@ -1,31 +1,82 @@
-import React, { useState, useEffect } from "react";
-import styled from "styled-components";
-import { useSpring } from "react-spring";
-import { CSSTransition, TransitionGroup } from "react-transition-group";
+import React, { useState, useEffect } from "react"
+import styled from "styled-components"
+import { useSpring } from "react-spring"
+import { useToggle } from "@hooks/index"
+import { CSSTransition, TransitionGroup } from "react-transition-group"
+import { email } from "@data"
 
 //*Components
-import Icons from "@components/icons/Icons";
-import { loadDelay, socialMedia } from "@data";
-import Social from "@components/Social";
-import Sidebar from "@components/Sidebar";
+import Icons from "@components/icons/Icons"
+import { loadDelay, socialMedia } from "@data"
+import Social from "@components/Social"
+import Sidebar from "@components/Sidebar"
 
 const StyledSide = styled.div`
+  position: relative;
+
   .Menu {
-    left: 5rem;
+    left: 0;
+    right: 0;
     top: 4rem;
+    bottom: 0;
     position: fixed;
-    cursor: pointer;
-    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    padding: 0 70px;
+    z-index: 2;
 
     @media (max-width: 768px) {
-      left: 2.5rem;
-      top: 3rem;
+      padding: 0 25px;
+      top: 2rem;
     }
 
-    .socialMedia {
-      @media (max-width: 768px) {
-        padding-top: 10px;
-        display: none;
+    aside {
+      .socialMedia {
+        @media (max-width: 768px) {
+          padding-top: 10px;
+          display: none;
+        }
+      }
+
+      &:first-child {
+        cursor: pointer;
+      }
+    }
+
+    &:first-child {
+      .email-link {
+        cursor: pointer;
+        align-self: flex-end;
+        writing-mode: vertical-rl;
+        display: flex;
+        align-items: center;
+        font-size: var(--fz-sm);
+        font-family: var(--font-mono);
+
+        @media (max-width: 780px) {
+          display: none;
+        }
+
+        a {
+          line-height: var(--fz-xxs);
+          letter-spacing: 0.1em;
+
+          &:hover,
+          &:focus {
+            color: var(--green);
+            transition: var(--transition);
+            transform: translateY(-5px);
+          }
+        }
+
+        &:after {
+          content: "";
+          display: block;
+          width: 1px;
+          height: 100px;
+          margin-top: 15px;
+          background-color: var(--light-slate);
+        }
       }
     }
   }
@@ -46,49 +97,41 @@ const StyledSide = styled.div`
         display: none;
       }
     }
+
+    .email-link {
+      display: none;
+    }
   }
-`;
+`
 
 interface PropTypes {
-  children: React.ReactNode;
+  children: React.ReactChildren
 }
 
 const LeftContent: React.FC<PropTypes> = ({ children }) => {
-  const [toggle, setToggle] = useState(false);
+  const [toggle, isToggle] = useToggle()
 
-  const toggleSideBar = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    event.preventDefault();
-
-    if (!toggle) {
-      setToggle(true);
-    } else {
-      setToggle(false);
-    }
-  };
-
-  const [sticky, setSticky] = useState(false);
+  const [sticky, setSticky] = useState(false)
 
   useEffect(() => {
     const mountNavbar = () => {
-      const fixed = window.pageYOffset < 9;
-      const innerWidth = window.innerWidth < 763;
+      const fixed = window.pageYOffset < 9
+      const innerWidth = window.innerWidth < 763
       if (!fixed && innerWidth) {
-        setSticky(true);
+        setSticky(true)
       } else {
-        setSticky(false);
+        setSticky(false)
       }
-    };
+    }
 
-    window.addEventListener("scroll", mountNavbar);
-    return () => window.removeEventListener("scroll", mountNavbar);
-  }, [sticky]);
+    window.addEventListener("scroll", mountNavbar)
+    return () => window.removeEventListener("scroll", mountNavbar)
+  }, [sticky])
 
   const animatedSidebar = useSpring({
     transform: toggle ? "translateX(0%)" : "translateX(-100%)",
     marginLeft: toggle ? "0px" : "-400px",
-  });
+  })
 
   return (
     <TransitionGroup component={null}>
@@ -97,22 +140,24 @@ const LeftContent: React.FC<PropTypes> = ({ children }) => {
         <Sidebar
           animatedSidebar={animatedSidebar}
           toogle={toggle}
-          toggleSideBar={(event) => toggleSideBar(event)}
+          toggleSideBar={isToggle}
         >
           <StyledSide className="container">
             <div className="container-wrapper">
               {!toggle && (
-                <div
-                  className={`${sticky ? "Nav" : "Menu"}`}
-                  style={{ opacity: 1 }}
-                >
-                  <div onClick={(event) => toggleSideBar(event)}>
-                    <Icons name="Menu" />
-                  </div>
-                  <div className="socialMedia">
-                    {socialMedia && (
-                      <Social socialMedia={socialMedia} toggle={toggle} />
-                    )}
+                <div className={`${sticky ? "Nav" : "Menu"}`}>
+                  <aside>
+                    <div onClick={isToggle}>
+                      <Icons name="Menu" />
+                    </div>
+                    <div className="socialMedia">
+                      {socialMedia && (
+                        <Social socialMedia={socialMedia} toggle={toggle} />
+                      )}
+                    </div>
+                  </aside>
+                  <div className="email-link">
+                    <a href={`mailto:${email}`}>iandrilon2@gmail.com</a>
                   </div>
                 </div>
               )}
@@ -121,7 +166,7 @@ const LeftContent: React.FC<PropTypes> = ({ children }) => {
         </Sidebar>
       </CSSTransition>
     </TransitionGroup>
-  );
-};
+  )
+}
 
-export default LeftContent;
+export default LeftContent

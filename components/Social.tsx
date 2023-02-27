@@ -1,7 +1,7 @@
-import React from "react";
-import styled from "styled-components";
-import Icons from "./icons/Icons";
-import Link from "next/link";
+import React from "react"
+import styled from "styled-components"
+import Icons from "./icons/Icons"
+import Link from "next/link"
 
 const StyledSocialList = styled.ul`
   display: flex;
@@ -39,11 +39,11 @@ const StyledSocialList = styled.ul`
       fill: #8690b0;
     }
   }
-`;
+`
 
 interface PropTypes {
-  socialMedia: Object[];
-  toggle: boolean;
+  socialMedia: Object[]
+  toggle: boolean
 }
 
 const Social: React.FC<PropTypes> = ({ socialMedia, toggle }) => {
@@ -63,7 +63,7 @@ const Social: React.FC<PropTypes> = ({ socialMedia, toggle }) => {
         </StyledSocialList>
       )}
     </>
-  );
-};
+  )
+}
 
-export default Social;
+export default Social

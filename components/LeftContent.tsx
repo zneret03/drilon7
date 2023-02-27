@@ -105,7 +105,7 @@ const StyledSide = styled.div`
 `
 
 interface PropTypes {
-  children: React.ReactChildren
+  children: React.ReactNode
 }
 
 const LeftContent: React.FC<PropTypes> = ({ children }) => {

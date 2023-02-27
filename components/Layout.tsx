@@ -1,31 +1,31 @@
-import React, { useState, useEffect } from "react";
-import { GlobalStyle } from "@css";
-import { GithubProvider } from "@Context/GithubProvider";
-import { Loader } from "@components";
-import "aos/dist/aos.css";
+import React, { useState, useEffect } from "react"
+import { GlobalStyle } from "@css"
+import { GithubProvider } from "@Context/GithubProvider"
+import { Loader } from "@components"
+import "aos/dist/aos.css"
 
 //*Components
-import { Footer } from "@components";
-import LeftContent from "./LeftContent";
+import { Footer } from "@components"
+import LeftContent from "./LeftContent"
 
 if (typeof window !== "undefined") {
-  require("smooth-scroll")('a[href*="#"]');
+  require("smooth-scroll")('a[href*="#"]')
 }
 
 interface PropTypes {
-  children: React.ReactNode;
+  children: React.ReactNode
 }
 
 const Layout: React.FC<PropTypes> = ({ children }) => {
-  const [isMounted, setIsMounted] = useState(true);
+  const [isMounted, setIsMounted] = useState(true)
 
   useEffect(() => {
     const timeout = setTimeout(() => {
-      setIsMounted(false);
-    }, 5000);
+      setIsMounted(false)
+    }, 5000)
 
-    return () => clearTimeout(timeout);
-  }, []);
+    return () => clearTimeout(timeout)
+  }, [])
 
   return (
     <GithubProvider>
@@ -41,7 +41,7 @@ const Layout: React.FC<PropTypes> = ({ children }) => {
         </LeftContent>
       )}
     </GithubProvider>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

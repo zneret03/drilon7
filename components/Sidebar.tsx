@@ -92,7 +92,7 @@ interface PropTypes {
   animatedSidebar: any
   toogle: boolean
   children: React.ReactNode
-  toggleSideBar: (event: React.MouseEvent<HTMLDivElement, MouseEvent>) => void
+  toggleSideBar: React.MouseEventHandler<HTMLDivElement>
 }
 
 const Sidebar: React.FC<PropTypes> = ({
@@ -116,7 +116,7 @@ const Sidebar: React.FC<PropTypes> = ({
       <Wrapper>
         <animated.div style={animatedSidebar}>
           <SideBarWrapper>
-            <div onClick={(event) => toggleSideBar(event)}>
+            <div onClick={toggleSideBar}>
               <X color="#fff" />
             </div>
             <ul>

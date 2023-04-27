@@ -16,14 +16,12 @@ const StyledSide = styled.div`
 
   .Menu {
     left: 0;
-    right: 0;
     top: 4rem;
-    bottom: 0;
     position: fixed;
     display: flex;
     justify-content: space-between;
     padding: 0 70px;
-    z-index: 2;
+    z-index: 1;
 
     @media (max-width: 768px) {
       padding: 0 25px;
@@ -45,6 +43,9 @@ const StyledSide = styled.div`
 
     &:first-child {
       .email-link {
+        position: fixed;
+        right: 4rem;
+        bottom: 0;
         cursor: pointer;
         align-self: flex-end;
         writing-mode: vertical-rl;

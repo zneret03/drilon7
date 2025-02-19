@@ -275,9 +275,9 @@ const LandingPage = () => {
 
   const two = (
     <p>
-      A freelance Developer/Software Developer in Philippines, graduated in
-      Iloilo Science and Technology University, taking up Bachelor in Computer
-      Science degree
+      A Software Developer in Philippines, graduated in
+      Iloilo Science and Technology University, Currently working as Software Developer
+      in Mashup Garage
     </p>
   )
 

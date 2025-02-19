@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.tsx",
   "scripts": {
-    "dev": "next dev",
+    "dev": "NODE_OPTIONS='--openssl-legacy-provider' next dev",
     "build": "next build",
     "start": "next start"
   },
@@ -42,6 +42,7 @@
     "react-apollo": "^3.1.5",
     "react-slick": "^0.29.0",
     "scrollreveal": "^4.0.9",
+    "sharp": "^0.33.5",
     "slick-carousel": "^1.8.1"
   }
 }

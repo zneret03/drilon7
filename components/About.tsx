@@ -147,6 +147,7 @@ const StyledPic = styled.div`
       position: relative;
       border-radius: var(--border-radius);
       transition: var(--transition);
+    object-fit: cover;
     }
 
     &:before,
@@ -192,9 +193,9 @@ const About = () => {
   }, [])
 
   const skills = [
-    "JavaScript (ES6+)",
-    "HTML & Css3",
-    "Node.js",
+    "Elixir Phoenix",
+    "GraphQL",
+    "AWS",
     "React",
     "Next.js",
     "Firebase",
@@ -217,7 +218,7 @@ const About = () => {
             <div className="wrapper">
               <Image
                 className="img"
-                src={"/image/image.jpg"}
+                src={"/image/about-me.jpg"}
                 alt="Picture of the author"
                 width={500}
                 height={500}
@@ -240,9 +241,16 @@ const About = () => {
               </p>
 
               <p>
-                A former Cloud Engineer of
-                <a className="link" href="https://senti.ai/" target="_blank">
-                  Senti.AI
+                Currently software developer of 
+                <a className="link" href="https://www.mashupgarage.com/" target="_blank">
+                  Mashup garage
+                </a> 
+              </p>
+
+              <p>
+                and working closely to 
+                <a className="link" href="https://www.horizonquantum.com/" target="_blank">
+                Horizon Quantum 
                 </a>
               </p>
 
@@ -250,7 +258,7 @@ const About = () => {
                 I Enjoy creating things that resides in the internet. whether
                 that be websites, applications, or any in between. My goal is
                 always building a scalable, user friendly and pixel-perfect
-                website with performant experience.
+                website with performant experience and developing a backend using elixir phoenix.
               </p>
 
               <p>Here is some technology that i’ve been working recently:</p>

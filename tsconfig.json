@@ -23,7 +23,7 @@
       "@css/*": ["css/*"],
       "@css": ["css"],
       "@data": ["data"],
-      "@Context/*": ["Context/*"]
+      "@context/*": ["context/*"]
     }
   },
   "include": ["components", "components/Sidebar.tsx"],

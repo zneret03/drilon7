@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react"
 import { GlobalStyle } from "@css"
-import { GithubProvider } from "@Context/GithubProvider"
+import { GithubProvider } from "@context/GithubProvider"
 import { Loader } from "@components"
 import "aos/dist/aos.css"
 

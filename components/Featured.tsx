@@ -4,7 +4,7 @@ import styled from "styled-components"
 import Link from "next/link"
 import Image from "next/image"
 
-import { srConfig } from "@data"
+// import { srConfig } from "@data"
 import { usePrefersReducedMotion, useAnimationScroll } from "@hooks/index"
 
 const StyleWorkSection = styled.section`

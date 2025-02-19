@@ -22,6 +22,10 @@ const pulse = keyframes`
   }
 `
 
+const WorkExperienceDesc = styled.div`
+   line-height: 0.5;
+`
+
 const ArrowDownStyled = styled.div`
   position: relative;
   display: block;
@@ -121,7 +125,7 @@ const StyledPic = styled.div`
     position: relative;
     width: 100%;
     border-radius: var(--border-radius);
-    background-color: var(--green);
+    background-color: inherit;
     -webkit-filter: var(--webkit-filter); /* Safari 6.0 - 9.0 */
     filter: var(--filter);
 
@@ -240,22 +244,29 @@ const About = () => {
                 </a>
               </p>
 
+              <WorkExperienceDesc>
               <p>
                 Currently software developer of 
                 <a className="link" href="https://www.mashupgarage.com/" target="_blank">
-                  Mashup garage
+                  Mashup garage,
                 </a> 
               </p>
 
               <p>
                 and working closely to 
                 <a className="link" href="https://www.horizonquantum.com/" target="_blank">
-                Horizon Quantum 
+                Horizon Quantum,
                 </a>
               </p>
 
               <p>
-                I Enjoy creating things that resides in the internet. whether
+                For creating quantum computing base editor. 
+              </p>
+
+              </WorkExperienceDesc>
+
+              <p>
+              I Enjoy creating things that resides in the internet. whether
                 that be websites, applications, or any in between. My goal is
                 always building a scalable, user friendly and pixel-perfect
                 website with performant experience and developing a backend using elixir phoenix.

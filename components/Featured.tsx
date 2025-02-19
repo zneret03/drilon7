@@ -4,7 +4,6 @@ import styled from "styled-components"
 import Link from "next/link"
 import Image from "next/image"
 
-// import { srConfig } from "@data"
 import { usePrefersReducedMotion, useAnimationScroll } from "@hooks/index"
 
 const StyleWorkSection = styled.section`
@@ -249,7 +248,6 @@ const StyledProject = styled.div`
     a {
       z-index: 1;
       width: 100%;
-      background-color: var(--green);
       border-radius: var(--border-radius);
       vertical-align: middle;
       &:hover,
@@ -358,7 +356,7 @@ const Featured = ({ featured }): JSX.Element => {
           </div>
 
           <div className="project-image">
-            <Link href={project.demo}>
+            <Link href={project.source} target="_blank">
               <a>
                 <Image
                 width={1000}

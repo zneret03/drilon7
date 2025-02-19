@@ -221,26 +221,12 @@ const DivWrapper = styled.div`
 `
 
 const LandingPage = () => {
-  const [toggle, setToggle] = useState(false)
-
   const redirectEmail = (
     event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     event.preventDefault()
     const typeFormRedirect = "TypeForm"
     window.open(typeFormRedirect)
-  }
-
-  const toggleSideBar = (
-    event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
-    event.preventDefault()
-
-    if (!toggle) {
-      setToggle(true)
-    } else {
-      setToggle(false)
-    }
   }
 
   const [sticky, setSticky] = useState(false)
@@ -275,9 +261,7 @@ const LandingPage = () => {
 
   const two = (
     <p>
-      A Software Developer in Philippines, graduated in
-      Iloilo Science and Technology University, Currently working as Software Developer
-      in Mashup Garage
+    👨‍💻 Software Developer from the Philippines 🇵🇭 | 🚀 Building scalable & impactful solutions at Mashup Garage 🏗️✨
     </p>
   )
 
@@ -311,7 +295,7 @@ const LandingPage = () => {
 
       <div className="image">
         <Image
-          src={"/image/self.png"}
+          src={"/image/new-card-profile.png"}
           alt="Picture of the author"
           width={600}
           height={600}
@@ -320,34 +304,13 @@ const LandingPage = () => {
     </div>
   )
 
-  // const five = (
-  //   <div>
-  //     <Icons name="CurveRight" />
-  //   </div>
-  // );
-
   const items = [one, two, three]
   const leftContent = [four]
-  // const icons = [five];
 
   return (
     <>
       <SEO title="Ian Drilon" content="Landing Page" />
       <DivWrapper id="home">
-        {/* <TransitionGroup component={null}>
-        {isMounted &&
-          icons.map((icons: any, index: number) => (
-            <CSSTransition
-              key={index}
-              in={true}
-              classNames="fade"
-              timeout={loadDelay}
-            >
-              <div style={{ transitionDelay: `${index + 1}00ms` }}>{icons}</div>
-            </CSSTransition>
-          ))}
-      </TransitionGroup> */}
-
         <TransitionGroup in={true} component={null}>
           <section>
             <div>

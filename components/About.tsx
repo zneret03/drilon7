@@ -260,7 +260,7 @@ const About = () => {
               </p>
 
               <p>
-                For creating quantum computing base editor. 
+                for creating quantum computing base editor. 
               </p>
 
               </WorkExperienceDesc>

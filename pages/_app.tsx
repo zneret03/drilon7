@@ -4,8 +4,6 @@ import "slick-carousel/slick/slick-theme.css"
 import Head from "next/head"
 
 function App({ Component, pageProps }) {
-
-
   return (
     <Fragment>
       <div>

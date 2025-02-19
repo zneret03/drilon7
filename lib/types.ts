@@ -1,5 +1,5 @@
 export type SlickDotTypes = {
-  dots: Object
+  dots: any
 }
 
 export type SEOTypes = {

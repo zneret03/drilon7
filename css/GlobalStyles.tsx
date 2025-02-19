@@ -3,8 +3,6 @@ import TranstionStyles from "./TransitionStyles"
 import Theme from "./CssVariables"
 
 const GlobalStyle = createGlobalStyle`
-
-
   /* Scrollbar Styles */
   html {
     scrollbar-width: thin;

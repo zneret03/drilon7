@@ -1,7 +1,11 @@
 {
   "compilerOptions": {
     "target": "ES5",
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+    "lib": [
+      "DOM",
+      "DOM.Iterable",
+      "ESNext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -16,16 +20,38 @@
     "jsx": "preserve",
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["components/*"],
-      "@hooks/*": ["hooks/*"],
-      "@components": ["components"],
-      "@lib/*": ["lib/*"],
-      "@css/*": ["css/*"],
-      "@css": ["css"],
-      "@data": ["data"],
-      "@context/*": ["context/*"]
-    }
+      "@components/*": [
+        "components/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@components": [
+        "components"
+      ],
+      "@lib/*": [
+        "lib/*"
+      ],
+      "@css/*": [
+        "css/*"
+      ],
+      "@css": [
+        "css"
+      ],
+      "@data": [
+        "data"
+      ],
+      "@context/*": [
+        "context/*"
+      ]
+    },
+    "incremental": true
   },
-  "include": ["components", "components/Sidebar.tsx"],
-  "exclude": ["node_modules"]
+  "include": [
+    "components",
+    "components/Sidebar.tsx"
+  ],
+  "exclude": [
+    "node_modules"
+  ]
 }

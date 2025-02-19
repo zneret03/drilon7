@@ -325,7 +325,7 @@ const Featured = ({ featured }): JSX.Element => {
       {featured.map((project: any, index: number) => (
         <StyledProject
           key={index}
-          ref={(el) => (revealFeatured.current[index] = el)}
+          ref={(el: any) => (revealFeatured.current[index] = el)}
         >
           <div className="project-content">
             <p className="project-overline">{project.feature}</p>
@@ -361,7 +361,8 @@ const Featured = ({ featured }): JSX.Element => {
             <Link href={project.demo}>
               <a>
                 <Image
-                  unsized
+                width={1000}
+                height={600}
                   src={`/image/${project.image}`}
                   className="img"
                   alt="featured "

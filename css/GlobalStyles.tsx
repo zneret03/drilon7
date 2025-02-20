@@ -264,19 +264,19 @@ const GlobalStyle = createGlobalStyle`
       padding : 0px 5px;
       z-index : 1;
       
-      &:after {
-        content: '';
-        display: block;
-        width: 0px;
-        height: 1px;
-        background-color: #fff;
-        transition: width .3s;
-      }
-
-      &:hover::after{
-        width: 100%;  
-        transition : width .3s;
-      }
+      // &:after {
+      //   content: '';
+      //   display: block;
+      //   width: 0;
+      //   height: 1px;
+      //   background-color: #fff;
+      //   transition: width .3s;
+      // }
+      //
+      // &:hover::after{
+      //   width: 100%;  
+      //   transition : width .3s;
+      // }
   }
 
   p{

@@ -23,7 +23,7 @@ const pulse = keyframes`
 `
 
 const WorkExperienceDesc = styled.div`
-   line-height: 0.5;
+  line-height: 0.6;
 `
 
 const ArrowDownStyled = styled.div`
@@ -51,7 +51,7 @@ const ArrowDownStyled = styled.div`
 const StyledAboutSection = styled.section`
   max-width: 900px;
 
-  padding: 150px 90px;
+  padding: 150px 50px;
 
   @media (max-width: 1080px) {
     padding: 0px 90px;
@@ -61,8 +61,12 @@ const StyledAboutSection = styled.section`
     padding: 0px 60px;
   }
 
-  @media (max-width: 492px) {
+  @media (max-width: 494px) {
     padding: 0px 30px;
+  }
+
+  @media (max-width: 470px) {
+    padding: 0px 20px;
   }
 
   .inner {
@@ -262,7 +266,6 @@ const About = () => {
               <p>
                 for creating quantum computing base editor. 
               </p>
-
               </WorkExperienceDesc>
 
               <p>

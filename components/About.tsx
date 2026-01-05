@@ -1,9 +1,9 @@
-import React, { useEffect, useRef } from "react"
-import { SEO } from "@components"
-import styled, { keyframes } from "styled-components"
-import Image from "next/image"
-import Icons from "@components/icons/Icons"
-import { usePrefersReducedMotion, useAnimationScroll } from "@hooks/index"
+import React, { useEffect, useRef } from 'react'
+import { SEO } from '@components'
+import styled, { keyframes } from 'styled-components'
+import Image from 'next/image'
+import Icons from '@components/icons/Icons'
+import { usePrefersReducedMotion, useAnimationScroll } from '@hooks/index'
 
 const pulse = keyframes`
   0% {
@@ -100,7 +100,7 @@ const StyledText = styled.div`
       font-size: var(--fz-xs);
 
       &:before {
-        content: "▹";
+        content: '▹';
         position: absolute;
         left: 0;
         color: var(--green);
@@ -155,12 +155,12 @@ const StyledPic = styled.div`
       position: relative;
       border-radius: var(--border-radius);
       transition: var(--transition);
-    object-fit: cover;
+      object-fit: cover;
     }
 
     &:before,
     &:after {
-      content: "";
+      content: '';
       display: block;
       position: absolute;
       width: 100%;
@@ -201,84 +201,83 @@ const About = () => {
   }, [])
 
   const skills = [
-    "Elixir Phoenix",
-    "GraphQL",
-    "AWS",
-    "React",
-    "Next.js",
-    "Firebase",
+    'Elixir Phoenix',
+    'GraphQL',
+    'AWS',
+    'React',
+    'Next.js',
+    'Supabase'
   ]
 
   return (
     <>
-      <SEO title="Ian Drilon" content="About Page" />
+      <SEO title='Ian Drilon' content='About Page' />
 
-      <ArrowDownStyled className="arrow-container">
-        <a href="#about">
-          <Icons name="ArrowDown" />
+      <ArrowDownStyled className='arrow-container'>
+        <a href='#about'>
+          <Icons name='ArrowDown' />
         </a>
-        <div className="circle" />
+        <div className='circle' />
       </ArrowDownStyled>
 
-      <StyledAboutSection id="about" ref={revealContainer}>
-        <div className="inner">
+      <StyledAboutSection id='about' ref={revealContainer}>
+        <div className='inner'>
           <StyledPic>
-            <div className="wrapper">
+            <div className='wrapper'>
               <Image
-                className="img"
-                src={"/image/about-me.jpg"}
-                alt="Picture of the author"
+                className='img'
+                src={'/image/about-me.jpg'}
+                alt='Picture of the author'
                 width={500}
                 height={500}
               />
             </div>
           </StyledPic>
           <StyledText>
-            <h2 className="numbered-heading">Who's Ian?</h2>
+            <h2 className='numbered-heading'>Who's Ian?</h2>
             <div>
               <p>
                 Hi! There, I'm Ian A. Drilon Graduated in Iloilo Science and
                 Technology University
                 <a
-                  className="link"
-                  href="https://www.isatu.edu.ph/"
-                  target="_blank"
+                  className='link'
+                  href='https://www.isatu.edu.ph/'
+                  target='_blank'
                 >
                   (ISATU)
                 </a>
               </p>
 
               <WorkExperienceDesc>
-              <p>
-                Currently software developer of 
-                <a className="link" href="https://www.mashupgarage.com/" target="_blank">
-                  Mashup garage,
-                </a> 
-              </p>
+                <p>
+                  Currently software engineer of
+                  <a className='link' href='#' target='_blank'>
+                    Find Hope,
+                  </a>
+                </p>
 
-              <p>
-                and working closely to 
-                <a className="link" href="https://www.horizonquantum.com/" target="_blank">
-                Horizon Quantum,
-                </a>
-              </p>
+                {/* <p> */}
+                {/*   and working closely to  */}
+                {/*   <a className="link" href="https://www.horizonquantum.com/" target="_blank"> */}
+                {/*   Horizon Quantum, */}
+                {/*   </a> */}
+                {/* </p> */}
 
-              <p>
-                for creating quantum computing base editor. 
-              </p>
+                {/* <p>for creating quantum computing base editor.</p> */}
               </WorkExperienceDesc>
 
               <p>
-              I Enjoy creating things that resides in the internet. whether
+                I Enjoy creating things that resides in the internet. whether
                 that be websites, applications, or any in between. My goal is
                 always building a scalable, user friendly and pixel-perfect
-                website with performant experience and developing a backend using elixir phoenix.
+                website with performant experience and developing a backend
+                using elixir phoenix.
               </p>
 
               <p>Here is some technology that i’ve been working recently:</p>
             </div>
 
-            <ul className="skills-list">
+            <ul className='skills-list'>
               {skills && skills.map((skill, i) => <li key={i}>{skill}</li>)}
             </ul>
           </StyledText>

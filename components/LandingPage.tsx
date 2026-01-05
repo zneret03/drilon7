@@ -1,12 +1,12 @@
-import React, { useState, useEffect } from "react"
-import { SEO } from "@components"
-import styled, { keyframes } from "styled-components"
-import { CSSTransition, TransitionGroup } from "react-transition-group"
-import Image from "next/image"
+import React, { useState, useEffect } from 'react'
+import { SEO } from '@components'
+import styled, { keyframes } from 'styled-components'
+import { CSSTransition, TransitionGroup } from 'react-transition-group'
+import Image from 'next/image'
 
 //*Component
-import { loadDelay } from "@data"
-import Icons from "./icons/Icons"
+import { loadDelay } from '@data'
+import Icons from './icons/Icons'
 
 const float = keyframes`
   	0% {
@@ -225,7 +225,7 @@ const LandingPage = () => {
     event: React.MouseEvent<HTMLSpanElement, MouseEvent>
   ) => {
     event.preventDefault()
-    const typeFormRedirect = "TypeForm"
+    const typeFormRedirect = 'TypeForm'
     window.open(typeFormRedirect)
   }
 
@@ -242,8 +242,8 @@ const LandingPage = () => {
       }
     }
 
-    window.addEventListener("scroll", mountNavbar)
-    return () => window.removeEventListener("scroll", mountNavbar)
+    window.addEventListener('scroll', mountNavbar)
+    return () => window.removeEventListener('scroll', mountNavbar)
   }, [sticky])
 
   const [isMounted, setIsMounted] = useState<boolean>(false)
@@ -261,42 +261,43 @@ const LandingPage = () => {
 
   const two = (
     <p>
-    👨‍💻 Software Developer from the Philippines 🇵🇭 | 🚀 Building scalable & impactful solutions at Mashup Garage 🏗️✨
+      👨‍💻 Software Developer from the Philippines 🇵🇭 | 🚀 Building scalable &
+      impactful solutions at Find hope 🏗️✨
     </p>
   )
 
   const three = (
-    <div className="btn-contact">
-      <span className="btn-text" onClick={(event) => redirectEmail(event)}>
+    <div className='btn-contact'>
+      <span className='btn-text' onClick={(event) => redirectEmail(event)}>
         Reach me out
       </span>
       <i>
-        <Icons name="Arrow" />
+        <Icons name='Arrow' />
       </i>
     </div>
   )
 
   const four = (
-    <div className="right-content">
-      <div className="card">
-        <img src="/image/card-profile.jpg" alt="" />
-        <div className="card-wrapper">
-          <span className="title">Ian Drilon</span>
-          <span className="sub-title">Soft. Developer</span>
-          <div className="rating">
+    <div className='right-content'>
+      <div className='card'>
+        <img src='/image/card-profile.jpg' alt='' />
+        <div className='card-wrapper'>
+          <span className='title'>Ian Drilon</span>
+          <span className='sub-title'>Soft. Developer</span>
+          <div className='rating'>
             {[...Array(5)].map(() => {
-              return <Icons name="Star" fill="#2AFF4C" />
+              return <Icons name='Star' fill='#2AFF4C' />
             })}
           </div>
         </div>
       </div>
 
-      <div className="box" />
+      <div className='box' />
 
-      <div className="image">
+      <div className='image'>
         <Image
-          src={"/image/new-card-profile.png"}
-          alt="Picture of the author"
+          src={'/image/new-card-profile.png'}
+          alt='Picture of the author'
           width={600}
           height={600}
         />
@@ -309,8 +310,8 @@ const LandingPage = () => {
 
   return (
     <>
-      <SEO title="Ian Drilon" content="Landing Page" />
-      <DivWrapper id="home">
+      <SEO title='Ian Drilon' content='Landing Page' />
+      <DivWrapper id='home'>
         <TransitionGroup in={true} component={null}>
           <section>
             <div>
@@ -319,7 +320,7 @@ const LandingPage = () => {
                   <CSSTransition
                     in={true}
                     key={index}
-                    classNames="fadeup"
+                    classNames='fadeup'
                     timeout={loadDelay}
                   >
                     <div
@@ -336,7 +337,7 @@ const LandingPage = () => {
                 <CSSTransition
                   in={true}
                   key={index}
-                  classNames="fade"
+                  classNames='fade'
                   timeout={1000}
                 >
                   <div

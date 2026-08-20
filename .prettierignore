@@ -1,0 +1,8 @@
+.next
+node_modules
+public
+coverage
+*.md
+.yarn
+yarn.lock
+next-env.d.ts

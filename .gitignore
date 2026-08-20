@@ -1,2 +1,36 @@
+# dependencies
 node_modules
+
+# yarn (berry, node-modules linker) — the pinned release IS committed
+.pnp.*
+.yarn/*
+!.yarn/patches
+!.yarn/plugins
+!.yarn/releases
+!.yarn/sdks
+!.yarn/versions
+
+# next
 .next
+out
+next-env.d.ts
+
+# production
+build
+dist
+
+# env — never commit real values
+.env
+.env.local
+.env*.local
+
+# misc
+.DS_Store
+*.pem
+*.tsbuildinfo
+.vercel
+coverage
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+package-lock.json

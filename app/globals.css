@@ -1,0 +1,189 @@
+@import 'tailwindcss';
+
+/*
+ * Design tokens. Single source of truth for the whole app.
+ *
+ * The palette is verbatim from the legacy `css/GlobalStyles.tsx` :root block —
+ * the redesign changes typography and layout, never the colours.
+ *
+ * Two layers, deliberately:
+ *   1. PALETTE  — raw named hexes. Defined once, here. Never edited elsewhere.
+ *   2. SEMANTIC — role aliases that point at the palette. Components use these.
+ *
+ * Components reference the semantic layer (bg-surface, text-heading, border-line).
+ * Reach for a palette name only when no semantic role fits.
+ */
+@theme {
+  /* ── 1. palette ─────────────────────────────────────────────── */
+  --color-dark-navy: #020c1b;
+  --color-navy: #0a192f;
+  --color-navy-raised: #122845;
+  --color-navy-console: #0d1f3a;
+  --color-light-navy: #172a45;
+  --color-lightest-navy: #303c55;
+  --color-slate: #8690b0;
+  --color-light-slate: #a8b2d1;
+  --color-lightest-slate: #ccd6f6;
+  --color-lightest-slate-20: #e4f1ff;
+  --color-off-white: #e6f1ff;
+  --color-green: #64ffda;
+  --color-green-bright: #9dffe8;
+  --color-green-tint: rgb(100 255 218 / 0.1);
+  --color-green-tint-strong: rgb(100 255 218 / 0.25);
+  --color-navy-shadow: rgb(2 12 27 / 0.7);
+
+  /* ── 2. semantic roles ──────────────────────────────────────── */
+  --color-background: var(--color-navy);
+  --color-surface: var(--color-navy-console);
+  --color-surface-raised: var(--color-navy-raised);
+  --color-line: var(--color-light-navy);
+  --color-line-strong: var(--color-lightest-navy);
+  --color-heading: var(--color-off-white);
+  --color-body: var(--color-light-slate);
+  --color-body-strong: var(--color-lightest-slate);
+  --color-muted: var(--color-slate);
+  --color-accent: var(--color-green);
+  --color-accent-hover: var(--color-green-bright);
+  --color-accent-wash: var(--color-green-tint);
+
+  /* ── typography ─────────────────────────────────────────────── */
+  --font-sans:
+    var(--font-instrument-sans), 'San Francisco', -apple-system, system-ui, sans-serif;
+  --font-mono:
+    var(--font-jetbrains-mono), 'SF Mono', 'Fira Code', 'Roboto Mono', monospace;
+
+  /* Scale carried over from the legacy --fz-* tokens, plus the two prose sizes
+     the redesign introduced (prose 17px, lead 19px).
+     Size tokens deliberately avoid the names `body` and `heading`: Tailwind
+     resolves `text-*` against --color-* first, so --text-body would be shadowed
+     by --color-body and never emit a font-size. */
+  --text-2xs: 0.75rem;
+  --text-xs: 0.8125rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-prose: 1.0625rem;
+  --text-lg: 1.125rem;
+  --text-lead: 1.1875rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.375rem;
+  --text-subsection: 1.625rem;
+  --text-section: 2rem;
+  --text-display: clamp(2.5rem, 6.4vw, 4.75rem);
+
+  --tracking-mono: 0.12em;
+  --tracking-display: -0.035em;
+
+  /* ── shape, motion, layout ──────────────────────────────────── */
+  --radius-sm: 5px;
+
+  --ease-standard: cubic-bezier(0.645, 0.045, 0.355, 1);
+
+  --shadow-hard: 10px 10px 0 0 rgb(23 42 69 / 0.75);
+  --shadow-hard-sm: 3px 3px 0 0 #172a45;
+  --shadow-lift: 0 10px 30px -15px rgb(2 12 27 / 0.7);
+  --shadow-lift-hover: 0 20px 30px -15px rgb(2 12 27 / 0.7);
+
+  --container-page: 77.5rem;
+  --spacing-bar: 4rem;
+
+  --animate-rise: rise 0.28s var(--ease-standard) both;
+  --animate-blink: blink 1s step-end infinite;
+  --animate-sweep: sweep 1.1s var(--ease-standard) infinite;
+
+  @keyframes rise {
+    from {
+      opacity: 0;
+      transform: translateY(8px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  @keyframes blink {
+    0%,
+    49% {
+      opacity: 1;
+    }
+    50%,
+    100% {
+      opacity: 0;
+    }
+  }
+  @keyframes sweep {
+    0% {
+      transform: translateX(-100%);
+    }
+    100% {
+      transform: translateX(300%);
+    }
+  }
+}
+
+@layer base {
+  html {
+    scrollbar-color: var(--color-line-strong) var(--color-background);
+    scrollbar-width: thin;
+  }
+
+  body {
+    background-color: var(--color-background);
+    color: var(--color-body);
+    font-family: var(--font-sans);
+    font-size: var(--text-prose);
+    line-height: 1.55;
+    text-wrap: pretty;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body::-webkit-scrollbar {
+    width: 8px;
+  }
+  body::-webkit-scrollbar-track {
+    background: var(--color-background);
+  }
+  body::-webkit-scrollbar-thumb {
+    background: var(--color-line-strong);
+    border-radius: 8px;
+  }
+
+  ::selection {
+    background: var(--color-green-tint-strong);
+    color: var(--color-heading);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    color: var(--color-heading);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+
+  /* Honour the OS setting rather than re-implementing it per component. */
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@utility mono-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: var(--tracking-mono);
+  text-transform: uppercase;
+}

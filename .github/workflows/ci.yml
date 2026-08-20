@@ -1,0 +1,44 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+
+      # Corepack honours the "packageManager" field; .yarnrc.yml's yarnPath then
+      # points at the release committed under .yarn/releases, so CI and local
+      # machines run byte-identical Yarn.
+      - run: corepack enable
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version-file: .tool-versions
+          cache: yarn
+
+      - run: yarn install --immutable
+
+      # Ordered cheapest-first so a formatting slip fails in seconds, not minutes.
+      - name: Format
+        run: yarn format:check
+
+      - name: Lint
+        run: yarn lint
+
+      - name: Typecheck
+        run: yarn typecheck
+
+      - name: Test
+        run: yarn test
+
+      - name: Build
+        run: yarn build

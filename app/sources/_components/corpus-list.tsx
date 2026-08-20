@@ -1,11 +1,12 @@
 import { EmptyState } from '@/components/ui'
 import { NAMESPACES } from '@/content'
-import { ChunkCard } from './chunk-card'
+import { ChunkRow } from './chunk-row'
 import type { Chunk, Namespace } from '@/types'
 
 /**
- * Renders the filtered corpus, and turns a zero-chunk namespace into a stated
- * gap rather than a blank screen — an empty namespace is a fact about the corpus.
+ * Renders the filtered corpus as one bordered table, and turns a zero-chunk
+ * namespace into a stated gap rather than a blank screen — an empty namespace is
+ * a fact about the corpus.
  */
 export function CorpusList({
   chunks,
@@ -20,18 +21,16 @@ export function CorpusList({
 
     return (
       <EmptyState
-        title='Declared, deliberately unwritten'
+        title='Not yet indexed'
         body={`${subject} holds no chunks yet. The namespace stays listed and selectable because hiding it would hide the gap: STY (how he builds) and OPN (positions held) are not written, so the console refuses questions that would need them instead of inventing an answer.`}
       />
     )
   }
 
   return (
-    <ul className='space-y-4'>
+    <ul className='border-line border'>
       {chunks.map((chunk) => (
-        <li key={chunk.id}>
-          <ChunkCard chunk={chunk} />
-        </li>
+        <ChunkRow key={chunk.id} chunk={chunk} />
       ))}
     </ul>
   )

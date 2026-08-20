@@ -12,22 +12,20 @@ export function CertificateList({
   certificates: readonly Certificate[]
 }) {
   return (
-    <ul className='grid gap-6 md:grid-cols-2'>
+    <ul className='space-y-3'>
       {certificates.map((certificate) => (
         <li key={certificate.id}>
-          <Card hover className='flex h-full flex-col gap-3'>
-            <div className='flex items-start justify-between gap-4'>
-              <h3 className='text-heading text-lg'>
-                <ExternalLink href={certificate.file} icon>
-                  {certificate.title}
-                </ExternalLink>
-              </h3>
+          <Card hover className='p-5'>
+            <div className='flex flex-wrap items-center justify-between gap-3'>
               <ChunkIdChip id={certificate.id} href={sourcesHref('CRT')} />
+              <Badge tone='quiet'>PDF</Badge>
             </div>
-            <p className='text-body text-sm'>{certificate.subtitle}</p>
-            <Badge tone='quiet' className='mt-auto self-start'>
-              PDF
-            </Badge>
+            <h3 className='text-prose mt-2'>
+              <ExternalLink href={certificate.file} icon>
+                {certificate.title}
+              </ExternalLink>
+            </h3>
+            <p className='text-muted mt-1.5 text-sm'>{certificate.subtitle}</p>
           </Card>
         </li>
       ))}

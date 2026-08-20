@@ -19,8 +19,13 @@ function isActive(pathname: string, href: string): boolean {
  * because it reads the current path and listens for that key; `brand` arrives
  * already rendered so the content barrel stays out of the client bundle.
  *
- * The nav never collapses — on a narrow screen it scrolls sideways rather than
- * hiding behind a hamburger, because a hidden route is a route nobody visits.
+ * Nothing collapses and nothing scrolls out of reach. One row needs about 820px
+ * (brand 125 + nav 494 + Ask 91 + two 28px gaps + the 56px gutter), so below
+ * `lg` the bar is two rows — brand and Ask on the first, the nav on the second,
+ * explicit `order` keeping the DOM order brand → nav → Ask — and the list
+ * itself wraps, so overflow is impossible rather than merely visible. Squeezing
+ * one row onto a phone left the nav a ~47px window: that was the truncation.
+ * At `lg` it is a single row exactly `h-bar` tall again.
  */
 export function CommandBar({ brand }: { brand: ReactNode }) {
   const router = useRouter()
@@ -31,11 +36,14 @@ export function CommandBar({ brand }: { brand: ReactNode }) {
 
   return (
     <header className='border-line bg-background/92 sticky top-0 z-50 border-b backdrop-blur'>
-      <Container className='h-bar flex items-center gap-6'>
+      <Container className='lg:h-bar flex flex-wrap items-center gap-x-7 gap-y-2 py-2 lg:py-0'>
         {brand}
 
-        <nav aria-label='Primary' className='min-w-0 flex-1 overflow-x-auto'>
-          <ul className='flex items-center gap-5'>
+        <nav
+          aria-label='Primary'
+          className='order-last w-full lg:order-1 lg:ml-auto lg:w-auto'
+        >
+          <ul className='-mx-3 flex flex-wrap items-center gap-0.5 lg:mx-0'>
             {NAV.map((item) => {
               const active = isActive(pathname, item.href)
 
@@ -45,7 +53,7 @@ export function CommandBar({ brand }: { brand: ReactNode }) {
                     href={item.href}
                     aria-current={active ? 'page' : undefined}
                     className={cn(
-                      'ease-standard font-mono text-sm whitespace-nowrap transition',
+                      'ease-standard block px-3 py-2 font-mono text-sm whitespace-nowrap transition',
                       active ? 'text-accent' : 'text-muted hover:text-accent'
                     )}
                   >
@@ -57,7 +65,12 @@ export function CommandBar({ brand }: { brand: ReactNode }) {
           </ul>
         </nav>
 
-        <ButtonLink href='/ask' variant='outline' size='sm' className='shrink-0'>
+        <ButtonLink
+          href='/ask'
+          variant='outline'
+          size='sm'
+          className='order-2 ml-auto h-9 shrink-0 px-3.5 lg:ml-0'
+        >
           Ask
           <Kbd>⌘K</Kbd>
         </ButtonLink>

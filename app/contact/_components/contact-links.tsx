@@ -1,42 +1,33 @@
-import { Card, ExternalLink, Section } from '@/components/ui'
+import { ExternalLink } from '@/components/ui'
 import { profile } from '@/content'
 import { resolveIcon } from '@/lib/icons'
 
 /**
- * The rest of the reach, kept under the mailto so one action stays primary.
+ * The rest of the reach, kept under the mailto so one action stays primary — a
+ * single wrapping row of bordered chips, not a card grid, so nothing competes
+ * with the address above it.
+ *
  * lucide v1 ships no brand glyphs, so the mono label carries the brand name and
  * the generic icon is decoration only.
  */
 export function ContactLinks() {
   return (
-    <Section
-      kicker='Elsewhere'
-      title='Other places I post'
-      meta={`${profile.socials.length} profiles`}
-      className='mt-20'
-    >
-      <ul className='mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3'>
-        {profile.socials.map((social) => {
-          const Icon = resolveIcon(social.icon)
+    <ul aria-label='Profiles elsewhere' className='flex flex-wrap gap-3.5'>
+      {profile.socials.map((social) => {
+        const Icon = resolveIcon(social.icon)
 
-          return (
-            <li key={social.url}>
-              <Card hover className='p-0'>
-                <ExternalLink
-                  href={social.url}
-                  icon
-                  className='flex items-center justify-between gap-3 p-6'
-                >
-                  <span className='flex items-center gap-3'>
-                    <Icon className='text-accent size-4 shrink-0' aria-hidden='true' />
-                    <span className='mono-label text-body-strong'>{social.name}</span>
-                  </span>
-                </ExternalLink>
-              </Card>
-            </li>
-          )
-        })}
-      </ul>
-    </Section>
+        return (
+          <li key={social.url}>
+            <ExternalLink
+              href={social.url}
+              className='border-line-strong text-body hover:border-accent hover:text-accent ease-standard border px-5 py-3 font-mono text-xs tracking-wider transition hover:no-underline'
+            >
+              <Icon className='size-4 shrink-0' aria-hidden='true' />
+              {social.name}
+            </ExternalLink>
+          </li>
+        )
+      })}
+    </ul>
   )
 }

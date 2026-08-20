@@ -14,7 +14,7 @@ export function ProjectHighlights({ highlights }: { highlights: Highlight[] }) {
   return (
     <ul className='divide-line divide-y'>
       {highlights.map((highlight) => (
-        <li key={highlight.id} className='flex flex-col gap-3 py-5 sm:flex-row sm:gap-6'>
+        <li key={highlight.id} className='flex flex-col gap-3 py-5 sm:flex-row sm:gap-5'>
           <ChunkIdChip className='self-start' href={PRJ_SOURCES} id={highlight.id} />
           <p className='text-body max-w-[70ch]'>{highlight.text}</p>
         </li>

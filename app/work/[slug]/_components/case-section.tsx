@@ -6,10 +6,10 @@ import type { CaseSection } from '@/types'
  */
 export function CaseSectionBlock({ kicker, title, body }: CaseSection) {
   return (
-    <article className='border-line border-t pt-8'>
+    <article className='border-line border-t py-8'>
       <p className='mono-label text-accent'>{kicker}</p>
       <h3 className='mt-3 text-2xl'>{title}</h3>
-      <p className='mt-4 max-w-[72ch]'>{body}</p>
+      <p className='mt-3.5 max-w-[62ch]'>{body}</p>
     </article>
   )
 }

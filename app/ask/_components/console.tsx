@@ -1,7 +1,7 @@
 'use client'
 
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { LoaderCircle, TriangleAlert } from 'lucide-react'
+import { TriangleAlert } from 'lucide-react'
 import { AnswerBlock } from '@/app/ask/_components/answer-block'
 import { PromptForm } from '@/app/ask/_components/prompt-form'
 import { RetrievalTrace } from '@/app/ask/_components/retrieval-trace'
@@ -13,6 +13,14 @@ import { cn } from '@/lib/cn'
 import { SUGGESTED_QUESTIONS } from '@/lib/suggestions'
 import type { ConsoleStatus } from '@/app/ask/_types'
 import type { Turn } from '@/types'
+
+/**
+ * Every prose row hangs off the field, not off the `>` glyph: the prompt row's
+ * 20px gutter, plus its 20px glyph column, plus its 14px gap. The number is exact
+ * because the alignment is the point — chips, answers and the busy line all start
+ * on the same vertical as the text being typed.
+ */
+const PROSE_ROW = 'pr-5 pl-[54px]'
 
 type ConsoleProps = {
   initialQuery: string
@@ -100,13 +108,13 @@ export function Console({ initialQuery, corpusSize }: ConsoleProps) {
 
   return (
     <Panel label='ask · grounded' meta={`${corpusSize} chunks indexed`}>
-      <div className='border-line space-y-4 border-b p-4'>
-        <PromptForm
-          value={input}
-          onChange={setInput}
-          onSubmit={() => submit(input)}
-          pending={retrieving}
-        />
+      <PromptForm
+        value={input}
+        onChange={setInput}
+        onSubmit={() => submit(input)}
+        pending={retrieving}
+      />
+      <div className={cn('pb-5', PROSE_ROW)}>
         <SuggestionChips
           items={SUGGESTED_QUESTIONS}
           onSelect={(question) => {
@@ -118,25 +126,33 @@ export function Console({ initialQuery, corpusSize }: ConsoleProps) {
       </div>
 
       {/* Mounted empty from the first render: a live region added later is silent. */}
-      <div aria-atomic='false' aria-live='polite' className='divide-line divide-y'>
+      <div aria-atomic='false' aria-live='polite'>
         {turns.map((turn, index) => (
-          <article className='animate-rise space-y-3 px-4 py-5' key={`turn-${index}`}>
+          <article
+            className='animate-rise border-line border-t py-6'
+            key={`turn-${index}`}
+          >
             <h2
-              className='flex items-baseline gap-2 font-mono text-sm'
+              className='flex items-baseline gap-3.5 px-5 text-lg font-medium'
               ref={index === turnCount - 1 ? latestHeading : null}
               tabIndex={-1}
             >
-              <span aria-hidden='true' className='text-accent'>
+              <span
+                aria-hidden='true'
+                className='text-accent w-5 shrink-0 font-mono text-sm'
+              >
                 &gt;
               </span>
               {turn.query}
             </h2>
-            <AnswerBlock parts={turn.parts} engine={turn.engine} />
+            <div className={cn('mt-4', PROSE_ROW)}>
+              <AnswerBlock parts={turn.parts} engine={turn.engine} />
+            </div>
           </article>
         ))}
 
         {turnCount === 0 && status === 'idle' ? (
-          <div className='px-4 py-6'>
+          <div className='border-line border-t px-5 py-6'>
             <EmptyState
               title='nothing asked yet'
               body={`Pick a question or type one. Answers are assembled only from the ${corpusSize} indexed chunks, and anything they do not support is refused.`}
@@ -148,17 +164,16 @@ export function Console({ initialQuery, corpusSize }: ConsoleProps) {
       {/* Stays mounted and toggles its text, so the status is announced every turn. */}
       <p
         className={cn(
-          'text-muted flex items-center gap-2 font-mono text-xs',
-          retrieving && 'border-line border-t px-4 py-5'
+          'text-2xs text-muted flex items-center gap-3 font-mono',
+          retrieving && `border-line border-t py-5 ${PROSE_ROW}`
         )}
         role='status'
       >
         {retrieving ? (
           <>
-            <LoaderCircle
-              aria-hidden='true'
-              className='text-accent size-3.5 animate-spin'
-            />
+            <span aria-hidden='true' className='bg-line block h-0.5 w-28 overflow-hidden'>
+              <span className='bg-accent animate-sweep block h-0.5 w-9' />
+            </span>
             retrieving · ranking · grounding
           </>
         ) : null}
@@ -166,7 +181,7 @@ export function Console({ initialQuery, corpusSize }: ConsoleProps) {
 
       {error !== null ? (
         <p
-          className='text-body-strong border-line flex items-start gap-2 border-t px-4 py-5 font-mono text-xs'
+          className='text-body-strong border-line flex items-start gap-2 border-t px-5 py-5 font-mono text-xs'
           role='alert'
         >
           <TriangleAlert

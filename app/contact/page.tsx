@@ -1,5 +1,5 @@
-import { Download, Mail, MapPin } from 'lucide-react'
-import { ButtonLink, Container, Section } from '@/components/ui'
+import { Download, MapPin } from 'lucide-react'
+import { ButtonLink, Container } from '@/components/ui'
 import { ContactLinks } from './_components/contact-links'
 import { profile } from '@/content'
 import { pageMetadata } from '@/lib/seo'
@@ -13,49 +13,47 @@ export const metadata = pageMetadata({
 /**
  * Contact route. The legacy site opened a TypeForm in a new window; a plain
  * `mailto:` removes that hop between reading a claim and asking about it.
+ *
+ * One left-aligned block — kicker, claim, lead, address, reach — so the address
+ * itself is the largest interactive thing on the screen.
  */
 export default function ContactPage() {
   return (
-    <Container className='py-16 sm:py-24'>
-      <h1 className='text-display tracking-display text-heading font-semibold'>
-        Ask me directly.
+    <Container className='pt-25 pb-22'>
+      <p className='mono-label text-accent'>Contact</p>
+
+      <h1 className='text-display tracking-display text-heading mt-4 max-w-[15ch] font-semibold'>
+        Open to senior frontend work.
       </h1>
 
-      <Section kicker='Direct line' meta='mailto — no form' className='mt-12'>
-        <p className='text-lead text-body mt-6 max-w-[64ch]'>
-          Email is the fastest route. Send the team, the stack and the problem you are
-          hiring against, and you get a straight answer on whether I am the right engineer
-          for it — including when I am not.
-        </p>
+      <p className='text-lead text-body mt-6 max-w-[58ch]'>
+        Email is the fastest route. Send the team, the stack and the problem you are
+        hiring against, and you get a straight answer on whether I am the right engineer
+        for it — including when I am not.
+      </p>
 
-        <div className='mt-8 flex flex-wrap items-center gap-4'>
-          <ButtonLink
-            href={`mailto:${profile.email}`}
-            variant='solid'
-            className='inline-flex items-center gap-2'
-          >
-            <Mail className='size-4 shrink-0' aria-hidden='true' />
-            {profile.email}
-          </ButtonLink>
+      <a
+        href={`mailto:${profile.email}`}
+        className='text-accent border-accent/40 hover:border-accent ease-standard sm:text-section mt-10 inline-block border-b text-2xl tracking-tight transition'
+      >
+        {profile.email}
+      </a>
 
-          <ButtonLink
-            href={profile.resume}
-            variant='outline'
-            external
-            className='inline-flex items-center gap-2'
-          >
-            <Download className='size-4 shrink-0' aria-hidden='true' />
-            Download resume
-          </ButtonLink>
-        </div>
+      <div className='mt-9 flex flex-wrap items-center gap-4'>
+        <ButtonLink href={profile.resume} variant='outline' external>
+          <Download className='size-4 shrink-0' aria-hidden='true' />
+          Download resume
+        </ButtonLink>
 
-        <p className='text-muted mt-8 flex items-center gap-2 font-mono text-xs'>
+        <p className='text-muted flex items-center gap-2 font-mono text-xs'>
           <MapPin className='text-accent size-4 shrink-0' aria-hidden='true' />
           Based in {profile.location}
         </p>
-      </Section>
+      </div>
 
-      <ContactLinks />
+      <div className='mt-14'>
+        <ContactLinks />
+      </div>
     </Container>
   )
 }

@@ -12,8 +12,8 @@ export function CasePipeline({ steps }: { steps: PipelineStep[] }) {
       {steps.map((stage) => (
         <Card key={stage.step} as='li'>
           <p className='text-2xs tracking-mono text-accent font-mono'>{stage.step}</p>
-          <p className='text-body-strong mt-2 text-lg'>{stage.label}</p>
-          <p className='text-muted mt-1 font-mono text-xs'>{stage.tech}</p>
+          <p className='text-body-strong mt-2 text-base'>{stage.label}</p>
+          <p className='text-muted text-2xs mt-1 font-mono'>{stage.tech}</p>
         </Card>
       ))}
     </ol>

@@ -17,6 +17,9 @@ export const metadata = pageMetadata({
 /**
  * Server shell for the console: it reads the `?q=` seed from the URL and hands the
  * island only a query and a count, so the corpus never enters the client bundle.
+ *
+ * Vertical frame is measured, not uniform: the Console screen is `56px 0 60px`, and
+ * the lead-to-panel step is the design's hero → console panel gap of 44px.
  */
 export default async function AskPage({
   searchParams
@@ -29,9 +32,9 @@ export default async function AskPage({
   const seed = (Array.isArray(q) ? (q[0] ?? '') : (q ?? '')).slice(0, MAX_SEED_LENGTH)
 
   return (
-    <Container className='py-14 md:py-20'>
+    <Container className='pt-14 pb-15'>
       <h1 className='text-display tracking-display font-semibold'>Ask the corpus.</h1>
-      <p className='text-lead mt-5 max-w-[64ch]'>
+      <p className='text-lead mt-6 max-w-[64ch]'>
         Answers are assembled from {corpus.length} indexed chunks and nothing else. Every
         claim carries the id it came from, and the trace shows which chunks scored, which
         were sent to the model, and which lost.
@@ -40,7 +43,7 @@ export default async function AskPage({
         id='console'
         kicker='Retrieval console'
         meta={`${corpus.length} chunks · top ${DEFAULT_K} sent`}
-        className='mt-12'
+        className='mt-11'
       >
         <Console initialQuery={seed} corpusSize={corpus.length} />
       </Section>

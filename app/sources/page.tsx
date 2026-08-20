@@ -36,14 +36,14 @@ export default async function SourcesPage({
     active === 'ALL' ? corpus : corpus.filter((chunk) => chunk.namespace === active)
 
   return (
-    <Container className='py-16'>
-      <p className='mono-label text-accent'>Sources</p>
-      <h1 className='text-display tracking-display text-heading mt-4 max-w-[18ch] font-semibold'>
-        The corpus, in full
+    <Container className='pt-18 pb-15'>
+      <p className='mono-label text-accent'>Corpus browser</p>
+      <h1 className='text-display tracking-display text-heading mt-4 leading-[1.05] font-semibold'>
+        Everything the console is allowed to know
       </h1>
-      <p className='text-lead mt-6 max-w-[64ch]'>{LEAD}</p>
+      <p className='text-body mt-5 max-w-[64ch] text-lg'>{LEAD}</p>
 
-      <div className='mt-10'>
+      <div className='mt-9'>
         <NamespaceFilter
           namespaces={NAMESPACE_KEYS}
           counts={chunkCountByNamespace}
@@ -52,14 +52,12 @@ export default async function SourcesPage({
       </div>
 
       <Section
-        className='mt-14'
+        className='mt-7'
         kicker='Chunks'
         title={active === 'ALL' ? 'All namespaces' : NAMESPACES[active]}
         meta={`${chunks.length} of ${corpus.length}`}
       >
-        <div className='mt-8'>
-          <CorpusList chunks={chunks} namespace={active} />
-        </div>
+        <CorpusList chunks={chunks} namespace={active} />
       </Section>
     </Container>
   )

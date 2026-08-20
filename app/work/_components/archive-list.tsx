@@ -11,8 +11,8 @@ const LEAD = `${archiveProjects.length} earlier builds where one paragraph is al
  */
 export function ArchiveList() {
   return (
-    <div className='space-y-8'>
-      <p className='text-body max-w-[72ch]'>{LEAD}</p>
+    <div className='space-y-5'>
+      <p className='text-body max-w-[66ch]'>{LEAD}</p>
 
       <dl className='divide-line border-line divide-y border-y'>
         {archiveProjects.map((project) => (

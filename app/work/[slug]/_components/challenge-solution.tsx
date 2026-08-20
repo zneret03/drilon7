@@ -18,11 +18,11 @@ export function ChallengeSolution({ overview }: { overview: Overview }) {
   ]
 
   return (
-    <div className='grid gap-12 lg:grid-cols-2'>
+    <div className='grid gap-14 lg:grid-cols-2'>
       {blocks.map((block) => (
         <article key={block.claim.id}>
           <div className='flex flex-wrap items-center gap-3'>
-            <h2 className='text-section'>{block.heading}</h2>
+            <h2 className='text-subsection'>{block.heading}</h2>
             <ChunkIdChip href={PRJ_SOURCES} id={block.claim.id} />
           </div>
           <p className='text-body mt-5 max-w-[64ch]'>{block.claim.text}</p>

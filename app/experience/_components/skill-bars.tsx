@@ -10,32 +10,34 @@ const yearLabel = (years: number): string => `${years} ${years === 1 ? 'year' : 
 
 /**
  * Proficiency stated as time on the tool rather than a self-scored percentage,
- * with the scale and its roughness printed next to the bars.
+ * with the scale and its roughness printed next to the bars. One row per skill:
+ * a fixed 132px label, the bar taking the slack, the figure right-aligned.
  */
 export function SkillBars({ skills }: { skills: readonly Skill[] }) {
   return (
     <div>
-      <p className='text-muted max-w-[64ch] font-mono text-xs'>
+      <p className='text-muted max-w-[64ch] text-sm'>
         Bar length is years divided by {FULL_BAR_YEARS}. Figures are approximate and
         self-reported — they measure exposure, not a graded skill level.
       </p>
 
-      <ul className='mt-8 grid gap-x-12 gap-y-5 sm:grid-cols-2'>
+      <ul className='mt-7 grid gap-x-10 gap-y-3.5 sm:grid-cols-[repeat(auto-fit,minmax(310px,1fr))]'>
         {skills.map((skill) => (
-          <li key={skill.name}>
-            <div className='flex items-baseline justify-between gap-4'>
-              <span className='text-body-strong text-sm'>{skill.name}</span>
-              <span className='text-2xs text-muted font-mono'>
-                {yearLabel(skill.years)}
-              </span>
-            </div>
-            <div aria-hidden className='bg-line mt-2 h-1'>
+          <li key={skill.name} className='flex items-center gap-4'>
+            <span className='text-body-strong w-33 shrink-0 text-sm'>{skill.name}</span>
+            <span
+              aria-hidden='true'
+              className='bg-line relative h-1.5 flex-1 overflow-hidden'
+            >
               {/* Data-driven width — the one place a computed style is allowed. */}
-              <div
-                className='bg-accent h-full'
+              <span
+                className='bg-accent absolute inset-y-0 left-0'
                 style={{ width: `${barPercent(skill.years)}%` }}
               />
-            </div>
+            </span>
+            <span className='text-muted text-2xs w-18 shrink-0 text-right font-mono'>
+              {yearLabel(skill.years)}
+            </span>
           </li>
         ))}
       </ul>

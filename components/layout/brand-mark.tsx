@@ -8,14 +8,16 @@ import { profile } from '@/content'
  */
 export function BrandMark() {
   return (
-    <Link href='/' className='flex shrink-0 items-center gap-3'>
+    <Link href='/' className='flex shrink-0 items-center gap-2.5'>
       <span
         aria-hidden='true'
         className='border-accent text-2xs text-accent shadow-hard-sm flex size-[30px] items-center justify-center border font-mono font-bold'
       >
         {profile.initials}
       </span>
-      <span className='text-heading font-semibold'>{profile.name}</span>
+      <span className='text-heading font-semibold tracking-[-0.01em]'>
+        {profile.name}
+      </span>
     </Link>
   )
 }

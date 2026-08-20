@@ -10,7 +10,7 @@ type GalleryImage = NonNullable<Project['overview']>['gallery'][number]
  */
 export function ProjectGallery({ images }: { images: GalleryImage[] }) {
   return (
-    <ul className='grid gap-8 md:grid-cols-2'>
+    <ul className='grid gap-6 md:grid-cols-2'>
       {images.map((image) => (
         <li key={image.src}>
           <figure>

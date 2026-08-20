@@ -19,18 +19,25 @@ export const metadata: Metadata = pageMetadata({
 /**
  * Composes the home sections and reads `corpus.length` here so the one client
  * component on this route never imports the corpus.
+ *
+ * The rhythm is measured off the approved design, block by block, and it is
+ * deliberately NOT uniform: hero → console 44px, console → stats 56px, then 88px
+ * between the three closing blocks. That is why there is no `gap-*` on the
+ * column — a single gap flattened three different intervals into one.
  */
 export default function HomePage() {
   return (
-    <Container className='flex flex-col gap-16 py-14 md:gap-20 md:py-16'>
+    <Container className='flex flex-col pt-19 pb-10'>
       <Hero />
-      <ConsoleTeaser chunkCount={corpus.length} />
-      <StatStrip />
-      <Currently />
-      <SelectedWork />
-      <WritingAndRecognition />
+      <ConsoleTeaser chunkCount={corpus.length} className='mt-11' />
+      <StatStrip className='mt-14' />
+      <Currently className='mt-22' />
+      <SelectedWork className='mt-22' />
+      <WritingAndRecognition className='mt-22' />
 
-      <section className='border-line flex flex-col gap-5 border-t pt-10 sm:flex-row sm:items-center sm:justify-between'>
+      {/* Ours, not the prototype's: it ends on the console the page opens with.
+          Spaced on the design's own bordered-coda interval — 72px, rule, 44px. */}
+      <section className='border-line mt-18 flex flex-col gap-5 border-t pt-11 sm:flex-row sm:items-center sm:justify-between'>
         <p className='text-lead text-body-strong max-w-[56ch]'>
           Everything above is a chunk. Ask the console for the rest: it answers from the
           corpus, cites what it used, and refuses when nothing supports the question.

@@ -16,17 +16,20 @@ type AnswerBlockProps = {
 /**
  * Renders one answer with its citations as links, so every claim in the prose can
  * be checked against the chunk it came from.
+ *
+ * Prose is the design's answer size — 18px on a 1.65 line — and the citation chip
+ * carries its measured 1px/6px box, 2px side margins and 1px optical lift.
  */
 export function AnswerBlock({ parts, engine }: AnswerBlockProps) {
   return (
-    <div className='space-y-3'>
-      <p className='text-body-strong'>
+    <div className='space-y-4'>
+      <p className='text-body-strong text-lg leading-relaxed'>
         {parts.map((part, index) =>
           part.kind === 'text' ? (
             <span key={`part-${index}`}>{part.text}</span>
           ) : (
             <ChunkIdChip
-              className='mx-0.5'
+              className='mx-0.5 py-px align-[1px]'
               href={sourcesHref(part.namespace)}
               id={part.id}
               key={`part-${index}`}

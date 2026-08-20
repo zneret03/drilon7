@@ -34,18 +34,14 @@ export function NamespaceFilter({
         return (
           <Chip
             key={option}
-            type='button'
             size='sm'
             active={selected}
             aria-pressed={selected}
-            className='inline-flex items-center gap-2'
+            className='px-3.5 py-1.5 tracking-wider'
             onClick={() => router.push(sourcesHref(option), { scroll: false })}
           >
-            {option}
-            {/* Inherits the chip's own colour so it tracks hover and active state. */}
-            <span className='opacity-70'>
-              {option === 'ALL' ? total : counts[option]}
-            </span>
+            {/* One run, like the design: the count reads as part of the label. */}
+            {option} · {option === 'ALL' ? total : counts[option]}
           </Chip>
         )
       })}

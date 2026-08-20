@@ -1,5 +1,11 @@
 import { awards, writing } from '@/content'
+import { cn } from '@/lib/cn'
 import type { ReactNode } from 'react'
+
+type WritingAndRecognitionProps = {
+  /** The page owns the rhythm; the 88px above this block arrives from there. */
+  className?: string
+}
 
 type EntryProps = {
   /** `WRT-01 · dev.to`, `AWD-02 · 2021` — the chunk id, then where it comes from. */
@@ -53,10 +59,13 @@ function Entry({ chunkId, source, title, href }: EntryProps) {
  * four awards on their own read as a trophy cabinet. Together they are the
  * "what he has said and what others have said back" block the prototype ended
  * the home page with, and both columns are corpus namespaces (`WRT`, `AWD`).
+ *
+ * The 56px column gap and the 20px under each heading are the design's; so is
+ * the rule-per-row rhythm, which is why the rows carry a `border-t` and no gap.
  */
-export function WritingAndRecognition() {
+export function WritingAndRecognition({ className }: WritingAndRecognitionProps) {
   return (
-    <div className='grid gap-14 sm:grid-cols-2' id='writing'>
+    <div className={cn('grid gap-14 sm:grid-cols-2', className)} id='writing'>
       <section>
         <h2 className='text-subsection mb-5'>Writing</h2>
         <ul>

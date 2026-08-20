@@ -35,7 +35,7 @@ export function WorkStats() {
   return (
     <section
       aria-label='Archive figures'
-      className='border-line grid grid-cols-2 gap-8 border-y py-10 lg:grid-cols-4'
+      className='border-line grid grid-cols-2 gap-x-11 gap-y-12 border-y py-6 lg:grid-cols-4'
     >
       {figures.map((figure) => (
         <StatBlock key={figure.label} value={figure.value} label={figure.label} />

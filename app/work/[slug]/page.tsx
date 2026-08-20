@@ -62,12 +62,12 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
     .slice(0, RELATED_COUNT)
 
   return (
-    <Container as='article' className='py-16'>
+    <Container as='article' className='pt-18 pb-15'>
       <ProjectBreadcrumb title={project.title} />
       <ProjectHeader project={project} />
 
       {project.image === '' ? null : (
-        <div className='border-line-strong bg-surface shadow-hard relative mt-12 aspect-video w-full overflow-hidden border'>
+        <div className='border-line-strong bg-surface shadow-hard relative mt-11 aspect-video w-full overflow-hidden border'>
           <Image
             alt={`Screenshot of the ${project.title} interface`}
             className='object-cover object-top'
@@ -79,19 +79,20 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         </div>
       )}
 
-      <div className='mt-16 space-y-16'>
+      <div className='mt-16'>
         <Section kicker='At a glance' title='Project Overview'>
           <ProjectOverview project={project} />
         </Section>
 
         {overview ? (
-          <Section kicker='Context'>
+          <Section className='mt-22' kicker='Context'>
             <ChallengeSolution overview={overview} />
           </Section>
         ) : null}
 
         {project.highlights.length === 0 ? null : (
           <Section
+            className='mt-22'
             kicker='Capabilities'
             title='Highlights'
             meta={`${project.highlights.length} chunks · PRJ`}
@@ -102,6 +103,7 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {gallery.length === 0 ? null : (
           <Section
+            className='mt-22'
             kicker='Screens'
             title='Project Gallery'
             meta={`${gallery.length} screenshots`}
@@ -112,21 +114,22 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
 
         {study ? (
           <Section
+            className='mt-22'
             kicker='Case study'
             title='How it was built'
             meta={`CSE · ${study.sections.length + 1} chunks`}
           >
-            <p className='text-lead text-body-strong max-w-[64ch]'>{study.summary}</p>
+            <p className='text-lead text-body-strong max-w-[66ch]'>{study.summary}</p>
 
-            <h3 className='mt-14 text-2xl'>Pipeline</h3>
+            <h3 className='mt-11 text-2xl'>Pipeline</h3>
             <p className='text-muted mt-2 font-mono text-xs'>
               {study.pipeline.length} inspectable stages
             </p>
-            <div className='mt-8'>
+            <div className='mt-5'>
               <CasePipeline steps={study.pipeline} />
             </div>
 
-            <div className='mt-16 space-y-12'>
+            <div className='mt-14'>
               {study.sections.map((section) => (
                 <CaseSectionBlock key={section.kicker} {...section} />
               ))}
@@ -135,17 +138,18 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
         ) : null}
 
         <Section
+          className='border-line mt-18 border-t pt-11'
           kicker='More projects'
           title='Elsewhere in the archive'
           meta={`${related.length} of ${projects.length - 1}`}
         >
-          <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+          <div className='grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
             {related.map((candidate) => (
               <ProjectCard key={candidate.slug} project={candidate} />
             ))}
           </div>
 
-          <div className='border-line mt-12 border-t pt-8'>
+          <div className='border-line mt-11 border-t pt-10'>
             <ButtonLink href='/work' size='sm' variant='ghost'>
               <ArrowLeft aria-hidden='true' className='size-4' />
               All work

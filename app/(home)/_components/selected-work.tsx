@@ -3,6 +3,11 @@ import { ButtonLink, Section } from '@/components/ui'
 import { ProjectCard } from '@/components/work/project-card'
 import { archiveProjects, featuredProjects, projects } from '@/content'
 
+type SelectedWorkProps = {
+  /** The page owns the rhythm; the 88px above this block arrives from there. */
+  className?: string
+}
+
 /**
  * How many featured projects the home page shows. Six cards with their highlight
  * lists inline was a page that scrolled past its own argument; this section is a
@@ -19,16 +24,20 @@ const remaining = projects.length + archiveProjects.length - shown.length
 /**
  * The evidence, in colour, four cards deep. Each one is the shared `ProjectCard`,
  * so the home grid, the `/work` index and the detail pages cannot drift apart.
+ *
+ * Two up, not the design's four: our cards carry a screenshot, and a 16/9 image
+ * in a 290px column is a thumbnail. The 20px grid gap is the design's.
  */
-export function SelectedWork() {
+export function SelectedWork({ className }: SelectedWorkProps) {
   return (
     <Section
+      className={className}
       id='work'
       kicker='Selected work'
       title='A sample, not the archive'
       meta={`${shown.length} featured`}
     >
-      <div className='grid gap-6 md:grid-cols-2'>
+      <div className='grid gap-5 md:grid-cols-2'>
         {shown.map((project) => (
           <ProjectCard key={project.id} project={project} />
         ))}

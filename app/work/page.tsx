@@ -31,7 +31,7 @@ const LEAD = `Every project here is a set of citable chunks — the blurb, each 
  */
 export default function WorkPage() {
   return (
-    <Container className='py-16 md:py-24'>
+    <Container className='pt-18 pb-15'>
       <nav aria-label='Breadcrumb'>
         <ol className='text-muted flex items-center gap-2 font-mono text-xs'>
           <li>
@@ -49,21 +49,21 @@ export default function WorkPage() {
         <h1 className='text-display tracking-display text-heading mt-4 max-w-[18ch] font-semibold'>
           Every build, and the chunks behind it
         </h1>
-        <p className='text-lead text-body mt-6 max-w-[64ch]'>{LEAD}</p>
+        <p className='text-lead text-body mt-5 max-w-[64ch]'>{LEAD}</p>
       </header>
 
       <div className='mt-14'>
         <WorkStats />
       </div>
 
-      <div className='mt-20 space-y-20'>
+      <div className='mt-22'>
         <Section
           id='featured'
           kicker='Featured'
           title='The ones to read first'
           meta={`${featuredProjects.length} of ${projects.length}`}
         >
-          <div className='grid gap-6 md:grid-cols-2'>
+          <div className='grid gap-5 md:grid-cols-2'>
             {featuredProjects.map((project) => (
               <ProjectCard key={project.id} project={project} spotlight />
             ))}
@@ -71,12 +71,13 @@ export default function WorkPage() {
         </Section>
 
         <Section
+          className='mt-22'
           id='everything-else'
           kicker='Everything else'
           title='Not featured, still on record'
           meta={`${otherProjects.length} of ${projects.length}`}
         >
-          <div className='grid gap-6 sm:grid-cols-2 lg:grid-cols-3'>
+          <div className='grid gap-5 sm:grid-cols-2 lg:grid-cols-3'>
             {otherProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
             ))}
@@ -84,6 +85,7 @@ export default function WorkPage() {
         </Section>
 
         <Section
+          className='border-line mt-18 border-t pt-11'
           id='archive'
           kicker='Archive'
           title='Earlier builds, one line each'
@@ -93,7 +95,7 @@ export default function WorkPage() {
         </Section>
       </div>
 
-      <div className='border-line mt-16 border-t pt-8'>
+      <div className='border-line mt-11 border-t pt-10'>
         <ButtonLink href='/contact' size='sm' variant='ghost'>
           Ask about any of it
           <ArrowRight aria-hidden='true' className='size-4' />

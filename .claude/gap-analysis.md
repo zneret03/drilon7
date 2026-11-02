@@ -16,7 +16,7 @@ claim). v2 changed what is visible; only the owner can change what is true. Ids 
 | G-03 | Testing and delivery practice | partial (was hidden) | `STY` · a new module in `content` |
 | G-04 | Architecture ownership | partial (was hidden) | `MET` + `STY` |
 | G-05 | Mentoring and influence | partial | `MET` · `content/roles.ts` |
-| G-06 | Current role is a blank | missing | `content/roles.ts` (`EXP-EM-*`) |
+| G-06 | Current role is a blank | closed (was missing) | `content/roles.ts` (`EXP-EM-*`) |
 | G-07 | Public writing | partial (was missing) | `WRT` · `content/writing.ts` |
 | G-08 | Social proof | missing | no namespace yet · `content/schema.ts` |
 | G-09 | Live, reachable work | partial | `content/projects.ts` (`demo`) |
@@ -55,7 +55,7 @@ claim). v2 changed what is visible; only the owner can change what is true. Ids 
 - Home: the `STY` namespace — declared in `content/schema.ts`, still empty.
 
 ## G-04 · Architecture ownership — partial (audit: hidden)
-- Evidence: `EXP-SA-01` (rebuilt the company-wide Fastify / Lit / Terraform templates), `EXP-FH-01` (PostgreSQL
+- Evidence: `EXP-SA-01` (updated the company-wide templates, introducing Fastify / Lit / Terraform), `EXP-FH-01` (PostgreSQL
   ERDs), `EXP-AT-03` (MySQL schema converted to NoSQL), `EXP-MG-02` (Elixir Phoenix GraphQL schemas and their
   test suites). All four are design authority; none appeared on the legacy site.
 - In v2: all four render as bullets and are individually citable.
@@ -73,7 +73,7 @@ claim). v2 changed what is visible; only the owner can change what is true. Ids 
   senior level and "mentored peers" does not survive the follow-up question.
 - Home: `MET` for the scope figure, `content/roles.ts` for the bullet text.
 
-## G-06 · Current role is a blank — missing
+## G-06 · Current role is a blank — closed (audit: missing)
 - Evidence: `EXP-EM-01` carries title, employer, location and start date; `EXP-EM-02` exists only to say that
   engagement detail is not indexed. `context` is `''`. It is the most important entry on the page and the only
   one with nothing under it.
@@ -82,6 +82,8 @@ claim). v2 changed what is visible; only the owner can change what is true. Ids 
 - Close it by: four or five bullets in the shape of the Mashup Garage entry, added as `EXP-EM-03` onward, and
   then delete the placeholder `EXP-EM-02`.
 - Home: `content/roles.ts`. Action item P0-02.
+- Closed 2026-11-02: the November 2026 resume supplied eight bullets, now `EXP-EM-03` to `EXP-EM-10`; the
+  placeholder `EXP-EM-02` is deleted, and `EXP-EM-01` keeps its id.
 
 ## G-07 · Public writing — partial (audit: missing)
 - Evidence: two dev.to posts — `WRT-01` on orchestration-worker graphs, `WRT-02` on SSH and WSL2. Neither was

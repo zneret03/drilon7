@@ -16,7 +16,7 @@ claim). v2 changed what is visible; only the owner can change what is true. Ids 
 | G-03 | Testing and delivery practice | partial (was hidden) | `STY` · a new module in `content` |
 | G-04 | Architecture ownership | partial (was hidden) | `MET` + `STY` |
 | G-05 | Mentoring and influence | partial | `MET` · `content/roles.ts` |
-| G-06 | Current role is a blank | missing | `content/roles.ts` (`EXP-EM-*`) |
+| G-06 | Current role is a blank | closed (was missing) | `content/roles.ts` (`EXP-EM-*`) |
 | G-07 | Public writing | partial (was missing) | `WRT` · `content/writing.ts` |
 | G-08 | Social proof | missing | no namespace yet · `content/schema.ts` |
 | G-09 | Live, reachable work | partial | `content/projects.ts` (`demo`) |
@@ -24,7 +24,7 @@ claim). v2 changed what is visible; only the owner can change what is true. Ids 
 ## G-01 · Quantified impact — missing
 - Evidence: eight roles in `content/roles.ts`, one verified figure in the whole corpus — `MET-01`, the
   50,000+ files a month digitised by the Senti.AI BIR 2307 platform, itself derived from `EXP-SA-02`. The other
-  twenty-eight `EXP` bullets describe activity, not outcome.
+  thirty-eight `EXP` bullets describe activity, not outcome.
 - In v2: the shortage is declared instead of disguised. `content/metrics.ts` states in its doc comment that
   nothing is estimated to pad the list, `content/index.ts` throws if the one figure disappears, and the home
   stat strip (`app/(home)/_components/stat-strip.tsx`) derives its figures from content that already
@@ -55,13 +55,13 @@ claim). v2 changed what is visible; only the owner can change what is true. Ids 
 - Home: the `STY` namespace — declared in `content/schema.ts`, still empty.
 
 ## G-04 · Architecture ownership — partial (audit: hidden)
-- Evidence: `EXP-SA-01` (rebuilt the company-wide Fastify / Lit / Terraform templates), `EXP-FH-01` (PostgreSQL
+- Evidence: `EXP-SA-01` (updated the company-wide templates, introducing Fastify / Lit / Terraform), `EXP-FH-01` (PostgreSQL
   ERDs), `EXP-AT-03` (MySQL schema converted to NoSQL), `EXP-MG-02` (Elixir Phoenix GraphQL schemas and their
   test suites). All four are design authority; none appeared on the legacy site.
 - In v2: all four render as bullets and are individually citable.
 - Close it by: give the Senti.AI template work a scale figure — how many engineers, how many repositories
   started from it — and a written position on templates as leverage. It is the strongest ownership claim in the
-  corpus and currently reads as one line among twenty-nine.
+  corpus and currently reads as one line among thirty-nine.
 - Home: `MET` for the figure, `STY` for the written practice behind it.
 
 ## G-05 · Mentoring and influence — partial
@@ -73,7 +73,7 @@ claim). v2 changed what is visible; only the owner can change what is true. Ids 
   senior level and "mentored peers" does not survive the follow-up question.
 - Home: `MET` for the scope figure, `content/roles.ts` for the bullet text.
 
-## G-06 · Current role is a blank — missing
+## G-06 · Current role is a blank — closed (audit: missing)
 - Evidence: `EXP-EM-01` carries title, employer, location and start date; `EXP-EM-02` exists only to say that
   engagement detail is not indexed. `context` is `''`. It is the most important entry on the page and the only
   one with nothing under it.
@@ -82,6 +82,8 @@ claim). v2 changed what is visible; only the owner can change what is true. Ids 
 - Close it by: four or five bullets in the shape of the Mashup Garage entry, added as `EXP-EM-03` onward, and
   then delete the placeholder `EXP-EM-02`.
 - Home: `content/roles.ts`. Action item P0-02.
+- Closed 2026-11-02: the November 2026 resume supplied eight bullets, now `EXP-EM-03` to `EXP-EM-10`; the
+  placeholder `EXP-EM-02` is deleted, and `EXP-EM-01` keeps its id.
 
 ## G-07 · Public writing — partial (audit: missing)
 - Evidence: two dev.to posts — `WRT-01` on orchestration-worker graphs, `WRT-02` on SSH and WSL2. Neither was
@@ -132,8 +134,8 @@ Three namespaces are thin or empty because no source material exists, and nothin
 These are visible on `/sources` as `EmptyState` panels rather than hidden, because a declared-and-empty
 namespace is an honest gap and a quietly missing one is a lie by omission.
 
-The single highest-value hand-over is therefore not code: real impact numbers, a description of the Emapta
-Global role, two or three attributable testimonials, and a short written position on how he builds. **Nothing
+The single highest-value hand-over is therefore not code: real impact numbers, two or three attributable
+testimonials, and a short written position on how he builds. **Nothing
 here may be invented to fill a gap.** Every claim on this site is a chunk the console will cite by id, so a
 fabricated figure does not just weaken the page — it breaks the one guarantee the page makes. Until the
 material arrives, the correct behaviour is the current one: the corpus stays silent and `/ask` refuses.

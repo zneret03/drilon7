@@ -11,27 +11,25 @@ Audit date: **2026-08-19**. Ids are stable — `CLAUDE.md`, the slash commands a
 
 1. **P0-01 — impact numbers for every role.** One verified figure across eight roles is the single largest
    weakness on the site; the console has to answer "what did he change?" from `MET`, which holds one chunk.
-2. **P0-02 — a description for the Emapta Global role.** The current job and first senior title, and the corpus
-   carries nothing but employer, location and start date.
-3. **P0-06 — settle the Nail Disease stack contradiction.** The corpus currently says two incompatible things
+2. **P0-06 — settle the Nail Disease stack contradiction.** The corpus currently says two incompatible things
    about the same project, and both are citable. Ten minutes of the owner's memory closes it; nobody else can.
-4. **P2-01 — deploy the projects with no live URL.** `PRJ-NAIL-01` and `PRJ-RPTM-01` are featured and ship
+3. **P2-01 — deploy the projects with no live URL.** `PRJ-NAIL-01` and `PRJ-RPTM-01` are featured and ship
    `demo: ''`; Fullstack Shopify is now the archive entry `PRJ-SHOP-01` and has no demo field at all. A live URL
    is the cheapest proof left unclaimed.
 
-All four are **content, not code**. Every P0 in this file that could be closed by engineering is closed: what
-remains at P0 is the impact numbers (P0-01), the Emapta description (P0-02) and the stack contradiction
-(P0-06) — the first two require the owner to supply real figures and a real account of the role, and the third
-requires him to say which of two existing claims is the true one. The retrieval console is already correct about
-the absences — it refuses to characterise the Emapta engagement rather than inferring one — so shipping wrong
-numbers would be worse than shipping none.
+All three are **content, not code**. Every P0 in this file that could be closed by engineering is closed: what
+remains at P0 is the impact numbers (P0-01) and the stack contradiction (P0-06) — the first requires the owner
+to supply real figures, and the second requires him to say which of two existing claims is the true one. The
+retrieval console is already correct about the absences — it refuses to characterise what the corpus does not
+hold rather than inferring it — so shipping wrong numbers would be worse than shipping none. (P0-02, the Emapta
+description, closed on 2026-11-02 when the owner's resume supplied it.)
 
 ## P0
 
 | Id | Action | Effort | Impact | State | Closes in |
 | --- | --- | --- | --- | --- | --- |
 | P0-01 | Write impact numbers for every role — users, latency, coverage, deploy frequency, team size | 2 hrs | Very high | owner-blocked | `content/metrics.ts` (`MET` namespace), then role bullets in `content/roles.ts` |
-| P0-02 | Describe the Emapta Global role | 30 min | Very high | owner-blocked | `content/roles.ts`, replacing the placeholder chunk `EXP-EM-02` |
+| P0-02 | Describe the Emapta Global role | 30 min | Very high | done in v2 | `content/roles.ts` — `EXP-EM-03` to `EXP-EM-10` transcribed from the November 2026 resume; the placeholder `EXP-EM-02` is deleted, not reused |
 | P0-03 | Replace the carousel with a static timeline | 2 hrs | Very high | done in v2 | `app/experience/_components/role-timeline.tsx`; `react-slick` restricted in `eslint.config.ts` (D-05) |
 | P0-04 | Cut the emoji, the star rating and "Hey Folks" | 20 min | High | done in v2 | `app/(home)/_components/hero.tsx` — rebuilt from `profile.headline`; the keyless off-palette star block is gone (D-10) |
 | P0-05 | Ship one case study at depth | 4 hrs | Very high | done in v2 | `content/case-studies.ts`, `app/work/[slug]/page.tsx`; sections flattened into the `CSE` namespace by `buildCorpus()` so the write-up is citable, not asserted |
@@ -97,8 +95,6 @@ omissions: [`.claude/work-section-parity.md`](work-section-parity.md).
 
 - **P0-01** — approximate honestly rather than omit. "Roughly 40% fewer failed deploys after the pipeline
   landed" is a usable chunk; a precise-looking invention is not. One figure per role is enough to close it.
-- **P0-02** — four or five bullets in the shape of the Mashup Garage entry. Until they exist, `EXP-EM-02` states
-  plainly that nothing is indexed, and `/ask` will keep saying so.
 - **P0-06** — the two claims cannot both be true. `content/projects.ts` lists `TensorFlow` in the
   `PRJ-NAIL-01` tech stack, while the case study rendered beside it argues the opposite in `CSE-NAIL-02`:
   "Rather than pushing raw photographs at a network… colour and texture features go to an SVM", with the

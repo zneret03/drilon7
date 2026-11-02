@@ -414,7 +414,7 @@ Rules:
 
 - **Never invent a number**, a percentage, a user count, a latency figure, a team size, or a date. If it is not in `content`, it does not exist.
 - **Never write a testimonial or a quote.** There are none in the repo or the resume, and a fabricated one is unrecoverable.
-- **Never write role descriptions.** The current Emapta Global role has employer, location and start date only. The console correctly refuses to characterise it — that refusal is working as designed, not a bug to patch.
+- **Never write role descriptions.** Role bullets are transcribed from the owner's own resume (`public/Resume.pdf`) and LinkedIn export, never composed. A role those sources do not describe stays thin, and the console refusing to characterise it is the system working, not a bug to patch — the Emapta Global role sat in exactly that state until the November 2026 resume supplied its bullets.
 - Do not delete `STY` and `OPN` to make the Sources screen look complete. Empty namespaces render `EmptyState` explaining they are declared and unwritten. Visible absence is the honest state.
 - Do not silently widen a Zod schema to admit softer content. If a claim needs a hedge, the hedge is the content (`skills` are labelled "approximate" for exactly this reason).
 

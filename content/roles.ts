@@ -6,8 +6,12 @@ import type { Role } from '@/types'
  * Employment history, newest first. Every bullet carries a chunk id because
  * every bullet is independently citable by the console.
  *
- * Sourced from the resume and the LinkedIn export. Where the two disagree the
- * longer version is kept. Nothing here is inferred.
+ * Sourced from the owner's resume and LinkedIn export; nothing here is inferred.
+ * The November 2026 resume (`public/Resume.pdf`) is the newest source: where it
+ * adds to a bullet or states it more narrowly, its wording wins, and detail it
+ * merely omits stays. Ids are stable — a reworded claim keeps its id, a new claim
+ * takes the next free number, and a retired id is never reused, which is why the
+ * Emapta list skips `EXP-EM-02` and Find Hope opens at `EXP-FH-07`.
  */
 const roles: Role[] = z.array(roleSchema).parse([
   {
@@ -20,22 +24,62 @@ const roles: Role[] = z.array(roleSchema).parse([
     bullets: [
       {
         id: 'EXP-EM-01',
-        text: 'Senior Software Engineer at Emapta Global since April 2026, based in Quezon City — the first role carrying a senior title.'
+        text: 'Senior Software Engineer at Emapta Global since April 2026, based in Quezon City.'
       },
       {
-        id: 'EXP-EM-02',
-        text: 'Engagement detail is not yet indexed. Nothing is asserted about this role beyond title, employer, location and start date.'
+        id: 'EXP-EM-03',
+        text: 'Full-stack engineer on a multi-tenant PEO platform serving thousands of users, with a focus on AI-driven engineering; built backend services and GraphQL APIs in Ruby on Rails.'
+      },
+      {
+        id: 'EXP-EM-04',
+        text: 'Integrated Claude Code into the development lifecycle, orchestrating agents that plan, build, test and review code.'
+      },
+      {
+        id: 'EXP-EM-05',
+        text: 'Building agentic orchestration that helps the team one-shot Jira tickets, with agents guided by the company knowledge base and engineering standards.'
+      },
+      {
+        id: 'EXP-EM-06',
+        text: 'Built custom skills and prompts for agentic coding tools, encoding team standards and conventions.'
+      },
+      {
+        id: 'EXP-EM-07',
+        text: 'Implemented multi-tenant-aware, adversarial AI code review that catches issues before they reach production.'
+      },
+      {
+        id: 'EXP-EM-08',
+        text: 'Hardened CI/CD pipelines and enforced test-coverage standards.'
+      },
+      {
+        id: 'EXP-EM-09',
+        text: 'Migrated the frontend to a monorepo and micro-frontend architecture (React, TypeScript, Piral) using test-driven development (TDD).'
+      },
+      {
+        id: 'EXP-EM-10',
+        text: 'Integrated third-party microservices and partnered with Product and Engineering on the platform architecture.'
       }
     ]
   },
   {
     org: 'Find Hope',
-    title: 'Software Engineer',
+    title: 'Lead Software Engineer',
     location: 'Geelong, Australia',
     period: 'May 2025 — April 2026',
     current: false,
     context: '',
     bullets: [
+      {
+        id: 'EXP-FH-07',
+        text: 'Led adoption of an agentic engineering workflow with Claude Code, orchestrating agents to plan, implement, test and review features end to end.'
+      },
+      {
+        id: 'EXP-FH-08',
+        text: 'Connected agents to the team’s toolchain through MCP (Model Context Protocol) servers for Atlassian Jira, GitHub, Figma and other tools, so agents pulled ticket context, built from Figma designs and worked through GitHub branches and pull requests.'
+      },
+      {
+        id: 'EXP-FH-09',
+        text: 'Built the agentic orchestration layer for product delivery: project context files, custom commands and skills, and specialised sub-agents for planning, coding, testing and review.'
+      },
       {
         id: 'EXP-FH-01',
         text: 'Designed and implemented PostgreSQL database architectures, building Entity-Relationship Diagrams to keep the data models scalable and reliable under application load.'
@@ -54,11 +98,11 @@ const roles: Role[] = z.array(roleSchema).parse([
       },
       {
         id: 'EXP-FH-05',
-        text: 'Engineered automated workflows: unit testing, linters, and CI/CD pipelines streamlining deployment to staging and production.'
+        text: 'Set guardrails for agent-written code with AI-assisted code review, linters, unit tests, and CI/CD gates for staging and production deployments.'
       },
       {
         id: 'EXP-FH-06',
-        text: 'Troubleshot complex technical issues, mentored peers, and cleared blockers for the wider team.'
+        text: 'Mentored engineers on agentic workflows, troubleshot complex technical issues, and cleared blockers for the wider team.'
       }
     ]
   },
@@ -77,15 +121,15 @@ const roles: Role[] = z.array(roleSchema).parse([
       },
       {
         id: 'EXP-MG-02',
-        text: 'Ran client requirement meetings, then built the GraphQL queries, mutations and test suites on the Elixir Phoenix backend that the Next.js frontend consumed.'
+        text: 'Met directly with clients to gather requirements and align new features with business goals, then built the GraphQL queries, mutations and test suites on the Elixir Phoenix backend that the Next.js frontend consumed.'
       },
       {
         id: 'EXP-MG-03',
-        text: 'Wrote unit and integration tests, and authored the GitHub pipeline workflows that gate staging and production deploys on a passing suite.'
+        text: 'Wrote unit and integration tests, and maintained the GitHub Actions pipelines that gate staging and production deploys on a passing suite.'
       },
       {
         id: 'EXP-MG-04',
-        text: 'Worked with QA on feature requirements and edge-case bugs, improving product stability in production.'
+        text: 'Partnered with QA, product managers and designers on scope, timelines and edge-case bugs, improving product stability in production.'
       },
       {
         id: 'EXP-MG-05',
@@ -104,11 +148,11 @@ const roles: Role[] = z.array(roleSchema).parse([
     bullets: [
       {
         id: 'EXP-SA-01',
-        text: 'Rebuilt the company-wide engineering templates on Fastify, Lit and Terraform, changing how every Senti.AI engineer started a project.'
+        text: 'Updated the company-wide engineering templates used by every Senti.AI engineer, introducing Fastify on the backend, Lit on the frontend and Terraform for infrastructure as code.'
       },
       {
         id: 'EXP-SA-02',
-        text: 'Shipped and supported the SM Philippines BIR 2307 reimbursement platform — OCR digitising more than 50,000 files a month for thousands of employees and accounting staff, on Google Cloud with Angular.js, Express.js and Terraform.'
+        text: 'Supported sprints and bug fixes for the SM Philippines BIR 2307 reimbursement platform — OCR digitising more than 50,000 files a month for thousands of employees and accounting staff, on Google Cloud with Angular, Express.js and Terraform.'
       },
       {
         id: 'EXP-SA-03',
@@ -118,7 +162,7 @@ const roles: Role[] = z.array(roleSchema).parse([
   },
   {
     org: 'Alabaster Technologies',
-    title: 'Full Stack Engineer and Business Dev Intern',
+    title: 'Full Stack Engineer and Business Development Intern',
     location: 'Aklan, Western Visayas',
     period: 'March 2022 — May 2022',
     current: false,
@@ -141,7 +185,7 @@ const roles: Role[] = z.array(roleSchema).parse([
   },
   {
     org: 'AcadArena',
-    title: 'Front-end Engineer, Part-time',
+    title: 'Frontend Developer, Part-time',
     location: 'Iloilo City',
     period: 'May 2021 — August 2021',
     current: false,
@@ -168,7 +212,7 @@ const roles: Role[] = z.array(roleSchema).parse([
   },
   {
     org: 'Archdiocese de Jaro',
-    title: 'Web Developer',
+    title: 'Web Developer, Part-time',
     location: 'Jaro, Iloilo',
     period: 'April 2020 — August 2020',
     current: false,
@@ -188,8 +232,8 @@ const roles: Role[] = z.array(roleSchema).parse([
     org: 'Freelance',
     title: 'Software Developer',
     location: 'Iloilo',
-    period: 'January 2019 — Present',
-    current: true,
+    period: 'January 2020 — June 2022',
+    current: false,
     context: '',
     bullets: [
       {

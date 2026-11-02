@@ -266,6 +266,15 @@ const uniqueOrgs = new Set(
 const topStackYears = Math.max(...skills.map((skill) => skill.years))
 const verifiedMetric = metrics.at(0)
 
+/** Every `period` opens with its start year, so the span is read off the roles, not typed. */
+const firstYear = Math.min(
+  ...roles.map((role) => {
+    const year = /\d{4}/.exec(role.period)?.[0]
+    if (!year) throw new Error(`Role "${role.org}" has no year in its period.`)
+    return Number(year)
+  })
+)
+
 // The impact stat is read off this metric, so a missing one is a build failure.
 if (!verifiedMetric) {
   throw new Error('The MET namespace is empty — the 50k+ stat has no source chunk.')
@@ -278,7 +287,7 @@ if (!verifiedMetric) {
 export const stats: Stat[] = [
   {
     value: String(roles.length),
-    label: `Roles across ${uniqueOrgs.size} organisations, 2019 to now`
+    label: `Roles across ${uniqueOrgs.size} organisations, ${firstYear} to now`
   },
   { value: `${topStackYears} yrs`, label: 'Shipping React and Next.js interfaces' },
   { value: verifiedMetric.value, label: verifiedMetric.statLabel },

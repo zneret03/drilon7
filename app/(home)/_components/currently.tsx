@@ -10,9 +10,13 @@ type CurrentlyProps = {
 /** Filtered once at module load — the flag lives in the content, not in this view. */
 const currentRoles = roles.filter((role) => role.current)
 
+/** "Concurrent" needs two; a single current role is labelled as exactly that. */
+const currentMeta =
+  currentRoles.length === 1 ? '1 current role' : `${currentRoles.length} concurrent roles`
+
 /**
- * Answers "what is he doing right now" in two cards, replacing the portrait and
- * skill list the old home page spent this space on.
+ * Answers "what is he doing right now" with one card per current role, replacing
+ * the portrait and skill list the old home page spent this space on.
  *
  * The card interior follows the design's measured steps — 12px under the dated
  * kicker, 10px under the org — rather than one flex `gap`, which forced the same
@@ -20,12 +24,7 @@ const currentRoles = roles.filter((role) => role.current)
  */
 export function Currently({ className }: CurrentlyProps) {
   return (
-    <Section
-      className={className}
-      id='currently'
-      kicker='Currently'
-      meta={`${currentRoles.length} concurrent roles`}
-    >
+    <Section className={className} id='currently' kicker='Currently' meta={currentMeta}>
       <div className='grid gap-5 md:grid-cols-2'>
         {currentRoles.map((role) => (
           <Card as='article' key={role.org}>
